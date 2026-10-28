@@ -8,6 +8,6 @@ L’inventaire historique provient du compte Longchamp le plus récemment créé
 
 `sources.html` documente la requête, les comptes, la déduplication et les sources primaires. Les analyses et actions proposées par Cleo doivent être relues avant une décision de conformité. Cette démonstration ne prétend pas fournir une couverture exhaustive.
 
-Les photos de catégories proviennent de longchamp.com ; les pictogrammes de catégories sont illustratifs. Aucun produit parfum ou bijou non confirmé n’est présenté comme un produit du catalogue Longchamp.
+Les visuels textile, cuir, souliers, lunettes et bijoux sont les captures fournies par Naomie le 28 octobre 2026. Les pictogrammes parfum et emballages sont illustratifs.
 
 Publication via GitHub Pages, branche main. Aucun secret, export client brut, identifiant de connexion ou document interne n’est inclus dans ce dépôt.
