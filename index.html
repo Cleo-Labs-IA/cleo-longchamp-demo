@@ -1312,6 +1312,33 @@ const chatAnswerBase60=chatAnswer60;chatAnswer60=function(q){let h=chatAnswerBas
 const chatSendBase60=chatSend60;chatSend60=function(q){q=(q||'').trim();if(!q)return;const s=document.getElementById('chats');s&&s.classList.add('off');chatSendBase60(q);const m=document.getElementById('chatm');requestAnimationFrame(()=>{m.scrollTop=m.scrollHeight;});};
 // reconstruit le chat de la barre avec la nouvelle mise en page, libellés courts
 {const old=document.querySelector('.sb .chat');if(old){const w=document.createElement('div');w.innerHTML=chatHtml60();old.replaceWith(w.firstChild);}const b=document.querySelector('.sbmode button[data-m="chat"]');if(b)b.textContent='Chat';document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.sb.chatmode')&&!document.querySelector('.idr'))setSbMode60('nav');});}
+// Chat façon Insight : bouton « Demander à Cleo » dans la barre du haut, panneau ancré à droite.
+const cp60=document.createElement('style');cp60.textContent=`
+.sbmode{display:none!important}.sb .chat{display:none!important}.sb.chatmode{width:270px!important}.sb.chatmode~.main{margin-left:270px!important}
+.askbtn{display:inline-flex;align-items:center;gap:7px;border:1px solid #c7d2fe;background:#eef2ff;color:#1d2a8f;border-radius:8px;padding:6px 12px;font:500 13px var(--font);cursor:pointer;margin-left:12px}.askbtn:hover{background:#e0e7ff}
+.cpanel{position:fixed;top:0;right:0;bottom:0;width:420px;background:#fff;border-left:1px solid var(--c-border);z-index:70;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .2s ease;box-shadow:-8px 0 30px rgba(0,0,0,.06)}
+.cpanel.on{transform:none}body.cp-open .main{margin-right:420px}body .main{transition:margin-right .2s ease}
+.cpanel .chat{display:flex!important;flex-direction:column;flex:1;min-height:0;border:0;border-radius:0;margin:0;height:auto;position:static}
+.cpanel .chat-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;border-bottom:1px solid var(--c-border)}.cpanel .chat-h b{font-size:15px}.cpanel .chat-h p{display:none}
+.cpanel .chat-h .acts{display:flex;gap:6px}.cpanel .chat-h .nw,.cpanel .chat-h .cx{border:1px solid var(--c-border);background:#fff;border-radius:6px;padding:4px 9px;font:500 12px var(--font);cursor:pointer;color:var(--c-text-2)}.cpanel .chat-h .cx{font-size:16px;line-height:1;padding:3px 8px}
+.cpanel .chat-m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.cpanel .cm-u{align-self:flex-end;background:#18181b;color:#fafafa;border-radius:12px 12px 2px 12px;padding:8px 12px;font-size:14px;max-width:85%}
+.cpanel .cm-a{align-self:stretch;background:#f4f4f5;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.5}
+.cpanel .cm-a .hit{display:grid;grid-template-columns:1fr 14px;gap:4px 8px;align-items:center;background:#fff;border:1px solid var(--c-border);border-radius:8px;padding:9px 10px;margin-top:8px;cursor:pointer}.cpanel .cm-a .hit::after{content:'›';color:var(--c-text-3);font-size:18px;grid-row:1/3;grid-column:2}
+.cpanel .cm-a .hit b{font-size:13px;font-weight:600;line-height:1.35}.cpanel .cm-a .hit span{display:none}.cpanel .cm-a .hit small{font-size:12px;color:var(--c-text-3)}
+.cpanel .chat-s{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}.cpanel .chat-s.off{display:none}.cpanel .chat-s button{border:1px solid var(--c-border);background:#fff;border-radius:999px;padding:5px 10px;font:12.5px var(--font);cursor:pointer}
+.cpanel .cm-note{font-size:11.5px;color:var(--c-text-3);text-align:center;padding:0 16px 8px}
+.cpanel .chat-f{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--c-border)}.cpanel .chat-f input{flex:1;height:40px;border:1px solid var(--c-border);border-radius:8px;padding:0 12px;font:14px var(--font)}.cpanel .chat-f button{width:40px;height:40px;border:0;border-radius:8px;background:#18181b;color:#fafafa;font-size:18px;cursor:pointer}
+@media(max-width:1100px){body.cp-open .main{margin-right:0}}@media(max-width:820px){.cpanel{width:100vw}.askbtn span{display:none}}
+`;document.head.appendChild(cp60);
+(function(){document.querySelectorAll('.sbmode,.sb .chat').forEach(e=>e.remove());document.querySelector('.sb')&&document.querySelector('.sb').classList.remove('chatmode');
+ const pn=document.createElement('aside');pn.className='cpanel';pn.setAttribute('aria-label','Demander à Cleo');pn.innerHTML=chatHtml60();document.body.appendChild(pn);
+ const h=pn.querySelector('.chat-h');const nw=h.querySelector('.nw');const acts=document.createElement('div');acts.className='acts';nw&&acts.appendChild(nw);const cx=document.createElement('button');cx.type='button';cx.className='cx';cx.setAttribute('aria-label','Fermer');cx.textContent='×';cx.onclick=()=>toggleChat60(false);acts.appendChild(cx);h.appendChild(acts);
+ const top=document.querySelector('.top');if(top){const b=document.createElement('button');b.type='button';b.className='askbtn';b.innerHTML='✦ <span>Demander à Cleo</span>';b.onclick=()=>toggleChat60();(top.querySelector('.live')||top.lastElementChild).after(b);}
+ document.querySelectorAll('.mobile-nav button').forEach(b=>{if(b.textContent==='Chat')b.onclick=()=>toggleChat60();});})();
+function toggleChat60(on){const pn=document.querySelector('.cpanel');const v=on===undefined?!pn.classList.contains('on'):on;pn.classList.toggle('on',v);document.body.classList.toggle('cp-open',v);if(v){const i=document.getElementById('chati');i&&setTimeout(()=>i.focus(),150);}}
+setSbMode60=function(m){toggleChat60(m==='chat');};
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.cpanel.on')&&!document.querySelector('.idr'))toggleChat60(false);});
 select('group');
 </script><style id="theme-shadcn">/* Thème « shadcn/ui » (palette neutral/zinc, Geist, radius 0.5rem) posé au-dessus du gabarit.
    Ne change ni le contenu ni la structure : uniquement les jetons et l'habillage des composants. */
@@ -1405,4 +1432,5 @@ a{color:var(--sd-fg)}
 .une-c .fic-dl{padding:12px 0}.une-c .une-foot button{margin-left:0}
 .pp-head h1,.vhead h1{text-transform:none!important;font:600 26px/1.2 var(--font)!important;letter-spacing:-.02em!important}
 .vhead h1{font-size:24px!important}
+.askbtn,.top .live,.top .crumb{white-space:nowrap}body.cp-open .top .urlchip{display:none}
 </style><!-- REVIEW60-END --></body></html>
