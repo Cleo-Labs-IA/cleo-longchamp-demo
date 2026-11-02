@@ -20,7 +20,7 @@ try{
  // Pause persists and removes the matched feed, then resume persists.
  await p.evaluate(()=>toggleFollow('pfhxa-longchamp'));await p.reload({waitUntil:'networkidle0'});await p.evaluate(()=>setFollowFilter('mine'));assert(await p.$eval('#content',e=>e.innerText.includes('Aucune actualité vérifiée')));
  await p.evaluate(()=>toggleFollow('pfhxa-longchamp'));await p.evaluate(()=>select('suivis'));
- await p.evaluate(()=>select('prod:cuir'));assert(await p.$eval('#content',e=>e.innerText.includes('Substances suivies')));await p.evaluate(()=>select('suivis'));
+ await p.evaluate(()=>select('prod:cuir'));assert(await p.$eval('#content',e=>e.innerText.includes('Suivi par CAS')));await p.evaluate(()=>select('suivis'));
  await p.click('.fw-pill.link');assert(await p.$eval('#content',e=>e.innerText.includes('Le Pliage')));
  await p.evaluate(()=>openFollow());await p.type('#fw-value','307-24-5');await p.click('#fw-form [type=submit]');assert(await p.$eval('#fw-error',e=>e.textContent.includes('Vérifiez')));
  await p.$eval('#fw-value',e=>{e.value='50-00-0';e.dispatchEvent(new Event('input'));});await p.click('#fw-form [type=submit]');assert(await p.$eval('#content',e=>e.innerText.includes('CAS 50-00-0')&&e.innerText.includes('Recherche à compléter')));
