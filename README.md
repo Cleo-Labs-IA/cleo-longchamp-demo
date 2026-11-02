@@ -9,3 +9,8 @@ Le référentiel sourcé et le fil récent sont séparés de l’inventaire hist
 Versions publiques : https://demo.cleolabs.co/longchamp/ et https://cleo-longchamp-demo.vercel.app/.
 
 Actualisation : `python3 update-veille.py ~/veille/longchamp 2026-11-02`, après le tri par `veille-trie.mjs`. Les cartes retenues, preuves de relecture et assertions sont conservées dans `watch/`. Si la revue initiale est régénérée par `review60/refresh.py`, réappliquer ensuite ce complément. Le chat de la démo utilise les fiches locales.
+
+
+Suivis par substance : après `update-veille.py`, exécuter `python3 build-follows.py ~/veille/longchamp-pfhxa`. Le moteur utilise des liens de source documentés, et non une recherche de mots pour déduire l’identité chimique. Recherche ciblée et limites dans `watch/substances/`. L’ajout accepte un nom connu ou un CAS avec clé valide ; un CAS sans correspondance documentée reste « Recherche à compléter ». Les suivis sont stockés dans le navigateur, modifiables, suspendables et exportables. Pas de collecte ou notification automatique, ni de synchronisation entre comptes.
+
+Vérifications : `node tests/follow-core.test.cjs` et `node tests/follows-browser.mjs`. Le second lance un navigateur local et teste la persistance, les témoins négatifs CAS/marché/produit, les parcours famille/texte et le rendu mobile.

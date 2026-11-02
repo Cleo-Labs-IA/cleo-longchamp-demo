@@ -1,0 +1,167 @@
+{
+  "verdict": "pass",
+  "reviewed_at": "2026-11-02",
+  "reviewer": "pfhxa_europe independent producer",
+  "scope": "Source mapping, UI hooks, persistence/pause and injection boundaries. Browser end-to-end test run belongs to parent; not claimed here.",
+  "checks": [
+    {
+      "check": "core_tests",
+      "pass": true,
+      "detail": {
+        "command": "node tests/follow-core.test.cjs",
+        "cwd": "/Users/naomiehalioua/cleo-longchamp-demo-build/repo",
+        "exit_code": 0,
+        "stdout": "PASS CAS checksum, exact identity, market/product isolation, related scope opt-in, pause, unknown CAS and persisted input validation",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "exact_initial_cas_source_mapping",
+      "pass": true,
+      "detail": {
+        "query": "DATA.substanceWatch.links filtered by initialFollow kind/value, active status, related scope, market and product intersection",
+        "expected_keys": [
+          "eu-pfhxa-application",
+          "fr-pfas-perimetre",
+          "us-ca-prop65-pfhxa-proposal-20261030"
+        ],
+        "actual_keys": [
+          "eu-pfhxa-application",
+          "fr-pfas-perimetre",
+          "us-ca-prop65-pfhxa-proposal-20261030"
+        ]
+      }
+    },
+    {
+      "check": "no_unrelated_cas_or_norway_contamination",
+      "pass": true,
+      "detail": "No Okaïdi PFAS-total recall, PFOA notices, PFBA/PFDA consultations or Norway publication in CAS PFHxA results."
+    },
+    {
+      "check": "live_quote_evidence",
+      "pass": true,
+      "detail": [
+        {
+          "id": "eu-pfhxa-application",
+          "oracle": "found",
+          "via": null,
+          "status": 200
+        },
+        {
+          "id": "fr-pfas-perimetre",
+          "oracle": "found",
+          "via": null,
+          "status": 200
+        },
+        {
+          "id": "us-ca-prop65-pfhxa-proposal-20261030",
+          "oracle": "found",
+          "via": "browser",
+          "status": 200
+        },
+        {
+          "id": "pfhxa-salts-identities",
+          "oracle": "found",
+          "via": null,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "check": "salt_identities_documented",
+      "pass": true,
+      "detail": "Identity relationship supported by OAL document and oracle proof; no name-similarity inference."
+    },
+    {
+      "check": "related_scope_opt_in",
+      "pass": true,
+      "detail": "French FAQ is not represented as an exact analytical CAS finding and is excluded with includeRelated=false."
+    },
+    {
+      "check": "unknown_cas_honest",
+      "pass": true,
+      "detail": {
+        "command": "node -e const c=require('./follow-core.js');const a=c.cleanFollow({id:'u',kind:'substance',value:'50-00-0',markets:['EU'],products:['pliage']});if(!a||c.linksFor(a,[{kind:'substance',value:'307-24-4',key:'wrong',markets:['EU'],products:['pliage']}]).length)process.exit(1);console.log('PASS unknown valid CAS stays unmatched');",
+        "exit_code": 0,
+        "stdout": "PASS unknown valid CAS stays unmatched",
+        "UI": "Unknown identity and research incomplete explicitly shown."
+      }
+    },
+    {
+      "check": "pause_semantics",
+      "pass": true,
+      "detail": "Paused follow removed from matching; state saved before redraw. Existing source data remains available."
+    },
+    {
+      "check": "storage_and_automation_honesty",
+      "pass": true,
+      "detail": "No false shared-account persistence or automatic monitoring claim. Storage failure warning and export provided."
+    },
+    {
+      "check": "injection_boundaries",
+      "pass": true,
+      "detail": "User text placed via textContent/input.value or esc() in text nodes; inline-handler IDs and market/product values validated. Option values and source URLs originate from curated dataset, not raw input."
+    },
+    {
+      "check": "single_embedded_bundle",
+      "pass": true,
+      "detail": "One production bundle embedded; no duplicate event-handler injection."
+    },
+    {
+      "check": "config_artifact_matches_page",
+      "pass": true,
+      "detail": "Page DATA and reviewable config identical."
+    },
+    {
+      "check": "no_new_event_inflation",
+      "pass": true,
+      "detail": "Relevant previously published events are linked; no duplicated cards fabricated."
+    },
+    {
+      "check": "market_product_identity_isolation",
+      "pass": true,
+      "detail": "Exact curated identifier equality plus selected-market/product intersection; same-name source similarity never creates CAS links."
+    },
+    {
+      "check": "persisted_family_whitelist",
+      "pass": true,
+      "detail": "Unknown restored family now rejected."
+    },
+    {
+      "check": "restored_text_exact_source_membership",
+      "pass": true,
+      "detail": "Restored text must be an actual source key."
+    },
+    {
+      "check": "selected_product_chips_only",
+      "pass": true,
+      "detail": "Matched rows display the selected reviewed products instead of unrelated historical product categories."
+    },
+    {
+      "check": "source_name_preserved",
+      "pass": true,
+      "detail": "French display identity plus original source name both kept."
+    },
+    {
+      "check": "all_offered_text_keys_accepted",
+      "pass": true,
+      "detail": {
+        "command": "node -e const c=require('./follow-core.js');const f={id:'known-text',kind:'text',value:'fr-rc-merta-express-sensualité-captive-lilial-20260901',markets:['FR'],products:['textile']};if(!c.cleanFollow(f))process.exit(1);if(c.cleanFollow({...f,value:'bad\" onclick=\"alert(1)'}))process.exit(2);console.log('PASS known Unicode source key and malformed key rejection');",
+        "exit_code": 0,
+        "stdout": "PASS known Unicode source key and malformed key rejection",
+        "known_offered_key": "fr-rc-merta-express-sensualité-captive-lilial-20260901"
+      }
+    }
+  ],
+  "findings": [],
+  "resolved_findings": [
+    {
+      "issue": "Unknown persisted family/text identities",
+      "resolution": "Whitelist PFAS family and exact known text membership; malformed IDs rejected."
+    },
+    {
+      "issue": "Legitimate source key with accented letter rejected",
+      "resolution": "Unicode letter/number/hyphen validation plus exact SIG membership; explicit regression test passes."
+    }
+  ]
+}
