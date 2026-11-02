@@ -1,0 +1,548 @@
+[
+  {
+    "key": "us-ca-prop65-pfhxa-proposal-20261030",
+    "title": "Californie : consultation sur l’inscription du PFHxA à la Proposition 65",
+    "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+    "source_name": "OEHHA",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-30",
+    "event_date": "2026-10-30",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "L’OEHHA propose d’inscrire le PFHxA et ses sels pour toxicité pour la reproduction. Les commentaires sont ouverts jusqu’au 30 novembre 2026.",
+    "consequences": [
+      "Les traitements et enductions des matières vendues en Californie sont à documenter si cette substance est présente."
+    ],
+    "actions": [
+      {
+        "action": "Demander aux fournisseurs de toiles, cuirs et enductions si le PFHxA ou ses sels sont présents et préparer, si utile, une contribution à la consultation.",
+        "team": "Conformité produit et achats",
+        "due": "2026-11-30",
+        "legal_ref": "Californie : consultation sur l’inscription du PFHxA à la Proposition 65"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Projet d’inscription, aucune nouvelle obligation d’avertissement établie par cet avis. Présence dans les produits Longchamp non établie.",
+    "date_evidence": "Page datée October 30, 2026 ; commentaires du 30 octobre au 30 novembre 2026.",
+    "event_type": "proposal",
+    "verification_status": "official_source_reviewed",
+    "citation": "intends to list perfluorohexanoic acid (PFHxA) and related salts as known to the state to cause reproductive toxicity",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "browser",
+      "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+    }
+  },
+  {
+    "key": "us-ca-prop65-pfba-proposal-20261030",
+    "title": "Californie : consultation sur l’inscription du PFBA à la Proposition 65",
+    "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorobutanoic-acid-pfba-and-related",
+    "source_name": "OEHHA",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-30",
+    "event_date": "2026-10-30",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "L’OEHHA propose d’inscrire le PFBA et ses sels pour toxicité pour la reproduction. Les commentaires sont ouverts jusqu’au 30 novembre 2026.",
+    "consequences": [
+      "Les traitements et enductions des matières vendues en Californie sont à documenter si cette substance est présente."
+    ],
+    "actions": [
+      {
+        "action": "Demander aux fournisseurs de toiles, cuirs et enductions si le PFBA ou ses sels sont présents et préparer, si utile, une contribution à la consultation.",
+        "team": "Conformité produit et achats",
+        "due": "2026-11-30",
+        "legal_ref": "Californie : consultation sur l’inscription du PFBA à la Proposition 65"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Projet d’inscription, aucune nouvelle obligation d’avertissement établie par cet avis. Présence dans les produits Longchamp non établie.",
+    "date_evidence": "Page datée October 30, 2026 ; commentaires du 30 octobre au 30 novembre 2026.",
+    "event_type": "proposal",
+    "verification_status": "official_source_reviewed",
+    "citation": "intends to list perfluorobutanoic acid (PFBA) and related salts as known to the state to cause reproductive toxicity",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "browser",
+      "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorobutanoic-acid-pfba-and-related"
+    }
+  },
+  {
+    "key": "us-ca-prop65-pfda-proposal-20261030",
+    "title": "Californie : consultation sur l’inscription du PFDA à la Proposition 65",
+    "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorodecanoic-acid-pfda-and-related",
+    "source_name": "OEHHA",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-30",
+    "event_date": "2026-10-30",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "L’OEHHA propose d’inscrire le PFDA et ses sels pour toxicité pour la reproduction. Les commentaires sont ouverts jusqu’au 30 novembre 2026.",
+    "consequences": [
+      "Les traitements et enductions des matières vendues en Californie sont à documenter si cette substance est présente."
+    ],
+    "actions": [
+      {
+        "action": "Demander aux fournisseurs de toiles, cuirs et enductions si le PFDA ou ses sels sont présents et préparer, si utile, une contribution à la consultation.",
+        "team": "Conformité produit et achats",
+        "due": "2026-11-30",
+        "legal_ref": "Californie : consultation sur l’inscription du PFDA à la Proposition 65"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Projet d’inscription, aucune nouvelle obligation d’avertissement établie par cet avis. Présence dans les produits Longchamp non établie.",
+    "date_evidence": "Page datée October 30, 2026 ; commentaires du 30 octobre au 30 novembre 2026.",
+    "event_type": "proposal",
+    "verification_status": "official_source_reviewed",
+    "citation": "intends to list perfluorodecanoic acid (PFDA) and related salts as known to the state to cause reproductive toxicity",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "browser",
+      "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorodecanoic-acid-pfda-and-related"
+    }
+  },
+  {
+    "key": "us-ca-prop65-05102-20261029",
+    "title": "Californie : avis Proposition 65 visant des gants Isotoner Smart Dri",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05102",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile"
+    ],
+    "summary": "Un avis préalable privé déposé le 29 octobre vise des gants Isotoner Smart Dri et allègue une exposition au PFOA. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel justifie de vérifier les traitements des matières et l’évaluation des expositions pour les références vendues en Californie."
+    ],
+    "actions": [
+      {
+        "action": "Recouper les déclarations PFAS des fournisseurs avec les matières traitées des références Longchamp vendues en Californie.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Californie : avis Proposition 65 visant des gants Isotoner Smart Dri"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire vérifiée et sans lien établi avec Longchamp.",
+    "date_evidence": "Champ Date Filed : 10/29/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Isotoner Smart Dri Gloves",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05102"
+    }
+  },
+  {
+    "key": "us-ca-prop65-05103-20261029",
+    "title": "Californie : avis Proposition 65 visant des chapeaux Sun Dry",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05103",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile"
+    ],
+    "summary": "Un avis préalable privé déposé le 29 octobre vise des chapeaux Sun Dry et allègue une exposition au PFOA. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel justifie de vérifier les traitements des matières et l’évaluation des expositions pour les références vendues en Californie."
+    ],
+    "actions": [
+      {
+        "action": "Recouper les déclarations PFAS des fournisseurs avec les matières traitées des références Longchamp vendues en Californie.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Californie : avis Proposition 65 visant des chapeaux Sun Dry"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire vérifiée et sans lien établi avec Longchamp.",
+    "date_evidence": "Champ Date Filed : 10/29/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Perfluorooctanoic Acid (PFOA)",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05103"
+    }
+  },
+  {
+    "key": "us-ca-prop65-05106-20261029",
+    "title": "Californie : avis Proposition 65 visant des shorts Asics",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05106",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "textile"
+    ],
+    "summary": "Un avis préalable privé déposé le 29 octobre vise des shorts Asics et allègue une exposition au PFOA. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel justifie de vérifier les traitements des matières et l’évaluation des expositions pour les références vendues en Californie."
+    ],
+    "actions": [
+      {
+        "action": "Recouper les déclarations PFAS des fournisseurs avec les matières traitées des références Longchamp vendues en Californie.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Californie : avis Proposition 65 visant des shorts Asics"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire vérifiée et sans lien établi avec Longchamp.",
+    "date_evidence": "Champ Date Filed : 10/29/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Perfluorooctanoic Acid (PFOA)",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05106"
+    }
+  },
+  {
+    "key": "us-ca-prop65-05107-20261029",
+    "title": "Californie : avis Proposition 65 visant des organisateurs de poussette Momcozy",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05107",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Un avis préalable privé déposé le 29 octobre vise des organisateurs de poussette Momcozy et allègue une exposition au PFOA. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel justifie de vérifier les traitements des matières et l’évaluation des expositions pour les références vendues en Californie."
+    ],
+    "actions": [
+      {
+        "action": "Recouper les déclarations PFAS des fournisseurs avec les matières traitées des références Longchamp vendues en Californie.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Californie : avis Proposition 65 visant des organisateurs de poussette Momcozy"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire vérifiée et sans lien établi avec Longchamp. La catégorie cuir désigne ici la famille sacs et ne signifie pas que le produit Momcozy soit en cuir.",
+    "date_evidence": "Champ Date Filed : 10/29/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Momcozy stroller organizers",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05107"
+    }
+  },
+  {
+    "key": "us-cpsc-qzh-duao-pyjamas-20261029",
+    "title": "États-Unis : rappel sectoriel de pyjamas enfants QZH.DUAO",
+    "source_url": "https://www.cpsc.gov/Recalls/2027/Fashion-Brand-Apparel-Recalls-QZH-DUAO-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear",
+    "source_name": "CPSC",
+    "source_note": "Page officielle relue le 2 novembre 2026 ; date et extrait contrôlés.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US",
+    "domain": "securite",
+    "categories": [
+      "textile"
+    ],
+    "summary": "La CPSC rappelle les pyjamas enfants QZH.DUAO pour non-respect des normes obligatoires applicables aux vêtements de nuit pour enfants.",
+    "consequences": [
+      "Le contrôle concerne les vêtements de nuit pour enfants ; il ne permet pas de conclure à une non-conformité du prêt-à-porter adulte Longchamp."
+    ],
+    "actions": [
+      {
+        "action": "Conserver ce rappel comme signal sectoriel ; vérifier les essais d’inflammabilité adaptés à l’usage réel des vêtements Longchamp destinés aux États-Unis.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "États-Unis : rappel sectoriel de pyjamas enfants QZH.DUAO"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d’un tiers, sans lien avec Longchamp. Le catalogue consulté ne prouve pas une offre Longchamp de vêtements de nuit pour enfants.",
+    "date_evidence": "Recall Date : October 29, 2026.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "The recalled children’s pajama sets violate the mandatory safety standards for",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://www.cpsc.gov/Recalls/2027/Fashion-Brand-Apparel-Recalls-QZH-DUAO-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear"
+    }
+  },
+  {
+    "key": "kr-recall-bidangil-collier-cadmium-20261029",
+    "title": "Corée du Sud : le collier enfant Bidangil est rappelé pour excès de cadmium",
+    "source_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023174",
+    "source_name": "Safety Korea, KATS",
+    "source_note": "Fiche détaillée officielle lue le 2 novembre 2026 ; date de publication 2026-10-29 retrouvée dans la liste officielle https://www.safetykorea.kr/recall/recallBoard et sur l’accueil.",
+    "date": "2026-10-29",
+    "effective_date": "",
+    "event_date": "2026-10-29",
+    "kind": "delta",
+    "country": "South Korea",
+    "code": "KR",
+    "domain": "substances",
+    "categories": [
+      "bijoux"
+    ],
+    "summary": "Le rappel vise un collier enfant à perles multicolores de Bidangil. Les perles plastiques dépassent la limite de cadmium applicable à ce produit ; des mentions obligatoires manquent également.",
+    "consequences": [
+      "Ce contrôle sectoriel justifie de vérifier les composants cités des éventuelles références Longchamp destinées aux enfants et vendues en Corée."
+    ],
+    "actions": [
+      {
+        "action": "Pour les bijoux ou accessoires destinés aux enfants en Corée, demander au fournisseur le rapport de cadmium des perles et autres composants plastiques, puis contrôler les mentions de la notice.",
+        "team": "Qualité produit et fournisseurs",
+        "due": "Avant une prochaine mise sur le marché de références enfant en Corée",
+        "legal_ref": "Fiche Safety Korea 10023174"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d’un tiers, sans lien avec Longchamp. Produit destiné aux enfants ; ne pas appliquer ses seuils automatiquement aux produits adultes Longchamp. La présence d’une gamme enfant Longchamp concernée reste à confirmer.",
+    "date_evidence": "Liste officielle des rappels, colonne 공표일 : 2026-10-29, pour ce modèle ; https://www.safetykorea.kr/recall/recallBoard",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "ㅇ 총 카드뮴 기준치 ① 33배, ② 38.1배, ③ 47.1배, ④ 3.1배 초과",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023174"
+    }
+  },
+  {
+    "key": "kr-recall-sm2-veste-plomb-20261029",
+    "title": "Corée du Sud : la veste enfant SM2 est rappelée pour plomb dans sa fermeture",
+    "source_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023190",
+    "source_name": "Safety Korea, KATS",
+    "source_note": "Fiche détaillée officielle lue le 2 novembre 2026 ; date de publication 2026-10-29 retrouvée dans la liste officielle https://www.safetykorea.kr/recall/recallBoard et sur l’accueil.",
+    "date": "2026-10-29",
+    "effective_date": "",
+    "event_date": "2026-10-29",
+    "kind": "delta",
+    "country": "South Korea",
+    "code": "KR",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir"
+    ],
+    "summary": "Le rappel vise une veste enfant SM2. Le curseur et la tirette métalliques de la fermeture présentent un excès de plomb ; plusieurs mentions du produit manquent.",
+    "consequences": [
+      "Ce contrôle sectoriel justifie de vérifier les composants cités des éventuelles références Longchamp destinées aux enfants et vendues en Corée."
+    ],
+    "actions": [
+      {
+        "action": "Pour les vêtements et sacs destinés aux enfants en Corée, demander un essai du plomb sur le curseur et la tirette de fermeture, séparément du matériau principal.",
+        "team": "Qualité produit et fournisseurs",
+        "due": "Avant une prochaine mise sur le marché de références enfant en Corée",
+        "legal_ref": "Fiche Safety Korea 10023190"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d’un tiers, sans lien avec Longchamp. Produit destiné aux enfants ; ne pas appliquer ses seuils automatiquement aux produits adultes Longchamp. La présence d’une gamme enfant Longchamp concernée reste à confirmer.",
+    "date_evidence": "Liste officielle des rappels, colonne 공표일 : 2026-10-29, pour ce modèle ; https://www.safetykorea.kr/recall/recallBoard",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "ㅇ 총 납 함유량 기준치 ① 3.5배, ② 2.4배 초과",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023190"
+    }
+  },
+  {
+    "key": "kr-recall-orange-damom-veste-plomb-20261029",
+    "title": "Corée du Sud : la veste enfant Orange Damom est rappelée pour plomb dans son revêtement",
+    "source_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023191",
+    "source_name": "Safety Korea, KATS",
+    "source_note": "Fiche détaillée officielle lue le 2 novembre 2026 ; date de publication 2026-10-29 retrouvée dans la liste officielle https://www.safetykorea.kr/recall/recallBoard et sur l’accueil.",
+    "date": "2026-10-29",
+    "effective_date": "",
+    "event_date": "2026-10-29",
+    "kind": "delta",
+    "country": "South Korea",
+    "code": "KR",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir"
+    ],
+    "summary": "Le rappel vise une veste enfant Orange Damom importée de Chine par ABF. Le revêtement noir du cuir dépasse la limite de plomb applicable à ce composant ; des mentions de matière et d’importateur manquent.",
+    "consequences": [
+      "Ce contrôle sectoriel justifie de vérifier les composants cités des éventuelles références Longchamp destinées aux enfants et vendues en Corée."
+    ],
+    "actions": [
+      {
+        "action": "Pour les pièces en cuir enduit destinées aux enfants en Corée, obtenir le rapport de plomb sur le revêtement et vérifier les mentions de matière et d’importateur.",
+        "team": "Qualité produit et fournisseurs",
+        "due": "Avant une prochaine mise sur le marché de références enfant en Corée",
+        "legal_ref": "Fiche Safety Korea 10023191"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d’un tiers, sans lien avec Longchamp. Produit destiné aux enfants ; ne pas appliquer ses seuils automatiquement aux produits adultes Longchamp. La présence d’une gamme enfant Longchamp concernée reste à confirmer.",
+    "date_evidence": "Liste officielle des rappels, colonne 공표일 : 2026-10-29, pour ce modèle ; https://www.safetykorea.kr/recall/recallBoard",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "ㅇ 총 납 함유량 기준치 1.3배 초과",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023191"
+    }
+  },
+  {
+    "key": "kr-recall-woojooai-sac-plomb-20261029",
+    "title": "Corée du Sud : le sac enfant Woojooai Shiny Cat est rappelé pour plomb dans sa fermeture",
+    "source_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023193",
+    "source_name": "Safety Korea, KATS",
+    "source_note": "Fiche détaillée officielle lue le 2 novembre 2026 ; date de publication 2026-10-29 retrouvée dans la liste officielle https://www.safetykorea.kr/recall/recallBoard et sur l’accueil.",
+    "date": "2026-10-29",
+    "effective_date": "",
+    "event_date": "2026-10-29",
+    "kind": "delta",
+    "country": "South Korea",
+    "code": "KR",
+    "domain": "substances",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Le rappel vise le sac banane enfant Shiny Cat de Woojooai. Les éléments métalliques de la fermeture dépassent la limite de plomb applicable ; l’autorité relève aussi des mentions manquantes.",
+    "consequences": [
+      "Ce contrôle sectoriel justifie de vérifier les composants cités des éventuelles références Longchamp destinées aux enfants et vendues en Corée."
+    ],
+    "actions": [
+      {
+        "action": "Pour les sacs destinés aux enfants en Corée, demander au fabricant le rapport de plomb des pièces métalliques de fermeture et vérifier l’étiquetage de l’importateur.",
+        "team": "Qualité produit et fournisseurs",
+        "due": "Avant une prochaine mise sur le marché de références enfant en Corée",
+        "legal_ref": "Fiche Safety Korea 10023193"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d’un tiers, sans lien avec Longchamp. Produit destiné aux enfants ; ne pas appliquer ses seuils automatiquement aux produits adultes Longchamp. La présence d’une gamme enfant Longchamp concernée reste à confirmer.",
+    "date_evidence": "Liste officielle des rappels, colonne 공표일 : 2026-10-29, pour ce modèle ; https://www.safetykorea.kr/recall/recallBoard",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "ㅇ 총 납 기준치 ① 2.2배, ② 2.2배 초과",
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023193"
+    }
+  },
+  {
+    "key": "fr-ademe-malus-textile-mise-a-jour-20261029",
+    "title": "France : l’ADEME actualise son explication du malus textile",
+    "source_url": "https://filieres-rep.ademe.fr/actualites/textile-lultra-fast-fashion-penalisee",
+    "source_name": "ADEME, Filières REP",
+    "source_note": "Page officielle intégralement lue le 2 novembre 2026. Publication initiale le 15 septembre, mise à jour affichée le 29 octobre. La date de mise à jour est attestée, mais le détail des modifications de la page n’est pas fourni. Les montants et dates d’application ne sont pas repris ici : la page comporte un calendrier à recouper avec les textes et le barème Refashion.",
+    "date": "2026-10-29",
+    "event_date": "2026-10-29",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "France",
+    "code": "FR",
+    "domain": "circularite",
+    "categories": [
+      "textile"
+    ],
+    "summary": "L’ADEME a mis à jour sa page sur le malus de la filière REP textile. Elle distingue ce dispositif de l’affichage environnemental volontaire et précise que les chaussures et le linge de maison sont exclus de ce malus.",
+    "consequences": [
+      "Pour le prêt-à-porter Longchamp, faire qualifier le périmètre du dispositif avec Refashion à partir de la gamme et du service de réparation. La publication ne démontre pas que Longchamp est soumis au malus.",
+      "Ne pas étendre ce malus aux sacs Le Pliage, à la maroquinerie ou aux chaussures sur la seule base de cette page."
+    ],
+    "actions": [
+      {
+        "action": "Transmettre à Refashion la description de la gamme de vêtements et du service de réparation pour obtenir une position écrite sur l’assujettissement et le barème applicable.",
+        "team": "Conformité et responsable REP",
+        "due": "Avant la prochaine déclaration REP textile",
+        "legal_ref": "Page ADEME « Textile : l’ultra fast-fashion pénalisée », actualisée le 29 octobre 2026"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Mise à jour documentaire, sans nouveau texte établi par cette carte. Le détail des modifications n’est pas publié. L’applicabilité à Longchamp et les montants doivent être confirmés avec Refashion et les textes en vigueur.",
+    "date_evidence": "Mention visible : « Publié le 15 septembre 2026 - Mis à jour le 29 octobre 2026 ».",
+    "event_type": "guidance",
+    "verification_status": "official_source_reviewed",
+    "citation": "Le linge de maison et les chaussures ne sont pas inclus dans son périmètre.",
+    "page_update": true,
+    "relu": {
+      "date": "2026-11-02",
+      "via": "fetch",
+      "url": "https://filieres-rep.ademe.fr/actualites/textile-lultra-fast-fashion-penalisee"
+    }
+  }
+]

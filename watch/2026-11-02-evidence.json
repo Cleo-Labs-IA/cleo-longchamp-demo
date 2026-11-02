@@ -1,0 +1,135 @@
+[
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-pfhxa-proposal-20261030",
+    "official_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+    "claimed": "found",
+    "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+    "status": 200,
+    "oracle": "found",
+    "via": "browser",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-pfba-proposal-20261030",
+    "official_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorobutanoic-acid-pfba-and-related",
+    "claimed": "found",
+    "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorobutanoic-acid-pfba-and-related",
+    "status": 200,
+    "oracle": "found",
+    "via": "browser",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-pfda-proposal-20261030",
+    "official_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorodecanoic-acid-pfda-and-related",
+    "claimed": "found",
+    "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorodecanoic-acid-pfda-and-related",
+    "status": 200,
+    "oracle": "found",
+    "via": "browser",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-05102-20261029",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05102",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05102",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-05103-20261029",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05103",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05103",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-05106-20261029",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05106",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05106",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-ca-prop65-05107-20261029",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05107",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05107",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "us-cpsc-qzh-duao-pyjamas-20261029",
+    "official_url": "https://www.cpsc.gov/Recalls/2027/Fashion-Brand-Apparel-Recalls-QZH-DUAO-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear",
+    "claimed": "found",
+    "url": "https://www.cpsc.gov/Recalls/2027/Fashion-Brand-Apparel-Recalls-QZH-DUAO-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "kr-recall-bidangil-collier-cadmium-20261029",
+    "official_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023174",
+    "claimed": "found",
+    "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023174",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "kr-recall-sm2-veste-plomb-20261029",
+    "official_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023190",
+    "claimed": "found",
+    "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023190",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "kr-recall-orange-damom-veste-plomb-20261029",
+    "official_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023191",
+    "claimed": "found",
+    "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023191",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "kr-recall-woojooai-sac-plomb-20261029",
+    "official_url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023193",
+    "claimed": "found",
+    "url": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023193",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "2026-11-02-oracle.json",
+    "id": "fr-ademe-malus-textile-mise-a-jour-20261029",
+    "official_url": "https://filieres-rep.ademe.fr/actualites/textile-lultra-fast-fashion-penalisee",
+    "claimed": "found",
+    "url": "https://filieres-rep.ademe.fr/actualites/textile-lultra-fast-fashion-penalisee",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  }
+]

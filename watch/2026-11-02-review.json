@@ -1,0 +1,527 @@
+{
+  "date": "2026-11-02",
+  "input_repo": "/Users/naomiehalioua/cleo-longchamp-demo-build/repo",
+  "query": "cards = JSON.parse(watch/2026-11-02-accepted.json); raw=cards.length; unique_keys=Set(cards.map(key)).size; unique_urls=Set(cards.map(source_url)).size; oracle_found=count(cards whose key matches evidence oracle=found)",
+  "raw_counts": {
+    "raw": 13,
+    "unique_keys": 13,
+    "unique_urls": 13,
+    "oracle_found": 13
+  },
+  "deduplication": "Exact unique key and source_url; all 13 distinct, no deduplication removed. Not a count of new binding regulations.",
+  "confidence": "High for artifact consistency and matched recorded oracle results; this check does not independently repeat every legal-source retrieval. Applicability remains conditional.",
+  "checks": [
+    {
+      "check": "exact_raw_and_deduplicated_claim",
+      "pass": true,
+      "details": {
+        "raw": 13,
+        "unique_keys": 13,
+        "unique_urls": 13,
+        "oracle_found": 13
+      }
+    },
+    {
+      "check": "live_oracle_evidence",
+      "pass": true,
+      "details": "All accepted URLs have matching non-archive found evidence"
+    },
+    {
+      "check": "regional_proposal_provenance",
+      "pass": true,
+      "details": "Each accepted key exists in one of the three regional producer outputs"
+    },
+    {
+      "check": "us-ca-prop65-pfhxa-proposal-20261030:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfhxa-proposal-20261030:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 256,
+        "pks": [
+          "textile",
+          "cuir",
+          "souliers",
+          "emballages"
+        ],
+        "source": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfhxa-proposal-20261030:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-pfhxa-proposal-20261030:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-pfhxa-proposal-20261030:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-pfba-proposal-20261030:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfba-proposal-20261030:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 257,
+        "pks": [
+          "textile",
+          "cuir",
+          "souliers",
+          "emballages"
+        ],
+        "source": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorobutanoic-acid-pfba-and-related"
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfba-proposal-20261030:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-pfba-proposal-20261030:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-pfba-proposal-20261030:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-pfda-proposal-20261030:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfda-proposal-20261030:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 258,
+        "pks": [
+          "textile",
+          "cuir",
+          "souliers",
+          "emballages"
+        ],
+        "source": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorodecanoic-acid-pfda-and-related"
+      }
+    },
+    {
+      "check": "us-ca-prop65-pfda-proposal-20261030:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-pfda-proposal-20261030:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-pfda-proposal-20261030:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-05102-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-05102-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 259,
+        "pks": [
+          "textile"
+        ],
+        "source": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05102"
+      }
+    },
+    {
+      "check": "us-ca-prop65-05102-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-05102-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-05102-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-05103-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-05103-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 260,
+        "pks": [
+          "textile"
+        ],
+        "source": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05103"
+      }
+    },
+    {
+      "check": "us-ca-prop65-05103-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-05103-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-05103-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-05106-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-05106-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 261,
+        "pks": [
+          "textile"
+        ],
+        "source": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05106"
+      }
+    },
+    {
+      "check": "us-ca-prop65-05106-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-05106-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-05106-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-ca-prop65-05107-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-ca-prop65-05107-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 262,
+        "pks": [
+          "cuir"
+        ],
+        "source": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05107"
+      }
+    },
+    {
+      "check": "us-ca-prop65-05107-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-ca-prop65-05107-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-ca-prop65-05107-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "us-cpsc-qzh-duao-pyjamas-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "us-cpsc-qzh-duao-pyjamas-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 263,
+        "pks": [
+          "textile"
+        ],
+        "source": "https://www.cpsc.gov/Recalls/2027/Fashion-Brand-Apparel-Recalls-QZH-DUAO-Pajama-Sets-Due-to-Risk-of-Serious-Injury-or-Death-from-Burn-Hazard-Violate-Mandatory-Standards-for-Childrens-Sleepwear"
+      }
+    },
+    {
+      "check": "us-cpsc-qzh-duao-pyjamas-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "us-cpsc-qzh-duao-pyjamas-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "us-cpsc-qzh-duao-pyjamas-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "kr-recall-bidangil-collier-cadmium-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "kr-recall-bidangil-collier-cadmium-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 264,
+        "pks": [
+          "bijoux"
+        ],
+        "source": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023174"
+      }
+    },
+    {
+      "check": "kr-recall-bidangil-collier-cadmium-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "kr-recall-bidangil-collier-cadmium-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "kr-recall-bidangil-collier-cadmium-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "kr-recall-sm2-veste-plomb-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "kr-recall-sm2-veste-plomb-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 265,
+        "pks": [
+          "textile",
+          "cuir"
+        ],
+        "source": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023190"
+      }
+    },
+    {
+      "check": "kr-recall-sm2-veste-plomb-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "kr-recall-sm2-veste-plomb-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "kr-recall-sm2-veste-plomb-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "kr-recall-orange-damom-veste-plomb-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "kr-recall-orange-damom-veste-plomb-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 266,
+        "pks": [
+          "textile",
+          "cuir"
+        ],
+        "source": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023191"
+      }
+    },
+    {
+      "check": "kr-recall-orange-damom-veste-plomb-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "kr-recall-orange-damom-veste-plomb-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "kr-recall-orange-damom-veste-plomb-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "kr-recall-woojooai-sac-plomb-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "kr-recall-woojooai-sac-plomb-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 267,
+        "pks": [
+          "cuir"
+        ],
+        "source": "https://www.safetykorea.kr/recall/ajax/recallBoard?recallUid=10023193"
+      }
+    },
+    {
+      "check": "kr-recall-woojooai-sac-plomb-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "kr-recall-woojooai-sac-plomb-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "kr-recall-woojooai-sac-plomb-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "fr-ademe-malus-textile-mise-a-jour-20261029:exactly_once",
+      "pass": true,
+      "details": {
+        "occurrences": 1
+      }
+    },
+    {
+      "check": "fr-ademe-malus-textile-mise-a-jour-20261029:source_date_categories",
+      "pass": true,
+      "details": {
+        "id": 268,
+        "pks": [
+          "textile"
+        ],
+        "source": "https://filieres-rep.ademe.fr/actualites/textile-lultra-fast-fashion-penalisee"
+      }
+    },
+    {
+      "check": "fr-ademe-malus-textile-mise-a-jour-20261029:deep_fields",
+      "pass": true,
+      "details": "Integrated deep content equals accepted reviewed card"
+    },
+    {
+      "check": "fr-ademe-malus-textile-mise-a-jour-20261029:product_id_membership",
+      "pass": true,
+      "details": "ID listed in exactly its category delta arrays"
+    },
+    {
+      "check": "fr-ademe-malus-textile-mise-a-jour-20261029:quote",
+      "pass": true,
+      "details": "Integrated quote equals oracle-submitted quote"
+    },
+    {
+      "check": "all_event_dates_in_increment",
+      "pass": true,
+      "details": "2026-10-29 through 2026-11-02 inclusive"
+    },
+    {
+      "check": "consultations_not_binding",
+      "pass": true,
+      "details": "Proposals retain empty obligations/effective date and explicit nonbinding caveat"
+    },
+    {
+      "check": "child_recalls_not_imposed_on_adults",
+      "pass": true,
+      "details": {
+        "child_recall_keys": [
+          "us-cpsc-qzh-duao-pyjamas-20261029",
+          "kr-recall-bidangil-collier-cadmium-20261029",
+          "kr-recall-sm2-veste-plomb-20261029",
+          "kr-recall-orange-damom-veste-plomb-20261029",
+          "kr-recall-woojooai-sac-plomb-20261029"
+        ]
+      }
+    },
+    {
+      "check": "no_unrelated_momcozy_caveat",
+      "pass": true,
+      "details": "Momcozy material-family caveat appears only on its own notice"
+    },
+    {
+      "check": "private_notices_qualified",
+      "pass": true,
+      "details": "Private notices explicitly labelled allegations without verified judgment"
+    },
+    {
+      "check": "window_metadata",
+      "pass": true,
+      "details": {
+        "from": "2026-08-30",
+        "to": "2026-11-02",
+        "days": 65,
+        "semantics": "Dated publication/update, enforcement event or documented application within the interval; older source remains older, event date displayed separately."
+      }
+    },
+    {
+      "check": "ademe_document_update_tag",
+      "pass": true,
+      "details": "Document update tagged, no claim of new law"
+    }
+  ],
+  "pass": true,
+  "passed": 75,
+  "total": 75,
+  "findings": []
+}
