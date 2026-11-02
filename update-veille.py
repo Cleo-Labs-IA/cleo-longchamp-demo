@@ -71,6 +71,9 @@ if status_prefix + status_update not in text:
     text = text.replace(status_prefix, status_prefix + status_update)
 text = text.replace("const typeText=o=>o.kind", "const typeText=o=>/^us-ca-prop65-051/.test(o.raw)?'Avis privé Proposition 65':o.kind")
 text = text.replace("[['En vigueur','En vigueur'],['À venir','À venir'],['Projet','Projet']]", "[['En vigueur','En vigueur'],['À venir','À venir'],['Projet','Projet'],['Avis privé','Avis privé'],['Rappel sectoriel','Rappel sectoriel'],['Mise à jour','Mise à jour']]")
+text = re.sub(r'<!-- EVENT-CATEGORIES-START -->.*?<!-- EVENT-CATEGORIES-END -->', '', text, flags=re.S)
+category_js = (root / 'event-categories.js').read_text()
+text = text.replace('</body>', '<!-- EVENT-CATEGORIES-START --><script>' + category_js + '</script><!-- EVENT-CATEGORIES-END --></body>')
 page.write_text(text)
 reports = [read(workspace / 'veille' / f'{date}-{zone}.json') for zone in ('europe', 'asie-golfe', 'ameriques')]
 esc = lambda x: html.escape(str(x), quote=True)
