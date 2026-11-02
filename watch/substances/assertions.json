@@ -3,5 +3,6 @@
   "regional_match_rows": 3,
   "unique_matched_events": 3,
   "new_events": 0,
-  "confidence": "source quotes verified; product applicability conditional"
+  "confidence": "source quotes verified; product applicability conditional",
+  "additional_example_unique_events": 1
 }

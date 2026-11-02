@@ -4,6 +4,16 @@ const FM={EU:'Union européenne',FR:'France','US-CA':'Californie',CN:'Chine',JP:
 const FP={pliage:{label:'Le Pliage',category:'cuir'},roseau:{label:'Roseau',category:'cuir'},textile:{label:'Prêt-à-porter',category:'textile'},souliers:{label:'Souliers',category:'souliers'},lunettes:{label:'Lunettes',category:'lunettes'},bijoux:{label:'Bijoux et accessoires',category:'bijoux'},emballages:{label:'Emballages',category:'emballages'}};
 let savedFollows=[],followStorageError='',followMode='all',followEditId=null,followReturnRoute='suivis';
 try{const stored=localStorage.getItem(FKEY);savedFollows=stored===null?[FDATA.initialFollow]:JSON.parse(stored);if(!Array.isArray(savedFollows))savedFollows=[];savedFollows=savedFollows.map(FW.cleanFollow).filter(f=>f&&(f.kind!=='text'||SIG.some(s=>s.raw===f.value)));}catch{followStorageError='Le stockage du navigateur est indisponible. Vos modifications ne seront pas conservées après fermeture.';savedFollows=[FDATA.initialFollow];}
+// Install a newly published demonstration once; never restore an example the user removed.
+try{
+ const rawSeen=JSON.parse(localStorage.getItem(FKEY+'-examples')||'[]'),seen=Array.isArray(rawSeen)?rawSeen:[];
+ let changed=false;
+ for(const raw of FDATA.exampleFollows||[]){const example=FW.cleanFollow(raw);if(!example||seen.includes(example.id))continue;
+  if(!savedFollows.some(f=>f.kind===example.kind&&f.value===example.value))savedFollows.push(example);
+  seen.push(example.id);changed=true;
+ }
+ if(changed){localStorage.setItem(FKEY,JSON.stringify(savedFollows));localStorage.setItem(FKEY+'-examples',JSON.stringify(seen));}
+}catch{followStorageError='L’enregistrement du nouvel exemple est indisponible dans ce navigateur.';}
 function persistFollows(){try{localStorage.setItem(FKEY,JSON.stringify(savedFollows));followStorageError='';}catch{followStorageError='Enregistrement impossible dans ce navigateur. Gardez cette page ouverte et exportez vos suivis.';}}
 function fLabel(f){if(f.kind==='family')return 'Famille PFAS';if(f.kind==='text')return SIG.find(s=>s.raw===f.value)?.title||f.value;return FDATA.identities.find(s=>s.cas===f.value)?.short||'CAS '+f.value;}
 function fPills(f){return f.products.map(p=>'<button class="fw-pill link" onclick="select(\'follow-product:'+p+'\')">'+esc(FP[p].label)+' ↗</button>').join('');}
