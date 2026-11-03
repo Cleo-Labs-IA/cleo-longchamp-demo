@@ -2,18 +2,18 @@
 
 ## Application partagée
 
-La branche `feat/longchamp-shared-app` ajoute les connexions individuelles et les suivis communs. Les adresses sont attendues ; aucun utilisateur client n’est encore créé. La production statique reste en place jusqu’à la bascule explicite de cette branche.
+L’application utilise des connexions individuelles et des suivis communs. La connexion se fait par code à usage unique envoyé par e-mail, sans mot de passe fixe. Les adresses clientes restent attendues ; aucun accès client n’est créé automatiquement.
 
 - Hébergement : projet Vercel `cleo-longchamp-demo`, équipe `cleo-academys-projects`.
 - Base : Supabase `tuzjcmvlclpfuroqnuis`, tables dédiées `longchamp_members` et `longchamp_watch_state`. Aucun accès aux tables des autres clients n’est nécessaire.
-- Authentification : adresse + mot de passe, cookies HttpOnly/Secure, contrôle d’appartenance à chaque requête, protection des mutations par origine. Pas d’inscription dans cette application. Un éventuel compte Supabase sans appartenance Longchamp est refusé.
+- Authentification : adresse + code temporaire à six chiffres reçu par e-mail, cookies HttpOnly/Secure, contrôle d’appartenance à chaque requête, protection des mutations par origine. Pas d’inscription dans cette application. Un éventuel compte Supabase sans appartenance Longchamp est refusé.
 - Les mutations sont atomiques et comparent la révision attendue. Un conflit affiche la nouvelle version et conserve le formulaire pour une nouvelle validation. Un échec restaure l’état précédent.
 - La collecte de veille reste manuelle. Aucune tâche programmée ni notification n’est créée. L’assistant conserve son fonctionnement documentaire local.
 - Les anciens suivis navigateur peuvent être importés explicitement depuis Mes suivis. Ils ne sont jamais publiés automatiquement dans l’espace commun.
 
-Préparation locale : copier `.env.example` vers `.env.local`, fournir la clé publique du projet, puis `npm run build` et `npm run dev` (Node 22 ou plus). `SUPABASE_SERVICE_ROLE_KEY` n’est pas utilisée par le serveur. Le répertoire public ne contient que la connexion, les scripts d’interface et les photos ; l’application, les sources documentaires et les suivis sont servis après authentification.
+Préparation locale : copier `.env.example` vers `.env.local`, fournir la clé publique du projet, puis `npm run build` et `npm run dev` (Node 22 ou plus). Les secrets serveur `SUPABASE_SERVICE_ROLE_KEY` et `RESEND_API_KEY`, ainsi que `RESEND_FROM_EMAIL`, sont nécessaires pour générer et envoyer les codes uniquement aux membres Longchamp. Ils ne sont jamais exposés au navigateur. La clé Resend dédiée est réservée à l’envoi ; les réglages SMTP et modèles des autres applications ne sont pas modifiés. Le répertoire public ne contient que la connexion, les scripts d’interface et les photos ; l’application, les sources documentaires et les suivis sont servis après authentification.
 
-Migration additive : `supabase/migrations/20261103_longchamp_shared.sql`. Vérification indépendante des droits : `tests/shared-rls.sql`, à exécuter sur la base liée ; toutes ses identités et écritures de test sont annulées. Tests API : `npm test`. Test navigateur à deux sessions et panne d’écriture : `node tests/shared-browser.mjs` (utilise le navigateur local et un fournisseur d’authentification de test, distinct de la vérification RLS réelle).
+Migrations additives : `supabase/migrations/20261103_longchamp_shared.sql` et `20261103_longchamp_email_codes.sql`. Le code expire après dix minutes, est utilisable une seule fois et exige le navigateur ayant demandé l’envoi. Le stockage privé des demandes applique un délai de soixante secondes entre envois et une limite de cinq essais ; aucun code en clair n’est stocké. Le code est généré et vérifié par Supabase, envoyé par Resend depuis le domaine Cleo vérifié. Les erreurs d’envoi sont signalées. Les adresses sans accès reçoivent une réponse générique sans envoi de mail ni création de compte. Vérification indépendante des droits : `tests/shared-rls.sql`, à exécuter sur la base liée ; toutes ses identités et écritures de test sont annulées. Tests API : `npm test`. Test navigateur à deux sessions et panne d’écriture : `node tests/shared-browser.mjs` (utilise le navigateur local et un fournisseur d’authentification de test, distinct de la vérification RLS réelle).
 
 Quand Naomie fournit les deux adresses, prévisualiser l’opération :
 
@@ -21,7 +21,7 @@ Quand Naomie fournit les deux adresses, prévisualiser l’opération :
 node scripts/add-members.cjs --emails personne1@entreprise.fr,personne2@entreprise.fr
 ```
 
-Après avoir vérifié les adresses réelles, exécuter le même script avec `--apply --credentials-file /chemin/prive/hors-du-depot/acces.json` et la clé opérateur dans l’environnement. Le script n’envoie aucun e-mail, réutilise les comptes existants sans changer leur mot de passe et conserve les nouveaux identifiants dans ce fichier privé. Ne jamais committer ce fichier. Si un accès existe déjà pour une autre personne, le script s’arrête sans le remplacer.
+Après avoir vérifié les adresses réelles, exécuter le même script avec `--apply` et la clé opérateur dans l’environnement. Le script n’envoie aucun e-mail et ne crée aucun mot de passe fixe. Il réutilise les comptes existants, puis autorise les deux personnes. Elles demandent leur code depuis la page de connexion. Si un accès existe déjà pour une autre personne, le script s’arrête sans le remplacer.
 
 Actualisation de veille : conserver le processus de recherche/relecture/tri existant ci-dessous, reconstruire les pages sources, puis `npm run build`, aperçu et validation avant publication. Aucun changement automatique des suivis n’est fait lors d’une actualisation.
 
