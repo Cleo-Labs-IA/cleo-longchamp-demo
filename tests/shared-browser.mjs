@@ -25,6 +25,7 @@ const upstream=async(url,options={})=>{
  if(u.pathname==='/auth/v1/logout')return answer({});
  if(u.pathname==='/rest/v1/longchamp_members'){if(options.method==='POST'){members.add(body.user_id);return answer(null,201);}return answer(token==='Bearer admin-test'?[...members].map(id=>({user_id:id})):members.has(token==='Bearer one'?'one':'two')?[{user_id:token}]:[]);}
  if(u.pathname==='/rest/v1/longchamp_watch_state')return answer([state]);
+ if(u.pathname==='/rest/v1/rpc/longchamp_get_articles')return answer({viewer_id:token==='Bearer one'?'one':'two',favorites:[],reviews:[]});
  if(u.pathname==='/rest/v1/rpc/longchamp_save_watch'){
   if(failSave){failSave=false;return answer({},503);}
   if(body.expected_revision!==state.revision)return answer({message:'LONGCHAMP_CONFLICT'},409);

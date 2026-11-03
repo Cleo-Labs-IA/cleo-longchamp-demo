@@ -25,6 +25,16 @@ Après avoir vérifié les adresses réelles, exécuter le même script avec `--
 
 Actualisation de veille : conserver le processus de recherche/relecture/tri existant ci-dessous, reconstruire les pages sources, puis `npm run build`, aperçu et validation avant publication. Aucun changement automatique des suivis n’est fait lors d’une actualisation.
 
+## Favoris et avis sur les articles
+
+Les favoris sont personnels et accessibles depuis « Mes favoris », dans la navigation ou le fil de veille. Ils sont sauvegardés en base et disponibles après reconnexion, y compris sur un autre appareil. L’étoile est indépendante des suivis CAS communs.
+
+Chaque personne peut enregistrer, modifier ou retirer son avis sur un article : J’aime / Je n’aime pas, une note facultative sur 5 et un commentaire expliquant son appréciation. Les avis et commentaires sont partagés dans l’espace Longchamp avec leur auteur ; chacun modifie uniquement le sien. Les conflits entre onglets demandent un rechargement explicite, sans effacer le brouillon sur erreur. Les textes de commentaire sont affichés comme du texte, jamais comme du HTML.
+
+Migration additive : `supabase/migrations/20261103190000_longchamp_article_feedback.sql`, après les migrations de connexion. Tables dédiées `longchamp_article_favorites` et `longchamp_article_reviews`, lecture RLS et écritures uniquement par RPC avec session OTP approuvée. Les favoris des autres personnes ne sont jamais renvoyés. Aucune clé opérateur n’est nécessaire pour les lectures ou écritures d’avis de l’application. Les articles sont identifiés par leur clé documentaire stable `raw` ; `npm run build` génère la liste des clés admises par l’API à partir de la page publiée. Conserver ces clés lors d’une actualisation de veille.
+
+Vérifications : `npm test`, `node tests/article-browser.mjs`, `tests/article-feedback-rls.sql` (transactions annulées) et `node tests/article-feedback-live.cjs --apply-test`. Ce dernier utilise des identités temporaires supprimées en fin de test, intercepte les e-mails et ne touche pas aux suivis communs. `--base-url https://cleo-longchamp-demo.vercel.app` vérifie les mêmes mutations sur le déploiement effectif. Ne jamais utiliser une vraie adresse cliente pour ces tests.
+
 ## Démo et sources documentaires
 
 Démo de veille réglementaire, design LVMH et visuels fournis par Naomie. Revue initiale du 30 août au 28 octobre 2026, complétée par les événements du 29 octobre au 2 novembre. Dates d’événement, de publication et d’application distinctes. Le référentiel de fond conserve sa date de revue initiale.
