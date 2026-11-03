@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('node:fs');
+const crypto=require('node:crypto');
+for(const file of ['public/index.html','public/login.js','public/login.css','public/shared-sync.js','public/account.js','index.html','sources.html','server/app.cjs','follow-ui.js'])if(!fs.existsSync(file))throw new Error('Missing '+file);
+fs.mkdirSync('.generated',{recursive:true});fs.mkdirSync('public/assets',{recursive:true});
+for(const [source,target] of [['index.html','app.html'],['sources.html','sources.html']]){
+ const html=fs.readFileSync(source,'utf8').replace(/data:image\/(png|jpeg|webp|gif);base64,([A-Za-z0-9+/=]+)/g,(_,type,encoded)=>{
+  const image=Buffer.from(encoded,'base64'),name=crypto.createHash('sha256').update(image).digest('hex')+'.'+type;
+  fs.writeFileSync('public/assets/'+name,image);return '/assets/'+name;
+ });
+ if(Buffer.byteLength(html)>4400000)throw new Error('Authenticated HTML exceeds the server response budget');
+ fs.writeFileSync('.generated/'+target,html);
+}
+console.log('Application prête : fichiers publics limités à la connexion ; pages et données servies après authentification.');
