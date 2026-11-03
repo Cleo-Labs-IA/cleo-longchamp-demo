@@ -23,7 +23,7 @@ async function main(){
    const session=await otp.verifyCode(challenge.challenge,message.text.match(/\b(\d{6,10})\b/)[1]);
    u.token=session.access_token;u.cookie='lc_access='+session.access_token+'; lc_otp='+createSessionProof(config.serviceKey,session.access_token,u.id);
   }
-  const [a,b]=users,key='fr-empco-transposition';
+  const [a,b]=users,key='ca-greenwashing-guidelines-20261023';
   const html=await fetch(base+'/app',{headers:{Cookie:a.cookie}});assert.equal(html.status,200);assert((await html.text()).includes('src="/article-feedback.js"'));checks.push('authenticated page loads favorites and review UI');
   assert.equal((await call(a,'favorite','PUT',{article_key:key,favorite:true})).status,200);
   let aState=await call(a,'articles'),bState=await call(b,'articles');assert.equal(aState.status,200);assert(aState.data.favorites.includes(key));assert(!bState.data.favorites.includes(key));checks.push('personal favorite stored on real database and isolated');
@@ -38,11 +38,11 @@ async function main(){
     const context=await browser.createBrowserContext(),page=await context.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
     await context.setCookie(...a.cookie.split('; ').map(pair=>{const [name,value]=pair.split('=');return {name,value,url:base,httpOnly:true,secure:base.startsWith('https:')};}));
     await page.setViewport({width:1440,height:1000});await page.goto(base+'/app',{waitUntil:'networkidle0'});await page.waitForFunction(()=>window.LongchampArticles?.ready);
-    await page.evaluate(key=>openSig(SIG.find(s=>s.raw===key).id),key);await page.waitForFunction(()=>document.querySelector('.idr.on')?.getBoundingClientRect().right<=innerWidth+.5);
+    await page.evaluate(key=>{select('favoris');openSig(SIG.find(s=>s.raw===key).id);},key);await page.waitForFunction(()=>document.querySelector('.idr.on')?.getBoundingClientRect().right<=innerWidth+.5);
     assert(await page.$eval('#lc-article-detail',el=>el.innerText.includes('Independent author verification.')));
     await page.setViewport({width:390,height:844});await page.click('#lc-article-detail [data-lc-edit]');await page.$eval('#lc-review-comment',el=>el.value='Production browser verification.');await page.select('#lc-review-rating','5');await page.click('#lc-review-form [type=submit]');await page.waitForFunction(()=>!document.getElementById('lc-review-dialog'));await page.waitForFunction(()=>!LongchampArticles.busy);
     assert(await page.$eval('#lc-article-detail',el=>el.innerText.includes('Production browser verification.')));assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-    await page.click('#lc-article-detail [data-lc-favorite]');await page.waitForFunction(()=>!LongchampArticles.busy);assert(!(await call(a,'articles')).data.favorites.includes(key));assert.deepEqual(errors,[]);
+    await page.click('#lc-article-detail [data-lc-favorite]');await page.waitForFunction(()=>!LongchampArticles.busy);assert(!(await call(a,'articles')).data.favorites.includes(key));assert(await page.$eval('#lc-article-detail',el=>el.innerText.includes('Production browser verification.')&&el.innerText.includes('Independent author verification.')));assert.deepEqual(errors,[]);
     checks.push('real browser on target: shared review rendered, mobile rating/comment saved and favorite removed');
    }finally{await browser.close();}
   }

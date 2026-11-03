@@ -32,7 +32,7 @@
  function repaint(){
   if(stopping)return;
   for(const el of document.querySelectorAll('[data-lc-actions]'))el.outerHTML=actions(Number(el.dataset.lcActions));
-  const detail=document.getElementById('lc-article-detail');if(detail&&article(detailId))detail.innerHTML=reviewsHTML(detailId);
+  const detail=document.getElementById('lc-article-detail');if(detail&&article(detail.dataset.articleId))detail.innerHTML=reviewsHTML(Number(detail.dataset.articleId));
   let banner=document.getElementById('lc-article-notice');
   if(!banner){banner=document.createElement('div');banner.id='lc-article-notice';banner.setAttribute('role','status');document.getElementById('content').prepend(banner);}
   banner.textContent=notice;
@@ -87,7 +87,7 @@
   overlay.querySelector('input').focus();
  }
  const beforeRow=srow;srow=function(id){return '<section class="lc-article-row" data-lc-article="'+Number(id)+'">'+beforeRow(id)+actions(id)+'</section>';};
- const beforeOpen=openSig;openSig=function(id){detailId=Number(id);beforeOpen(id);const section=document.createElement('section');section.id='lc-article-detail';section.className='lc-article-detail';section.innerHTML=reviewsHTML(detailId);(document.querySelector('.idr-b')||document.getElementById('content')).prepend(section);repaint();};
+ const beforeOpen=openSig;openSig=function(id){detailId=Number(id);beforeOpen(id);const section=document.createElement('section');section.id='lc-article-detail';section.dataset.articleId=String(id);section.className='lc-article-detail';section.innerHTML=reviewsHTML(detailId);(document.querySelector('.idr-b')||document.getElementById('content')).prepend(section);repaint();};
  const beforeSelect=select;select=function(view){detailId=null;if(view==='favoris'){CUR=view;setActive(view);document.getElementById('crumb').textContent='Mes favoris';document.getElementById('content').innerHTML=favoritesPage();window.scrollTo(0,0);}else beforeSelect(view);repaint();};
  const beforeToolbar=fToolbar;fToolbar=function(active){return beforeToolbar(active).replace('Mes suivis</button>','Mes suivis</button><button data-lc-favorites-link>Mes favoris</button>');};
  const nav=document.createElement('button');nav.className='nvspecial lc-favorites-nav';nav.dataset.view='favoris';nav.dataset.lcFavoritesNav='';nav.innerHTML='<span class="ic">☆</span>Mes favoris';nav.onclick=()=>select('favoris');navtop.querySelector('[data-view="suivis"]')?.after(nav);
@@ -101,7 +101,7 @@
  });
  // Handle Escape before the underlying article drawer, including when focus was lost during a reload.
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&document.getElementById('lc-review-overlay')){event.preventDefault();event.stopImmediatePropagation();close();}},true);
- const background=()=>{if(stopping||document.hidden||api.busy||document.getElementById('lc-review-overlay'))return;refresh().then(()=>{if(CUR==='favoris'&&!detailId)select('favoris');}).catch(error=>{notice=error.message;repaint();});};
+ const background=()=>{if(stopping||document.hidden||api.busy||document.getElementById('lc-review-overlay'))return;refresh().then(()=>{if(CUR==='favoris'&&!document.querySelector('.idr'))select('favoris');}).catch(error=>{notice=error.message;repaint();});};
  window.addEventListener('focus',background);setInterval(background,15000);
  select(CUR);refresh().then(()=>{if(CUR==='favoris')select('favoris');}).catch(error=>{notice='Favoris et avis indisponibles : '+error.message;repaint();});
 })();
