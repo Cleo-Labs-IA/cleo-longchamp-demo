@@ -2,6 +2,7 @@
 const crypto=require('node:crypto');
 const {sessionClaims}=require('./session-proof.cjs');
 const invalid='Code incorrect ou expiré. Demandez un nouveau code si nécessaire.';
+const allowedDomains=new Set(['cleolabs.co','longchamp.co']);
 function authError(status,message){return Object.assign(new Error(message),{status});}
 function createEmailCode({config,fetchImpl=globalThis.fetch}){
  const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
@@ -15,22 +16,28 @@ function createEmailCode({config,fetchImpl=globalThis.fetch}){
  return {
   async requestCode(rawEmail){
    checkConfig();const email=typeof rawEmail==='string'?rawEmail.trim().toLowerCase():'';
-   if(email.length>254||!/^\S+@[^\s@]+\.[^\s@]+$/.test(email))throw authError(400,'Renseignez une adresse e-mail valide.');
+   if(email.length>254||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw authError(400,'Renseignez une adresse e-mail valide.');
    const emailKey=crypto.createHmac('sha256',config.serviceKey).update('longchamp-code-request:'+email).digest('hex');
    const budget=await request('/rest/v1/rpc/longchamp_throttle_login',{method:'POST',admin:true,body:{p_email_hash:emailKey}});
    if(budget.status===429)throw authError(429,'Patientez une minute avant de demander un nouveau code.');requireSuccess(budget);
    const challenge=crypto.randomBytes(32).toString('base64url'),challengeHash=hash(challenge);
-   const members=requireSuccess(await request('/rest/v1/longchamp_members?select=user_id',{admin:true}));
-   let member;
-   for(const row of members){const user=requireSuccess(await request('/auth/v1/admin/users/'+encodeURIComponent(row.user_id),{admin:true}));if(user.email?.toLowerCase()===email){member=user;break;}}
-   // Uniform public response, without generating accounts or emailing outsiders.
-   if(!member)return {challenge};
-   const started=await request('/rest/v1/rpc/longchamp_begin_login',{method:'POST',admin:true,body:{p_user_id:member.id,p_challenge_hash:challengeHash}});
+   const findUser=async()=>requireSuccess(await request('/rest/v1/rpc/longchamp_find_login_user',{method:'POST',admin:true,body:{p_email:email}}))[0];
+   let account=await findUser();
+   // Existing invitations remain valid; automatic access is limited to exact domains.
+   if(!account?.is_member&&!allowedDomains.has(email.split('@')[1]))return {challenge};
+   if(!account){
+    const created=await request('/auth/v1/admin/users',{method:'POST',admin:true,body:{email}});
+    if(created.ok&&created.data?.id)account={user_id:created.data.id,is_member:false};
+    else{account=await findUser();if(!account)requireSuccess(created);}
+   }
+   if(!account?.user_id)throw authError(503,'La création de votre accès est temporairement indisponible.');
+   if(!account.is_member)requireSuccess(await request('/rest/v1/longchamp_members?on_conflict=user_id',{method:'POST',admin:true,body:{user_id:account.user_id},headers:{Prefer:'resolution=ignore-duplicates,return=minimal'}}));
+   const started=await request('/rest/v1/rpc/longchamp_begin_login',{method:'POST',admin:true,body:{p_user_id:account.user_id,p_challenge_hash:challengeHash}});
    if(started.status===429)throw authError(429,'Patientez une minute avant de demander un nouveau code.');
    const records=requireSuccess(started);if(!records?.length)throw authError(503,'La connexion est temporairement indisponible.');
    const generated=requireSuccess(await request('/auth/v1/admin/generate_link',{method:'POST',admin:true,body:{type:'magiclink',email}}));
    const code=generated.email_otp;
-   if(!/^\d{6,10}$/.test(code)||(generated.user?.id||generated.id)!==member.id)throw authError(503,'La génération du code est temporairement indisponible.');
+   if(!/^\d{6,10}$/.test(code)||(generated.user?.id||generated.id)!==account.user_id)throw authError(503,'La génération du code est temporairement indisponible.');
    const message='Votre code de connexion à l’espace Longchamp est : '+code+'.\n\nCe code est valable 10 minutes et ne peut être utilisé qu’une seule fois.\nSi vous n’avez pas demandé ce code, ignorez ce message.';
    const sent=await fetchImpl('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+config.resendKey,'Content-Type':'application/json','Idempotency-Key':'longchamp-login-'+challengeHash},body:JSON.stringify({from:config.fromEmail,to:[email],subject:'Votre code de connexion Longchamp',text:message,html:'<div style="font-family:Arial,sans-serif;color:#18181b;max-width:480px;margin:auto;padding:32px"><p>Cleo × Longchamp</p><h1 style="font-size:24px">Votre code de connexion</h1><p style="font-size:36px;letter-spacing:8px;font-weight:600">'+code+'</p><p>Valable 10 minutes, pour une seule connexion.</p><p>Si vous n’avez pas demandé ce code, ignorez ce message.</p></div>'}),signal:AbortSignal.timeout(15000)});
    if(!sent.ok)throw authError(503,'Le code n’a pas pu être envoyé. Réessayez dans une minute.');
