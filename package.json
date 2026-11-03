@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "engines": {"node": "22.x"},
   "scripts": {
-    "test": "node --test tests/shared-app.test.cjs tests/email-code.test.cjs && node tests/follow-core.test.cjs",
+    "test": "node --test tests/shared-app.test.cjs tests/email-code.test.cjs tests/article-feedback.test.cjs && node tests/follow-core.test.cjs",
     "dev": "node --env-file-if-exists=.env.local scripts/dev.cjs",
     "build": "node scripts/build.cjs"
   }
