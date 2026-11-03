@@ -5,11 +5,12 @@ import puppeteer from '/Users/naomiehalioua/cleo-lvmh-demo-build/maj-2610/node_m
 const require=createRequire(import.meta.url),{createServer}=require('../scripts/dev.cjs');
 let state={revision:0,follows:[]},failSave=false;
 const jwt=id=>'header.'+Buffer.from(JSON.stringify({sub:id,session_id:id+'-session'})).toString('base64url')+'.signature';
-const users=[{id:'one',email:'one@example.invalid'},{id:'two',email:'two@example.invalid'}],challenges=new Map(),codes=new Map();
+const users=[{id:'one',email:'one@cleolabs.co'},{id:'two',email:'two@longchamp.co'}],challenges=new Map(),codes=new Map(),members=new Set();
 const upstream=async(url,options={})=>{
  const u=new URL(url),body=options.body?JSON.parse(options.body):{};let token=options.headers?.Authorization;if(token==='Bearer '+jwt('one'))token='Bearer one';if(token==='Bearer '+jwt('two'))token='Bearer two';
  const answer=(data,status=200)=>new Response(status===204?null:JSON.stringify(data),{status});
  if(u.pathname==='/rest/v1/rpc/longchamp_throttle_login')return answer(true);
+ if(u.pathname==='/rest/v1/rpc/longchamp_find_login_user'){const user=users.find(x=>x.email===body.p_email);return answer(user?[{user_id:user.id,is_member:members.has(user.id)}]:[]);}
  if(u.hostname==='api.resend.com')return answer({id:'mail-fixture'});
  if(u.pathname.startsWith('/auth/v1/admin/users/'))return answer(users.find(x=>x.id===u.pathname.split('/').pop()));
  if(u.pathname==='/rest/v1/rpc/longchamp_begin_login'){const user=users.find(x=>x.id===body.p_user_id);challenges.set(body.p_challenge_hash,{...user,user_id:user.id,attempts:0});return answer([{email:user.email}]);}
@@ -22,7 +23,7 @@ const upstream=async(url,options={})=>{
  if(u.pathname==='/auth/v1/token')return body.password==='test-password'?answer({access_token:body.email==='one@example.invalid'?'one':'two',refresh_token:'refresh',user:{id:body.email},expires_in:3600}):answer({},400);
  if(u.pathname==='/auth/v1/user')return ['Bearer one','Bearer two'].includes(token)?answer({id:token==='Bearer one'?'one':'two'}):answer({},401);
  if(u.pathname==='/auth/v1/logout')return answer({});
- if(u.pathname==='/rest/v1/longchamp_members')return answer(token==='Bearer admin-test'?users.map(x=>({user_id:x.id})):['Bearer one','Bearer two'].includes(token)?[{user_id:token}]:[]);
+ if(u.pathname==='/rest/v1/longchamp_members'){if(options.method==='POST'){members.add(body.user_id);return answer(null,201);}return answer(token==='Bearer admin-test'?[...members].map(id=>({user_id:id})):members.has(token==='Bearer one'?'one':'two')?[{user_id:token}]:[]);}
  if(u.pathname==='/rest/v1/longchamp_watch_state')return answer([state]);
  if(u.pathname==='/rest/v1/rpc/longchamp_save_watch'){
   if(failSave){failSave=false;return answer({},503);}
@@ -41,7 +42,7 @@ async function login(p,email){await p.goto(url+'/app',{waitUntil:'networkidle0'}
 async function save(p){await p.click('#fw-form [type=submit]');await p.waitForFunction(()=>!followSaving);}
 try{
  assert.equal((await fetch(url+'/follow-ui.js')).status,404);assert.equal((await fetch(url+'/server/app.cjs')).status,404);assert.equal((await fetch(url+'/sources')).url,url+'/');result.push('private routes and source files protected');
- await a.setViewport({width:1440,height:1000});await login(a,'one@example.invalid');await login(b,'two@example.invalid');
+ await a.setViewport({width:1440,height:1000});await login(a,'one@cleolabs.co');await login(b,'two@longchamp.co');assert.equal(members.size,2);result.push('both allowed corporate domains gain membership automatically');
  await a.evaluate(()=>{localStorage.setItem(FKEY,JSON.stringify([FDATA.initialFollow]));select('suivis');});await a.reload({waitUntil:'networkidle0'});assert.equal(await a.evaluate(()=>savedFollows.length),0);result.push('shared empty state does not auto-import local demonstrations');
  await a.evaluate(()=>openFollow());await a.type('#fw-value','50-00-0');await save(a);assert.equal(state.follows[0].value,'50-00-0');
  await b.reload({waitUntil:'networkidle0'});await b.evaluate(()=>select('suivis'));assert(await b.$eval('#content',e=>e.innerText.includes('50-00-0')));result.push('second account sees first account saved follow');

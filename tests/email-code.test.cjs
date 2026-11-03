@@ -2,19 +2,22 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const {createEmailCode}=require('../server/email-code.cjs');
 function fixture(){
- let row=null,mail=[],generated=0,verified=0,used=false,failMail=false;const requests=new Set();
+ let row=null,mail=[],generated=0,verified=0,used=false,failMail=false;const requests=new Set(),created=[],added=[];
+ const nativeUsers=new Map([['member-id',{id:'member-id',email:'member@example.invalid'}],['existing-id',{id:'existing-id',email:'existing@cleolabs.co'}]]),members=new Set(['member-id']);
  const config={url:'https://fixture.invalid',key:'public-test',serviceKey:'admin-test',resendKey:'mail-test',fromEmail:'Cleo <noreply@contact.cleolabs.co>'};
  const fetchImpl=async(url,options={})=>{
   const u=new URL(url),body=options.body?JSON.parse(options.body):{};const answer=(data,status=200)=>new Response(status===204?null:JSON.stringify(data),{status});
   if(u.hostname==='api.resend.com'){if(failMail)return answer({},503);mail.push(body);return answer({id:'mail-id'});}
   if(u.pathname==='/rest/v1/rpc/longchamp_throttle_login'){if(requests.has(body.p_email_hash))return answer({code:'PT429'},429);requests.add(body.p_email_hash);return answer(true);}
-  if(u.pathname==='/rest/v1/longchamp_members')return answer([{user_id:'member-id'}]);
-  if(u.pathname==='/auth/v1/admin/users/member-id')return answer({id:'member-id',email:'member@example.invalid'});
+  if(u.pathname==='/rest/v1/rpc/longchamp_find_login_user'){const user=[...nativeUsers.values()].find(x=>x.email.toLowerCase()===body.p_email.toLowerCase());return answer(user?[{user_id:user.id,is_member:members.has(user.id)}]:[]);}
+  if(u.pathname==='/auth/v1/admin/users'&&options.method==='POST'){const user={id:'created-'+created.length,email:body.email};created.push(body);nativeUsers.set(user.id,user);return answer(user,201);}
+  if(u.pathname==='/rest/v1/longchamp_members'){if(options.method==='POST'){members.add(body.user_id);added.push(body);return answer(null,201);}return answer([...members].map(id=>({user_id:id})));}
+  if(u.pathname.startsWith('/auth/v1/admin/users/'))return answer(nativeUsers.get(u.pathname.split('/').pop()));
   if(u.pathname==='/rest/v1/rpc/longchamp_begin_login'){
    if(row&&!row.expired)return answer({code:'PT429'},429);
-   row={challenge_hash:body.p_challenge_hash,user_id:'member-id',email:'member@example.invalid',attempts:0,delivered:false};return answer([{email:row.email}]);
+   row={challenge_hash:body.p_challenge_hash,user_id:body.p_user_id,email:nativeUsers.get(body.p_user_id).email,attempts:0,delivered:false};return answer([{email:row.email}]);
   }
-  if(u.pathname==='/auth/v1/admin/generate_link'){generated++;used=false;return answer({email_otp:'12345678',id:'member-id'});}
+  if(u.pathname==='/auth/v1/admin/generate_link'){generated++;used=false;return answer({email_otp:'12345678',id:[...nativeUsers.values()].find(x=>x.email===body.email).id});}
   if(u.pathname==='/rest/v1/longchamp_login_codes'){if(options.method==='PATCH'){row.delivered=true;return answer(null,204);}throw new Error('Unexpected table read');}
   if(u.pathname==='/rest/v1/longchamp_otp_sessions')return answer(null,201);
   if(u.pathname==='/rest/v1/rpc/longchamp_try_login'){
@@ -26,7 +29,7 @@ function fixture(){
   if(u.pathname==='/auth/v1/logout')return answer({});
   throw new Error('Unexpected '+u.pathname);
  };
- return {otp:createEmailCode({config,fetchImpl}),get mail(){return mail;},get generated(){return generated;},get verified(){return verified;},get row(){return row;},expire(){row.expired=true;},failMail(){failMail=true;}};
+ return {otp:createEmailCode({config,fetchImpl}),get mail(){return mail;},get generated(){return generated;},get verified(){return verified;},get row(){return row;},get created(){return created;},get added(){return added;},expire(){row.expired=true;},failMail(){failMail=true;}};
 }
 test('only a Longchamp member receives a code; no code or session is returned to the requester',async()=>{
  const f=fixture(),unknown=await f.otp.requestCode('outside@example.invalid');assert(unknown.challenge);assert.equal(f.mail.length,0);assert.equal(f.generated,0);
@@ -65,4 +68,21 @@ test('a native member token requires a server proof bound to its own OTP session
  assert(proof);assert(validSessionProof('test-secret',token('otp-session'),'member-id',proof));
  assert(!validSessionProof('test-secret',token('password-session'),'member-id',proof));
  assert(!validSessionProof('test-secret',token('otp-session'),'member-id',undefined));
+});
+
+test('corporate domains are enrolled automatically and normalized without a fixed password',async()=>{
+ for(const email of ['person@cleolabs.co','Person@LONGCHAMP.CO']){
+  const f=fixture();await f.otp.requestCode(email);
+  assert.equal(f.created.length,1);assert.equal(f.created[0].email,email.toLowerCase());assert(!('password' in f.created[0]));assert(!f.created[0].email_confirm);
+  assert.equal(f.added.length,1);assert.deepEqual(f.mail[0].to,[email.toLowerCase()]);
+ }
+});
+test('an existing corporate identity is reused and only gains Longchamp membership',async()=>{
+ const f=fixture();await f.otp.requestCode('existing@cleolabs.co');assert.equal(f.created.length,0);assert.equal(f.added[0].user_id,'existing-id');assert.equal(f.mail.length,1);
+});
+test('lookalike domains and subdomains cannot self-enrol or receive a code',async()=>{
+ for(const email of ['person@cleolabs.co.evil.test','person@sub.cleolabs.co','person@longchamp.com','person@notlongchamp.co','person@outside.test']){
+  const f=fixture();await f.otp.requestCode(email);assert.equal(f.created.length,0,email);assert.equal(f.added.length,0,email);assert.equal(f.mail.length,0,email);
+ }
+ const f=fixture();await assert.rejects(f.otp.requestCode('person@evil.test@cleolabs.co'),e=>e.status===400);
 });
