@@ -1,0 +1,3449 @@
+{
+  "reviewedAt": "2026-11-02",
+  "reviewedLabel": "2 novembre 2026",
+  "window": {
+    "from_date": "2026-09-03",
+    "to": "2026-11-02"
+  },
+  "identities": [
+    {
+      "cas": "307-24-4",
+      "name": "Acide perfluorohexanoïque",
+      "source_name": "Perfluorohexanoic acid (PFHxA)",
+      "short": "PFHxA",
+      "aliases": [
+        "Acide perfluorohexanoïque",
+        "perfluorohexanoic acid",
+        "undecafluorohexanoic acid"
+      ],
+      "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf"
+    },
+    {
+      "cas": "21615-47-4",
+      "name": "Perfluorohexanoate d’ammonium",
+      "source_name": "Ammonium perfluorohexanoate",
+      "short": "Ammonium perfluorohexanoate",
+      "aliases": [],
+      "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf"
+    },
+    {
+      "cas": "2923-26-4",
+      "name": "Perfluorohexanoate de sodium",
+      "source_name": "Sodium perfluorohexanoate",
+      "short": "Sodium perfluorohexanoate",
+      "aliases": [],
+      "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf"
+    },
+    {
+      "cas": "117-81-7",
+      "name": "Phtalate de bis(2-éthylhexyle)",
+      "short": "DEHP",
+      "source_name": "Di(2-ethylhexyl)phthalate",
+      "aliases": [
+        "DEHP",
+        "Di(2-ethylhexyl)phthalate",
+        "Bis(2-ethylhexyl) phthalate"
+      ],
+      "source_url": "https://oehha.ca.gov/chemicals/di2-ethylhexylphthalate"
+    }
+  ],
+  "links": [
+    {
+      "key": "eu-pfhxa-application",
+      "kind": "substance",
+      "value": "307-24-4",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "La source vise explicitement le PFHxA et ses sels.",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+      "evidence_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389"
+    },
+    {
+      "key": "fr-pfas-perimetre",
+      "kind": "substance",
+      "value": "307-24-4",
+      "relation": "related_scope",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Champ PFAS : lien familial à qualifier, sans identification analytique du CAS.",
+      "source_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+      "evidence_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels"
+    },
+    {
+      "key": "us-ca-prop65-pfhxa-proposal-20261030",
+      "kind": "substance",
+      "value": "307-24-4",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "La source vise explicitement le PFHxA et ses sels.",
+      "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+      "evidence_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+    },
+    {
+      "key": "eu-pfhxa-application",
+      "kind": "substance",
+      "value": "21615-47-4",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Sel du PFHxA explicitement visé ; identité confirmée par le registre officiel.",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+      "evidence_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389"
+    },
+    {
+      "key": "us-ca-prop65-pfhxa-proposal-20261030",
+      "kind": "substance",
+      "value": "21615-47-4",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Sel du PFHxA explicitement visé ; identité confirmée par le registre officiel.",
+      "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+      "evidence_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+    },
+    {
+      "key": "eu-pfhxa-application",
+      "kind": "substance",
+      "value": "2923-26-4",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Sel du PFHxA explicitement visé ; identité confirmée par le registre officiel.",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+      "evidence_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389"
+    },
+    {
+      "key": "us-ca-prop65-pfhxa-proposal-20261030",
+      "kind": "substance",
+      "value": "2923-26-4",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Sel du PFHxA explicitement visé ; identité confirmée par le registre officiel.",
+      "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+      "evidence_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+    },
+    {
+      "key": "eu-pfhxa-application",
+      "kind": "family",
+      "value": "PFAS",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Champ PFAS documenté dans cette revue ; couverture de famille partielle.",
+      "source_url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+      "evidence_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389"
+    },
+    {
+      "key": "fr-pfas-perimetre",
+      "kind": "family",
+      "value": "PFAS",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Champ PFAS documenté dans cette revue ; couverture de famille partielle.",
+      "source_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+      "evidence_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels"
+    },
+    {
+      "key": "us-ca-prop65-pfhxa-proposal-20261030",
+      "kind": "family",
+      "value": "PFAS",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "textile"
+      ],
+      "reason": "Champ PFAS documenté dans cette revue ; couverture de famille partielle.",
+      "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+      "evidence_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related"
+    },
+    {
+      "key": "us-ca-p65-des-porte-cles-05024-20261022",
+      "kind": "substance",
+      "value": "117-81-7",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "L’avis privé nomme le DEHP dans des porte-clés à composants PVC d’un tiers. Présence dans les accessoires Longchamp non établie.",
+      "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05024",
+      "event_date": "2026-10-22",
+      "citation": "Di(2-ethylhexyl)phthalate (DEHP)",
+      "product_quote": "Key Chains With PVC Components",
+      "date_evidence": "Champ Date Filed : 10/22/2026.",
+      "caveat": "Allégation privée visant Daiso USA LLC, sans décision judiciaire vérifiée. Ce n’est ni un rappel produit ni un incident Longchamp."
+    },
+    {
+      "key": "fr-empco-transposition",
+      "kind": "text",
+      "value": "fr-empco-transposition",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-greenwashing-guidelines-20261023",
+      "kind": "text",
+      "value": "ca-greenwashing-guidelines-20261023",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-ppwr-biobased-consult",
+      "kind": "text",
+      "value": "eu-ppwr-biobased-consult",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-ppwr-small-mandate",
+      "kind": "text",
+      "value": "eu-ppwr-small-mandate",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-recall-mules",
+      "kind": "text",
+      "value": "fr-recall-mules",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-accessible-cosmetic-label-60",
+      "kind": "text",
+      "value": "kr-accessible-cosmetic-label-60",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-recall-sandales-nickel",
+      "kind": "text",
+      "value": "fr-recall-sandales-nickel",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-heliotropin-opinion",
+      "kind": "text",
+      "value": "eu-heliotropin-opinion",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-acetophenone-opinion",
+      "kind": "text",
+      "value": "eu-acetophenone-opinion",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-primark-purse-20261015",
+      "kind": "text",
+      "value": "us-primark-purse-20261015",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-sb54-plan-20261013",
+      "kind": "text",
+      "value": "us-ca-sb54-plan-20261013",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-pfhxa-application",
+      "kind": "text",
+      "value": "eu-pfhxa-application",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-nmpa-fragrance-transition-60",
+      "kind": "text",
+      "value": "cn-nmpa-fragrance-transition-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ie-perfume-safetygate",
+      "kind": "text",
+      "value": "ie-perfume-safetygate",
+      "relation": "direct",
+      "markets": [
+        "IE"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-recall-jewellery-lead",
+      "kind": "text",
+      "value": "fr-recall-jewellery-lead",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ftc-goat-20261006",
+      "kind": "text",
+      "value": "us-ftc-goat-20261006",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-ecobalyse-tiers",
+      "kind": "text",
+      "value": "fr-ecobalyse-tiers",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "uk-epr-h1-deadline",
+      "kind": "text",
+      "value": "uk-epr-h1-deadline",
+      "relation": "direct",
+      "markets": [
+        "GB"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-green-60",
+      "kind": "text",
+      "value": "cn-green-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-fpr-deadline-20260929",
+      "kind": "text",
+      "value": "ca-fpr-deadline-20260929",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-essential-oil-pack-60",
+      "kind": "text",
+      "value": "cn-essential-oil-pack-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-empco-application",
+      "kind": "text",
+      "value": "eu-empco-application",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-garan-application",
+      "kind": "text",
+      "value": "eu-garan-application",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-empco-qa",
+      "kind": "text",
+      "value": "eu-garan-application",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "no-pfhxa-application",
+      "kind": "text",
+      "value": "no-pfhxa-application",
+      "relation": "direct",
+      "markets": [
+        "NO"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-dsl-polymer-p-20260923",
+      "kind": "text",
+      "value": "ca-dsl-polymer-p-20260923",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-garan-application",
+      "kind": "text",
+      "value": "eu-empco-qa",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-empco-qa",
+      "kind": "text",
+      "value": "eu-empco-qa",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-pfas-perimetre",
+      "kind": "text",
+      "value": "fr-pfas-perimetre",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-vinyl-acetate-20260921",
+      "kind": "text",
+      "value": "us-ca-vinyl-acetate-20260921",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-eudr-annex-update",
+      "kind": "text",
+      "value": "eu-eudr-annex-update",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-counterfeit-cosmetics-60",
+      "kind": "text",
+      "value": "kr-counterfeit-cosmetics-60",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-recall-purse",
+      "kind": "text",
+      "value": "fr-recall-purse",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-packaging-design-tf-60",
+      "kind": "text",
+      "value": "jp-packaging-design-tf-60",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-mocra-certificates-20260909",
+      "kind": "text",
+      "value": "us-mocra-certificates-20260909",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-jewellery-fake-sites-60",
+      "kind": "text",
+      "value": "jp-jewellery-fake-sites-60",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt2680-60",
+      "kind": "text",
+      "value": "cn-qbt2680-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt2725-60",
+      "kind": "text",
+      "value": "cn-qbt2725-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt2799-60",
+      "kind": "text",
+      "value": "cn-qbt2799-60",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "sa-proverifier-sept2026",
+      "kind": "text",
+      "value": "sa-proverifier-sept2026",
+      "relation": "direct",
+      "markets": [
+        "SA"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-restrictions-roadmap",
+      "kind": "text",
+      "value": "eu-restrictions-roadmap",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-gbt22866-nickel-quincaillerie-cuir-20260928",
+      "kind": "text",
+      "value": "cn-gbt22866-nickel-quincaillerie-cuir-20260928",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-gbt22885-solidite-eau-cuir-20260928",
+      "kind": "text",
+      "value": "cn-gbt22885-solidite-eau-cuir-20260928",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-gbt22932-organoetains-cuir-20260928",
+      "kind": "text",
+      "value": "cn-gbt22932-organoetains-cuir-20260928",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-gbt48294-lunettes-cyclisme-20260928",
+      "kind": "text",
+      "value": "cn-gbt48294-lunettes-cyclisme-20260928",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "lunettes"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-gbt47331-cosmetiques-methode-20261001",
+      "kind": "text",
+      "value": "cn-gbt47331-cosmetiques-methode-20261001",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-duvet-plumes-normes-20260901",
+      "kind": "text",
+      "value": "cn-duvet-plumes-normes-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt2790-fourrure-frottement-20260901",
+      "kind": "text",
+      "value": "cn-qbt2790-fourrure-frottement-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt8194-chapeaux-cuir-20260901",
+      "kind": "text",
+      "value": "cn-qbt8194-chapeaux-cuir-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-qbt2660-lotion-tonique-20260901",
+      "kind": "text",
+      "value": "cn-qbt2660-lotion-tonique-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-miit-2026-22-normes-sectorielles-20260901",
+      "kind": "text",
+      "value": "cn-miit-2026-22-normes-sectorielles-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-samr-cas-enfants-textile-chaussures-20260920",
+      "kind": "text",
+      "value": "cn-samr-cas-enfants-textile-chaussures-20260920",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-samr-cas-faux-coton-20260901",
+      "kind": "text",
+      "value": "cn-samr-cas-faux-coton-20260901",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-yishimei-vetements-enfant-20261016",
+      "kind": "text",
+      "value": "cn-rc-yishimei-vetements-enfant-20261016",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-linkcard-vetements-enfant-20261016",
+      "kind": "text",
+      "value": "cn-rc-linkcard-vetements-enfant-20261016",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-zhitaoxing-ensembles-enfant-20261016",
+      "kind": "text",
+      "value": "cn-rc-zhitaoxing-ensembles-enfant-20261016",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-qiqixiong-veste-anti-uv-20261013",
+      "kind": "text",
+      "value": "cn-rc-qiqixiong-veste-anti-uv-20261013",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-huanyuxing-sac-dos-20261012",
+      "kind": "text",
+      "value": "cn-rc-huanyuxing-sac-dos-20261012",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-chaussures-aquatiques-xinta-20260929",
+      "kind": "text",
+      "value": "cn-rc-chaussures-aquatiques-xinta-20260929",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-chaussons-kuailu-20260929",
+      "kind": "text",
+      "value": "cn-rc-chaussons-kuailu-20260929",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "souliers",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-socquettes-oudiai-20260923",
+      "kind": "text",
+      "value": "cn-rc-socquettes-oudiai-20260923",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-cartable-auldey-20260917",
+      "kind": "text",
+      "value": "cn-rc-cartable-auldey-20260917",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-cartable-baotiankeda-20260917",
+      "kind": "text",
+      "value": "cn-rc-cartable-baotiankeda-20260917",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-cartable-zhimabaobei-20260917",
+      "kind": "text",
+      "value": "cn-rc-cartable-zhimabaobei-20260917",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-cartable-myqi-20260917",
+      "kind": "text",
+      "value": "cn-rc-cartable-myqi-20260917",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-cartable-shuerbei-20260917",
+      "kind": "text",
+      "value": "cn-rc-cartable-shuerbei-20260917",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-robe-jannybb-20260910",
+      "kind": "text",
+      "value": "cn-rc-robe-jannybb-20260910",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-robe-nornor-20260910",
+      "kind": "text",
+      "value": "cn-rc-robe-nornor-20260910",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-vetements-anti-uv-liuliuqiqi-20260909",
+      "kind": "text",
+      "value": "cn-rc-vetements-anti-uv-liuliuqiqi-20260909",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-chaussures-wushu-wumeilong-20260909",
+      "kind": "text",
+      "value": "cn-rc-chaussures-wushu-wumeilong-20260909",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-chaussures-basket-yonggaoren-20260908",
+      "kind": "text",
+      "value": "cn-rc-chaussures-basket-yonggaoren-20260908",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-tshirt-gerui-formaldehyde-20260902",
+      "kind": "text",
+      "value": "cn-rc-tshirt-gerui-formaldehyde-20260902",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-caa-rc-nanouniverse-composition-20260904",
+      "kind": "text",
+      "value": "jp-caa-rc-nanouniverse-composition-20260904",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-caa-rc-savon-hho-numero-lot-20261015",
+      "kind": "text",
+      "value": "jp-caa-rc-savon-hho-numero-lot-20261015",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-caa-rc-creme-aminoceutical-inci-20261026",
+      "kind": "text",
+      "value": "jp-caa-rc-creme-aminoceutical-inci-20261026",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-mhlw-allergie-metaux-articles-menagers-20261008",
+      "kind": "text",
+      "value": "jp-mhlw-allergie-metaux-articles-menagers-20261008",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "jp-mhlw-qa-articles-menagers-20260925",
+      "kind": "text",
+      "value": "jp-mhlw-qa-articles-menagers-20260925",
+      "relation": "direct",
+      "markets": [
+        "JP"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-rc-lunettes-soleil-enfant-rietti-20260908",
+      "kind": "text",
+      "value": "kr-rc-lunettes-soleil-enfant-rietti-20260908",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "lunettes"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-mcee-emballages-centre-controle-20261016",
+      "kind": "text",
+      "value": "kr-mcee-emballages-centre-controle-20261016",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-mcee-tri-emballages-papier-20260923",
+      "kind": "text",
+      "value": "kr-mcee-tri-emballages-papier-20260923",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-mfds-vigilance-cosmetiques-2025-20261001",
+      "kind": "text",
+      "value": "kr-mfds-vigilance-cosmetiques-2025-20261001",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-hc-kohl-plomb-20260904",
+      "kind": "text",
+      "value": "ca-hc-kohl-plomb-20260904",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-hc-schwarzkopf-osis-20260921",
+      "kind": "text",
+      "value": "ca-hc-schwarzkopf-osis-20260921",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-hc-dunlop-rigpro-20260903",
+      "kind": "text",
+      "value": "ca-hc-dunlop-rigpro-20260903",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "ca-gazette-cmr-lcpe-20261003",
+      "kind": "text",
+      "value": "ca-gazette-cmr-lcpe-20261003",
+      "relation": "direct",
+      "markets": [
+        "CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "sa-saso-saber-90-jours-20260915",
+      "kind": "text",
+      "value": "sa-saso-saber-90-jours-20260915",
+      "relation": "direct",
+      "markets": [
+        "SA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "wto-cn-lunettes-soleil-2360-20260908",
+      "kind": "text",
+      "value": "wto-cn-lunettes-soleil-2360-20260908",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "lunettes"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "wto-us-inflammabilite-textiles-242-20260929",
+      "kind": "text",
+      "value": "wto-us-inflammabilite-textiles-242-20260929",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-cosmetics-cmr-draft-20260921",
+      "kind": "text",
+      "value": "eu-cosmetics-cmr-draft-20260921",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-cosmetics-silver-draft-20260921",
+      "kind": "text",
+      "value": "eu-cosmetics-silver-draft-20260921",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-ep-omnibus-vi-chemicals-vote-20261022",
+      "kind": "text",
+      "value": "eu-ep-omnibus-vi-chemicals-vote-20261022",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-wsr-textile-footwear-waste-20261026",
+      "kind": "text",
+      "value": "eu-wsr-textile-footwear-waste-20261026",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-forced-labour-guidelines-20260903",
+      "kind": "text",
+      "value": "eu-forced-labour-guidelines-20260903",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-msr-evaluation-20261009",
+      "kind": "text",
+      "value": "eu-msr-evaluation-20261009",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile",
+        "souliers",
+        "lunettes",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-safety-footwear-campaign-20261013",
+      "kind": "text",
+      "value": "eu-safety-footwear-campaign-20261013",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-counterfeit-detentions-2025-20261022",
+      "kind": "text",
+      "value": "eu-counterfeit-detentions-2025-20261022",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-cpc-danone-recycled-claims-20261016",
+      "kind": "text",
+      "value": "eu-cpc-danone-recycled-claims-20261016",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-georgesmezotti-body-revolution-uptown-classic-gold-lilial-20260901",
+      "kind": "text",
+      "value": "fr-rc-georgesmezotti-body-revolution-uptown-classic-gold-lilial-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-georgesmezotti-base-track-pure-senses-lilial-20260901",
+      "kind": "text",
+      "value": "fr-rc-georgesmezotti-base-track-pure-senses-lilial-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-merta-express-sensualité-captive-lilial-20260901",
+      "kind": "text",
+      "value": "fr-rc-merta-express-sensualité-captive-lilial-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-realtime-queen-of-space-lilial-20260901",
+      "kind": "text",
+      "value": "fr-rc-realtime-queen-of-space-lilial-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-realtime-sexy-dentelle-lilial-20260901",
+      "kind": "text",
+      "value": "fr-rc-realtime-sexy-dentelle-lilial-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-freemonday-sandales-nickel-20260910",
+      "kind": "text",
+      "value": "fr-rc-freemonday-sandales-nickel-20260910",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-okaidi-cire-pfas-20260929",
+      "kind": "text",
+      "value": "fr-rc-okaidi-cire-pfas-20260929",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-girlspower-sac-a-dos-20260903",
+      "kind": "text",
+      "value": "fr-rc-girlspower-sac-a-dos-20260903",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-fidlock-dry-bag-aimants-20260907",
+      "kind": "text",
+      "value": "fr-rc-fidlock-dry-bag-aimants-20260907",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-cle-ourson-lunettes-20260904",
+      "kind": "text",
+      "value": "fr-rc-porte-cle-ourson-lunettes-20260904",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-clefs-lapin-gris-20260918",
+      "kind": "text",
+      "value": "fr-rc-porte-clefs-lapin-gris-20260918",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-clef-ours-rose-20260923",
+      "kind": "text",
+      "value": "fr-rc-porte-clef-ours-rose-20260923",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-cle-capybara-20260923",
+      "kind": "text",
+      "value": "fr-rc-porte-cle-capybara-20260923",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-cles-loutre-poisson-20261007",
+      "kind": "text",
+      "value": "fr-rc-porte-cles-loutre-poisson-20261007",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-porte-cles-loutre-coquillage-20261007",
+      "kind": "text",
+      "value": "fr-rc-porte-cles-loutre-coquillage-20261007",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-itotal-porte-clef-peluche-20261016",
+      "kind": "text",
+      "value": "fr-rc-itotal-porte-clef-peluche-20261016",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-mwoot-porte-cles-tortue-20261019",
+      "kind": "text",
+      "value": "fr-rc-mwoot-porte-cles-tortue-20261019",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-itotal-porte-clef-crochet-20261026",
+      "kind": "text",
+      "value": "fr-rc-itotal-porte-clef-crochet-20261026",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-qimgo-bandes-blanchiment-20260917",
+      "kind": "text",
+      "value": "fr-rc-qimgo-bandes-blanchiment-20260917",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-lavieclaire-savon-marseille-phenol-20260918",
+      "kind": "text",
+      "value": "fr-rc-lavieclaire-savon-marseille-phenol-20260918",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-venus-shampooing-lilial-20260925",
+      "kind": "text",
+      "value": "fr-rc-venus-shampooing-lilial-20260925",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-petitbeguin-gigoteuse-pressions-20261008",
+      "kind": "text",
+      "value": "fr-rc-petitbeguin-gigoteuse-pressions-20261008",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-tedi-set-bijoux-plomb-20261022",
+      "kind": "text",
+      "value": "fr-rc-tedi-set-bijoux-plomb-20261022",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-bm-chouchou-lumineux-20261026",
+      "kind": "text",
+      "value": "fr-rc-bm-chouchou-lumineux-20261026",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-jorf-rep-tlc-penalites-20261021",
+      "kind": "text",
+      "value": "fr-jorf-rep-tlc-penalites-20261021",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-malus-ultra-ephemere-application-20260901",
+      "kind": "text",
+      "value": "fr-mte-malus-ultra-ephemere-application-20260901",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-refashion-rappel-loi-20261028",
+      "kind": "text",
+      "value": "fr-mte-refashion-rappel-loi-20261028",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-plan-perturbateurs-endocriniens-20261022",
+      "kind": "text",
+      "value": "fr-mte-plan-perturbateurs-endocriniens-20261022",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-plan-plastique-consigne-20260904",
+      "kind": "text",
+      "value": "fr-mte-plan-plastique-consigne-20260904",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-bonus-reparation-tlc-20261016",
+      "kind": "text",
+      "value": "fr-mte-bonus-reparation-tlc-20261016",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-pantalons-04438-20260915",
+      "kind": "text",
+      "value": "us-ca-p65-des-pantalons-04438-20260915",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-shorts-04437-20260915",
+      "kind": "text",
+      "value": "us-ca-p65-des-shorts-04437-20260915",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-en-cuir-04436-20260915",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-en-cuir-04436-20260915",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-pantalons-04435-20260915",
+      "kind": "text",
+      "value": "us-ca-p65-des-pantalons-04435-20260915",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-maillots-de-bain-04425-20260914",
+      "kind": "text",
+      "value": "us-ca-p65-des-maillots-de-bain-04425-20260914",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-shorts-04423-20260914",
+      "kind": "text",
+      "value": "us-ca-p65-des-shorts-04423-20260914",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-shorts-04421-20260914",
+      "kind": "text",
+      "value": "us-ca-p65-des-shorts-04421-20260914",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-bandouliere-04364-20260911",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-bandouliere-04364-20260911",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-cabas-04358-20260911",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-cabas-04358-20260911",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04337-20260910",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04337-20260910",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chemises-04259-20260903",
+      "kind": "text",
+      "value": "us-ca-p65-des-chemises-04259-20260903",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-shorts-04258-20260903",
+      "kind": "text",
+      "value": "us-ca-p65-des-shorts-04258-20260903",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04680-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04680-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04670-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04670-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04667-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04667-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-porte-documents-en-cu-04665-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-un-porte-documents-en-cu-04665-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-une-pochette-04662-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-une-pochette-04662-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-mocassins-04661-20260930",
+      "kind": "text",
+      "value": "us-ca-p65-des-mocassins-04661-20260930",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04659-20260929",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04659-20260929",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-a-dos-etanche-04653-20260929",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-a-dos-etanche-04653-20260929",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-cabas-04644-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-cabas-04644-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04643-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04643-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04642-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04642-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-a-dos-etanche-04638-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-a-dos-etanche-04638-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04637-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04637-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sabots-04627-20260928",
+      "kind": "text",
+      "value": "us-ca-p65-des-sabots-04627-20260928",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-ecussons-pvc-pour-ve-04600-20260925",
+      "kind": "text",
+      "value": "us-ca-p65-des-ecussons-pvc-pour-ve-04600-20260925",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-portefeuilles-04595-20260925",
+      "kind": "text",
+      "value": "us-ca-p65-des-portefeuilles-04595-20260925",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-une-couverture-de-carnet-04592-20260925",
+      "kind": "text",
+      "value": "us-ca-p65-une-couverture-de-carnet-04592-20260925",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04577-20260925",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04577-20260925",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussons-en-daim-04555-20260925",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussons-en-daim-04555-20260925",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04551-20260924",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04551-20260924",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04550-20260924",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04550-20260924",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-bottes-en-daim-04549-20260924",
+      "kind": "text",
+      "value": "us-ca-p65-des-bottes-en-daim-04549-20260924",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04548-20260924",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04548-20260924",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-mocassins-04547-20260924",
+      "kind": "text",
+      "value": "us-ca-p65-des-mocassins-04547-20260924",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-en-cuir-04546-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-en-cuir-04546-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-en-cuir-04545-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-en-cuir-04545-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-04544-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-04544-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sabots-04543-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-sabots-04543-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sandales-04541-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-sandales-04541-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04540-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04540-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04539-20260923",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04539-20260923",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-en-cuir-04532-20260922",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-en-cuir-04532-20260922",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04482-20260918",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04482-20260918",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-une-pochette-04480-20260918",
+      "kind": "text",
+      "value": "us-ca-p65-une-pochette-04480-20260918",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-broches-integrees-a--04471-20260918",
+      "kind": "text",
+      "value": "us-ca-p65-des-broches-integrees-a--04471-20260918",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-breloques-integrees--04470-20260918",
+      "kind": "text",
+      "value": "us-ca-p65-des-breloques-integrees--04470-20260918",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sandales-04443-20260917",
+      "kind": "text",
+      "value": "us-ca-p65-des-sandales-04443-20260917",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04442-20260917",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04442-20260917",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-en-cuir-04441-20260916",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-en-cuir-04441-20260916",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-claquettes-04888-20261013",
+      "kind": "text",
+      "value": "us-ca-p65-des-claquettes-04888-20261013",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-une-housse-a-vetements-a-04869-20261013",
+      "kind": "text",
+      "value": "us-ca-p65-une-housse-a-vetements-a-04869-20261013",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-portefeuilles-04826-20261008",
+      "kind": "text",
+      "value": "us-ca-p65-des-portefeuilles-04826-20261008",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-claquettes-en-pvc-04819-20261008",
+      "kind": "text",
+      "value": "us-ca-p65-des-claquettes-en-pvc-04819-20261008",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-04818-20261008",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-04818-20261008",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04809-20261008",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04809-20261008",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-cabas-04797-20261008",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-cabas-04797-20261008",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sabots-04791-20261007",
+      "kind": "text",
+      "value": "us-ca-p65-des-sabots-04791-20261007",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04790-20261007",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04790-20261007",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-gants-04788-20261007",
+      "kind": "text",
+      "value": "us-ca-p65-des-gants-04788-20261007",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04786-20261007",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04786-20261007",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-bandouliere-04767-20261006",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-bandouliere-04767-20261006",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04766-20261006",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04766-20261006",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-04765-20261005",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-04765-20261005",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-porte-cles-04733-20261002",
+      "kind": "text",
+      "value": "us-ca-p65-des-porte-cles-04733-20261002",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04726-20261002",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04726-20261002",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussures-04721-20261002",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussures-04721-20261002",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-une-sangle-d-appareil-ph-04686-20261001",
+      "kind": "text",
+      "value": "us-ca-p65-une-sangle-d-appareil-ph-04686-20261001",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-sabots-04685-20261001",
+      "kind": "text",
+      "value": "us-ca-p65-des-sabots-04685-20261001",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-bracelet-de-montre-en-04682-20261001",
+      "kind": "text",
+      "value": "us-ca-p65-un-bracelet-de-montre-en-04682-20261001",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-en-daim-04681-20261001",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-en-daim-04681-20261001",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-shorts-05033-20261022",
+      "kind": "text",
+      "value": "us-ca-p65-des-shorts-05033-20261022",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-porte-cles-05024-20261022",
+      "kind": "text",
+      "value": "us-ca-p65-des-porte-cles-05024-20261022",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussettes-05020-20261022",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussettes-05020-20261022",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-bikinis-05011-20261021",
+      "kind": "text",
+      "value": "us-ca-p65-des-bikinis-05011-20261021",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-un-sac-a-main-04996-20261020",
+      "kind": "text",
+      "value": "us-ca-p65-un-sac-a-main-04996-20261020",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-vestes-04970-20261016",
+      "kind": "text",
+      "value": "us-ca-p65-des-vestes-04970-20261016",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-bikinis-04965-20261016",
+      "kind": "text",
+      "value": "us-ca-p65-des-bikinis-04965-20261016",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-maillots-de-bain-04932-20261016",
+      "kind": "text",
+      "value": "us-ca-p65-des-maillots-de-bain-04932-20261016",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-chaussettes-04923-20261016",
+      "kind": "text",
+      "value": "us-ca-p65-des-chaussettes-04923-20261016",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-des-maillots-de-bain-04905-20261015",
+      "kind": "text",
+      "value": "us-ca-p65-des-maillots-de-bain-04905-20261015",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-cpsc-sweet-cubby-loungewear-20260910",
+      "kind": "text",
+      "value": "us-cpsc-sweet-cubby-loungewear-20260910",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-cpsc-inmo-air3-smart-glasses-20260924",
+      "kind": "text",
+      "value": "us-cpsc-inmo-air3-smart-glasses-20260924",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "lunettes"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-fda-mocra-mandatory-recall-guidance-20261022",
+      "kind": "text",
+      "value": "us-fda-mocra-mandatory-recall-guidance-20261022",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-fda-cosmetics-icr-0910-0599-20261014",
+      "kind": "text",
+      "value": "us-fda-cosmetics-icr-0910-0599-20261014",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-cpsc-icr-clothing-flammability-1610-20260928",
+      "kind": "text",
+      "value": "us-cpsc-icr-clothing-flammability-1610-20260928",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ftc-gildan-ss-tshirt-rpa-20261008",
+      "kind": "text",
+      "value": "us-ftc-gildan-ss-tshirt-rpa-20261008",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-pfhxa-proposal-20261030",
+      "kind": "text",
+      "value": "us-ca-prop65-pfhxa-proposal-20261030",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-pfba-proposal-20261030",
+      "kind": "text",
+      "value": "us-ca-prop65-pfba-proposal-20261030",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-pfda-proposal-20261030",
+      "kind": "text",
+      "value": "us-ca-prop65-pfda-proposal-20261030",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-05102-20261029",
+      "kind": "text",
+      "value": "us-ca-prop65-05102-20261029",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-05103-20261029",
+      "kind": "text",
+      "value": "us-ca-prop65-05103-20261029",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-05106-20261029",
+      "kind": "text",
+      "value": "us-ca-prop65-05106-20261029",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-prop65-05107-20261029",
+      "kind": "text",
+      "value": "us-ca-prop65-05107-20261029",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-cpsc-qzh-duao-pyjamas-20261029",
+      "kind": "text",
+      "value": "us-cpsc-qzh-duao-pyjamas-20261029",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-recall-bidangil-collier-cadmium-20261029",
+      "kind": "text",
+      "value": "kr-recall-bidangil-collier-cadmium-20261029",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-recall-sm2-veste-plomb-20261029",
+      "kind": "text",
+      "value": "kr-recall-sm2-veste-plomb-20261029",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-recall-orange-damom-veste-plomb-20261029",
+      "kind": "text",
+      "value": "kr-recall-orange-damom-veste-plomb-20261029",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "kr-recall-woojooai-sac-plomb-20261029",
+      "kind": "text",
+      "value": "kr-recall-woojooai-sac-plomb-20261029",
+      "relation": "direct",
+      "markets": [
+        "KR"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-ademe-malus-textile-mise-a-jour-20261029",
+      "kind": "text",
+      "value": "fr-ademe-malus-textile-mise-a-jour-20261029",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    }
+  ],
+  "initialFollow": {
+    "id": "pfhxa-longchamp",
+    "kind": "substance",
+    "value": "307-24-4",
+    "markets": [
+      "EU",
+      "US-CA"
+    ],
+    "products": [
+      "pliage",
+      "textile"
+    ],
+    "includeRelated": true,
+    "paused": false
+  },
+  "exampleFollows": [
+    {
+      "id": "dehp-accessoires",
+      "kind": "substance",
+      "value": "117-81-7",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "includeRelated": false,
+      "paused": false
+    }
+  ]
+}

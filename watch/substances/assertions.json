@@ -1,0 +1,8 @@
+{
+  "query": "unique matches[].key from regional research files, joined to oracle found ids and DATA.sig.raw",
+  "regional_match_rows": 3,
+  "unique_matched_events": 3,
+  "new_events": 0,
+  "confidence": "source quotes verified; product applicability conditional",
+  "additional_example_unique_events": 1
+}

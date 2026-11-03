@@ -1,0 +1,293 @@
+{
+  "europe": {
+    "scope": {
+      "substance": "PFHxA",
+      "cas": "307-24-4",
+      "include": "sels et substances apparentées selon le texte source",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "Le Pliage",
+        "prêt-à-porter"
+      ],
+      "from": "2026-09-03",
+      "to": "2026-11-02",
+      "checked_at": "2026-11-02"
+    },
+    "cards": [],
+    "matches": [
+      {
+        "key": "eu-pfhxa-application",
+        "relation": "direct",
+        "reason": "Le texte vise expressément le PFHxA, ses sels et ses apparentées. L’entrée 79 couvre les vêtements et accessoires grand public ; le considérant 15 cite les sacs à main. Associer Le Pliage et le prêt-à-porter sans présumer la présence de la substance dans ces références.",
+        "source_url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+        "evidence_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389",
+        "citation": "accesorios relacionados (como bolsos de mano)",
+        "date_evidence": "Entrée 79, paragraphe 1 : application au 10 octobre 2026. La publication du règlement reste le 20 septembre 2024.",
+        "event_date": "2026-10-10",
+        "confirmed": true,
+        "applicability": "À qualifier à partir des matières, usages, concentrations et date de première mise sur le marché.",
+        "verified_facts": {
+          "limit_pfhxa_and_salts_ppb": 25,
+          "limit_related_ppb": 1000,
+          "measurement_basis": "matériau homogène",
+          "stock_derogation": "Articles et mélanges mis sur le marché avant le 10 octobre 2026, paragraphe 7.",
+          "related_definition": "Substances susceptibles de se dégrader ou se transformer en PFHxA, paragraphe 9.",
+          "exceptions": "Paragraphe 3 : EPI déterminés, dispositifs médicaux/diagnostic et textiles de construction. Ne pas généraliser."
+        }
+      },
+      {
+        "key": "fr-pfas-perimetre",
+        "relation": "related_scope",
+        "reason": "La FAQ vise la famille PFAS, à laquelle appartient le PFHxA, et distingue vêtements et sacs textiles. Il s’agit d’un lien par champ familial, pas d’une mention du CAS dans la FAQ. Ne pas présenter ce lien comme une mesure analytique de PFHxA sur un produit Longchamp.",
+        "source_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+        "citation": "Les accessoires intégralement en cuir sont exclus du champ des interdictions.",
+        "date_evidence": "Métadonnée visible : Mis à jour le 21 septembre 2026.",
+        "event_date": "2026-09-21",
+        "confirmed": true,
+        "applicability": "La FAQ place les sacs textiles dans le jalon 2030 et les textiles d’habillement grand public dans celui de 2026. Le caractère intégralement cuir, les composants textiles et les exclusions restent à qualifier.",
+        "family_evidence_url": "https://echa.europa.eu/hot-topics/perfluoroalkyl-chemicals-pfas",
+        "caveat": "Interprétation administrative ; pas une nouvelle loi. Sans historique de versions, aucun ajout textuel précis attribué à la date de mise à jour."
+      }
+    ],
+    "background": [
+      {
+        "title": "REACH, annexe XVII, entrée 79",
+        "source_url": "https://www.echa.europa.eu/documents/10162/f1451352-6834-634d-79a9-b43880dae258",
+        "publication_date": "2024-09-20",
+        "news": false,
+        "result": "Fiche officielle de restriction retrouvée ; les seuils et le champ ont été contre-vérifiés dans la reproduction officielle BOE et la banque substances du ministère italien. Le texte de 2024 ne devient pas une publication nouvelle de 2026."
+      },
+      {
+        "title": "Restriction PFAS universelle, état de la procédure",
+        "source_url": "https://echa.europa.eu/hot-topics/perfluoroalkyl-chemicals-pfas",
+        "news": false,
+        "result": "Page officielle lue : derniers événements datés disponibles dans la liste ouverte en juin 2026, hors fenêtre demandée. Ne pas transformer un objectif d’avis final fin 2026 en consultation actuellement ouverte, ni en restriction adoptée."
+      }
+    ],
+    "searched": [
+      {
+        "source": "Journal officiel UE, reproduction BOE",
+        "url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389",
+        "result": "Texte intégral lu : considérant 15, entrée 79 paragraphes 1, 3, 7 et 9. Réutiliser la carte existante eu-pfhxa-application ; ne pas dupliquer le même événement."
+      },
+      {
+        "source": "Ministère Transition écologique, FAQ PFAS",
+        "url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+        "result": "Page officielle lue et date de mise à jour confirmée. Questions 3, 6, 8 et 28 pertinentes ; lien familial seulement. Réutiliser fr-pfas-perimetre."
+      },
+      {
+        "source": "MASE, banque substances Italie",
+        "url": "https://bancasostanze.mase.gov.it/node/2405",
+        "result": "Entrée 79 officielle lue. Pas de date de publication récente démontrée : corroboration de fond, pas actualité nouvelle."
+      },
+      {
+        "source": "ECHA PFAS",
+        "url": "https://echa.europa.eu/hot-topics/perfluoroalkyl-chemicals-pfas",
+        "result": "Page officielle lue. PFHxA distingué des autres groupes et de la restriction PFAS universelle. Pas d’événement pertinent inédit dans la fenêtre établi."
+      },
+      {
+        "source": "Commission, restrictions REACH",
+        "url": "https://single-market-economy.ec.europa.eu/sectors/chemicals/reach/restrictions_en",
+        "result": "Page officielle lue : rappelle adoption en septembre 2024. Pas de publication nouvelle établie ; le papier alimentaire ne justifie pas de relier tous les emballages Longchamp."
+      },
+      {
+        "source": "Terviseamet, Estonie",
+        "url": "https://terviseamet.ee/uudised/kemikaaliohutuse-valdkonna-infokiri-oktoober-2026",
+        "result": "Lettre officielle publiée le 6 octobre 2026, passage PFHxA lu. Rappel du même dispositif applicable au 10 octobre déjà couvert. Exclu comme carte supplémentaire pour éviter une répétition de la même règle."
+      },
+      {
+        "source": "Miljødirektoratet, Norvège",
+        "url": "https://www.miljodirektoratet.no/aktuelt/nyheter/2026/september-2026/forbyr-pfas-stoff-i-vanlege-produkt/",
+        "result": "Publication du 24 septembre relue ; déjà dans no-pfhxa-application. Non associée au périmètre EU/France demandé : la Norvège est un marché distinct, même si le dispositif EEE est lié."
+      },
+      {
+        "source": "Recherches ciblées officielles",
+        "url": "https://echa.europa.eu/",
+        "result": "Requêtes PFHxA + septembre/octobre 2026, puis PFAS SEAC + septembre 2026 ; pas de nouvel événement officiel dans la fenêtre démontré. Absence de résultat ne prouve pas une veille exhaustive."
+      }
+    ],
+    "excluded_matches": [
+      {
+        "key": "fr-rc-okaidi-cire-pfas-20260929",
+        "reason": "Rappel de tiers avec PFAS totaux, sans identification du PFHxA ou CAS307-24-4 sur la source lue. Ne pas relier automatiquement à un suivi de ce CAS."
+      },
+      {
+        "key": "no-pfhxa-application",
+        "reason": "Marché norvégien non sélectionné dans le périmètre Europe Union européenne/France de la maquette. Peut apparaître seulement si le suivi est étendu à la Norvège."
+      }
+    ],
+    "blocked": [
+      {
+        "source": "EUR-Lex ELI et CELEX HTML",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+        "essais": "Page robot JavaScript demandée sur deux ouvertures. Aucun contournement ; reproduction officielle du texte lue au BOE."
+      },
+      {
+        "source": "Cellar",
+        "url": "https://publications.europa.eu/resource/celex/32024R2462",
+        "essais": "Ouverture web non supportée pour application/xhtml+xml. Pas une absence du texte ; recours au BOE."
+      }
+    ],
+    "quality_notes": [
+      "Aucune nouvelle carte ajoutée pour faire artificiellement grossir le fil : les événements pertinents sont déjà couverts.",
+      "Les associations de veille ne prouvent ni présence de substance ni non-conformité produit.",
+      "La formulation existante sur le Roseau à doublure textile doit rester à qualifier : la FAQ ne statue pas individuellement sur cette référence."
+    ]
+  },
+  "california": {
+    "perimetre": "Californie ; PFHxA CAS 307-24-4, sels et substances apparentées ; Le Pliage et prêt-à-porter ; événements du 3 septembre au 2 novembre 2026 inclus",
+    "checked_at": "2026-11-02",
+    "cards": [],
+    "matches": [
+      {
+        "key": "us-ca-prop65-pfhxa-proposal-20261030",
+        "relation": "direct",
+        "reason": "La consultation nomme le PFHxA et ses sels. Association directe à la substance suivie ; les marchés et produits sélectionnés servent au ciblage, sans démontrer la présence de PFHxA ni une nouvelle obligation applicable aux produits Longchamp.",
+        "source_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+        "source_name": "OEHHA",
+        "citation": "intends to list perfluorohexanoic acid (PFHxA) and related salts",
+        "date_evidence": "Publication affichée le 30 octobre 2026. Période de commentaires affichée du 30 octobre au 30 novembre 2026.",
+        "event_date": "2026-10-30",
+        "comment_deadline": "2026-11-30",
+        "legal_status": "proposal",
+        "scope": "PFHxA et sels visés par la notice ; ne pas étendre cet avis à tous les PFAS ni aux seules consultations PFBA/PFDA.",
+        "actions": [
+          {
+            "action": "Recueillir auprès du fournisseur la composition des enductions et traitements des références vendues en Californie, en distinguant PFHxA et sels ; décider si une contribution sur les critères d’inscription est utile.",
+            "team": "Conformité et achats",
+            "due": "2026-11-30",
+            "legal_ref": "OEHHA, notice du 30 octobre 2026"
+          }
+        ]
+      }
+    ],
+    "identifiers": [
+      {
+        "cas": "307-24-4",
+        "name": "Perfluorohexanoic acid (PFHxA)",
+        "relation": "substance",
+        "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+        "source_locator": "Page imprimée 1495, PDF p.72, paragraphe citant l’évaluation US EPA 2023"
+      },
+      {
+        "cas": "21615-47-4",
+        "name": "Ammonium perfluorohexanoate",
+        "relation": "salt_of_pfhxa",
+        "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+        "source_locator": "Page imprimée 1495, PDF p.72, même paragraphe"
+      },
+      {
+        "cas": "2923-26-4",
+        "name": "Sodium perfluorohexanoate",
+        "relation": "salt_of_pfhxa",
+        "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+        "source_locator": "Page imprimée 1495, PDF p.72, même paragraphe"
+      }
+    ],
+    "background": [
+      {
+        "title": "Périmètre des sels dans le projet Proposition 65",
+        "source_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+        "source_name": "California Office of Administrative Law",
+        "event_date": "2026-10-30",
+        "citation": "This assessment applies to PFHxA as well as salts of PFHxA",
+        "summary": "Le registre officiel reprend la notice déjà au fil et explicite les sels dans la référence toxicologique. Ce document confirme l’identité et le périmètre, sans constituer un second événement à compter.",
+        "duplicate_of": "us-ca-prop65-pfhxa-proposal-20261030"
+      },
+      {
+        "title": "Cadre antérieur : PFAS dans les articles textiles en Californie",
+        "source_url": "https://antr.assembly.ca.gov/system/files/2025-04/april-28-2025-nat-res-bill-hearing-packet.pdf",
+        "source_name": "California Assembly Committee on Natural Resources",
+        "source_date": "2025-04-28",
+        "citation": "a new textile article, as defined, that contains regulated perfluoroalkyl and polyfluoroalkyl substances (PFAS)",
+        "source_locator": "Analyse AB405, p.2, PDF p.44, rubrique EXISTING LAW point8",
+        "summary": "L’analyse parlementaire rappelle une interdiction des articles textiles neufs contenant des PFAS réglementés. C’est un cadre préexistant, pas une actualité de la fenêtre. Le code consolidé est inaccessible lors de cette recherche : le détail actuel du périmètre, des exceptions et des seuils doit être relu avant toute instruction de conformité ou correspondance par classe.",
+        "ready_for_rule_matching": false,
+        "caveat": "Ne pas afficher cette analyse de 2025 comme une mise à jour réglementaire du 2 novembre 2026."
+      }
+    ],
+    "excluded": [
+      {
+        "keys": [
+          "us-ca-prop65-pfba-proposal-20261030",
+          "us-ca-prop65-pfda-proposal-20261030"
+        ],
+        "reason": "Substances différentes du PFHxA ; même famille PFAS ne suffit pas pour un suivi CAS exact."
+      },
+      {
+        "keys": [
+          "us-ca-prop65-05102-20261029",
+          "us-ca-prop65-05103-20261029",
+          "us-ca-prop65-05106-20261029",
+          "us-ca-prop65-05107-20261029"
+        ],
+        "reason": "Les avis lus allèguent une exposition au PFOA ; ne pas les relier automatiquement au suivi PFHxA."
+      },
+      {
+        "source_url": "https://www.waterboards.ca.gov/water_issues/programs/pfas/ca_pfas_timeline.html",
+        "reason": "Chronologie générale et eau potable : aucune nouvelle applicable aux sacs ou au prêt-à-porter dans la fenêtre identifiée ; certaines descriptions historiques sont trop générales pour remplacer le code."
+      }
+    ],
+    "searched": [
+      {
+        "source": "OEHHA notice PFHxA",
+        "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+        "result": "Page intégralement lue, date, projet, champ PFHxA/sels et clôture confirmés ; carte existante reliée, aucune copie nouvelle."
+      },
+      {
+        "source": "OAL registre 44-Z",
+        "url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+        "result": "PDF officiel lu, notice PFHxA aux pages imprimées1494-1496 ; périmètre des sels/CAS confirmé ; même événement exclu comme doublon."
+      },
+      {
+        "source": "California Assembly",
+        "url": "https://antr.assembly.ca.gov/system/files/2025-04/april-28-2025-nat-res-bill-hearing-packet.pdf",
+        "result": "PDF officiel lu, rappel de droit existant sur PFAS/textiles ; ancien cadre seulement, aucune nouveauté2026 affirmée."
+      },
+      {
+        "source": "California Waterboards",
+        "url": "https://www.waterboards.ca.gov/water_issues/programs/pfas/ca_pfas_timeline.html",
+        "result": "Chronologie officielle lue ; hors périmètre produit ou ancien, aucun événement supplémentaire conservé."
+      },
+      {
+        "source": "Recherches ciblées DTSC/OEHHA/Governor",
+        "url": "https://dtsc.ca.gov/",
+        "result": "Requêtes PFHxA, PFAS textiles, octobre2026 ; seule notice PFHxA30/10 confirmée comme événement dans le périmètre de ce passage. Couverture non exhaustive."
+      }
+    ],
+    "blocked": [
+      {
+        "source": "California Legislative Information HSC108970",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=108970.&lawCode=HSC",
+        "essais": "Ouverture web directe : inaccessible via outil, aucun contournement."
+      },
+      {
+        "source": "California Legislative Information HSC108971",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=108971.&lawCode=HSC",
+        "essais": "Ouverture web directe : inaccessible via outil, aucun contournement."
+      },
+      {
+        "source": "DTSC PFAS",
+        "url": "https://dtsc.ca.gov/scp/pfas/",
+        "essais": "Ouverture web : inaccessible via outil."
+      },
+      {
+        "source": "DTSC rapport mandats2022",
+        "url": "https://dtsc.ca.gov/wp-content/uploads/sites/31/2022/12/Legislative-Mandates-Report-for-2022-Accessible.pdf",
+        "essais": "Recherche indexée lisible mais ouverture PDF403 ; non utilisé pour une preuve actuelle."
+      }
+    ],
+    "confidence": "Élevée pour la correspondance directe et la date de la consultation officielle relue ; applicabilité produit conditionnelle ; pas de garantie de couverture exhaustive.",
+    "verification": {
+      "json": "PASS",
+      "new_cards_date_window": "PASS (aucune carte nouvelle)",
+      "existing_match_key": "PASS",
+      "duplicate_new_keys_urls": "PASS (aucune carte nouvelle)",
+      "exact_quotes_official_pages": "PASS",
+      "different_pfas_not_matched": "PASS"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "file": "pfhxa-oracle.json",
+    "id": "eu-pfhxa-application",
+    "official_url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389",
+    "claimed": "found",
+    "url": "https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81389",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "pfhxa-oracle.json",
+    "id": "fr-pfas-perimetre",
+    "official_url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+    "claimed": "found",
+    "url": "https://www.ecologie.gouv.fr/dossiers/pfas/foire-aux-questions-professionnels",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "pfhxa-oracle.json",
+    "id": "us-ca-prop65-pfhxa-proposal-20261030",
+    "official_url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+    "claimed": "found",
+    "url": "https://oehha.ca.gov/proposition-65/crnr/notice-intent-list-chemical-authoritative-bodies-mechanism-perfluorohexanoic-acid-pfhxa-and-related",
+    "status": 200,
+    "oracle": "found",
+    "via": "browser",
+    "checked": "2026-11-02"
+  },
+  {
+    "file": "pfhxa-oracle.json",
+    "id": "pfhxa-salts-identities",
+    "official_url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+    "claimed": "found",
+    "url": "https://oal.ca.gov/wp-content/uploads/sites/166/2026/10/2026-Notice-Register-No.-44-Z-October-30-2026.pdf",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-02"
+  }
+]
