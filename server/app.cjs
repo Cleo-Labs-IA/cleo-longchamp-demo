@@ -2,13 +2,16 @@
 const fs=require('node:fs/promises');
 const path=require('node:path');
 const {cleanFollow}=require('../follow-core.js');
+const {createEmailCode}=require('./email-code.cjs');
+const {createSessionProof,validSessionProof}=require('./session-proof.cjs');
 const root=path.resolve(__dirname,'..');
 const MAX_BODY=100000;
 
-function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY},fetchImpl=globalThis.fetch,readPage=async name=>{
+function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,serviceKey:process.env.SUPABASE_SERVICE_ROLE_KEY,resendKey:process.env.RESEND_API_KEY,fromEmail:process.env.RESEND_FROM_EMAIL},fetchImpl=globalThis.fetch,readPage=async name=>{
  if(name==='index.html'||name==='sources.html'){try{return await fs.readFile(path.join(root,'.generated',name==='index.html'?'app.html':name),'utf8');}catch(error){if(error.code!=='ENOENT')throw error;}}
  return fs.readFile(path.join(root,name),'utf8');
 }}={}){
+ const emailCode=createEmailCode({config,fetchImpl});
  const request=async(endpoint,{token,method='GET',body}={})=>{
   const response=await fetchImpl(config.url+endpoint,{method,headers:{apikey:config.key,...(token?{Authorization:'Bearer '+token}:{}),'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(15000)});
   const data=await response.json().catch(()=>null);return {ok:response.ok,status:response.status,data};
@@ -28,8 +31,10 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
   const secure=!/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(req.headers.host||'');
   const setCookies=(session)=>res.setHeader('Set-Cookie',[
    'lc_access='+encodeURIComponent(session?.access_token||'')+'; Path=/; HttpOnly; SameSite=Lax; Max-Age='+(session?3600:0)+(secure?'; Secure':''),
-   'lc_refresh='+encodeURIComponent(session?.refresh_token||'')+'; Path=/; HttpOnly; SameSite=Lax; Max-Age='+(session?604800:0)+(secure?'; Secure':'')
+   'lc_refresh='+encodeURIComponent(session?.refresh_token||'')+'; Path=/; HttpOnly; SameSite=Lax; Max-Age='+(session?604800:0)+(secure?'; Secure':''),
+   ...(!session?['lc_otp=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0'+(secure?'; Secure':'')]:[])
   ]);
+  const setChallenge=value=>res.setHeader('Set-Cookie',[...(res.getHeader?.('Set-Cookie')||[]),'lc_challenge='+encodeURIComponent(value||'')+'; Path=/; HttpOnly; SameSite=Lax; Max-Age='+(value?600:0)+(secure?'; Secure':'')]);
   const parseBody=async()=>{
    if(req.body!==undefined){const raw=typeof req.body==='string'?req.body:JSON.stringify(req.body);if(Buffer.byteLength(raw)>MAX_BODY)throw new Error('BODY');return JSON.parse(raw);}
    let chunks=[],size=0;for await(const chunk of req){size+=chunk.length;if(size>MAX_BODY)throw new Error('BODY');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString()||'{}');
@@ -38,22 +43,26 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
    const cookies=Object.fromEntries(String(req.headers.cookie||'').split(';').map(s=>s.trim().split(/=(.*)/s).slice(0,2)).filter(x=>x.length===2).map(([k,v])=>[k,decodeURIComponent(v)]));
    let token=cookies.lc_access;
    const isMember=async(access)=>{const m=await request('/rest/v1/longchamp_members?select=user_id&user_id=eq.'+encodeURIComponent(access.user.id),{token:access.token});if(!m.ok)throw new Error('DATABASE');return m.data.length===1;};
-   if(action==='login'&&req.method==='POST'){
-    const body=await parseBody();if(typeof body.email!=='string'||typeof body.password!=='string'||body.email.length>254||body.password.length>1024)return json(400,{error:'Renseignez votre adresse et votre mot de passe.'});
-    const login=await request('/auth/v1/token?grant_type=password',{method:'POST',body:{email:body.email.trim(),password:body.password}});
-    if(!login.ok)return json(login.status===429?429:401,{error:login.status===429?'Trop de tentatives. Réessayez dans quelques instants.':'Adresse ou mot de passe incorrect.'});
-    if(!await isMember({user:login.data.user,token:login.data.access_token})){await request('/auth/v1/logout?scope=local',{method:'POST',token:login.data.access_token});return json(403,{error:'Ce compte ne dispose pas d’un accès à l’espace Longchamp.'});}
-    setCookies(login.data);return json(200,{ok:true});
+   if(action==='request-code'&&req.method==='POST'){
+    const body=await parseBody(),sent=await emailCode.requestCode(body.email);setChallenge(sent.challenge);
+    return json(202,{ok:true,message:'Si cette adresse dispose d’un accès Longchamp, un code vient de lui être envoyé.'});
+   }
+   if(action==='verify-code'&&req.method==='POST'){
+    const body=await parseBody(),session=await emailCode.verifyCode(cookies.lc_challenge,body.code);
+    if(!await isMember({user:session.user,token:session.access_token})){await request('/auth/v1/logout?scope=local',{method:'POST',token:session.access_token});return json(403,{error:'Ce compte ne dispose pas d’un accès à l’espace Longchamp.'});}
+    const proof=createSessionProof(config.serviceKey,session.access_token,session.user.id);if(!proof)throw new Error('SESSION');
+    setCookies(session);res.setHeader('Set-Cookie',[...res.getHeader('Set-Cookie'),'lc_otp='+proof+'; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800'+(secure?'; Secure':'')]);setChallenge(null);return json(200,{ok:true});
    }
    if(action==='logout'&&req.method==='POST'){
     let revoked=token?await request('/auth/v1/logout?scope=local',{method:'POST',token}):null;
     if((!revoked||[401,403].includes(revoked.status))&&cookies.lc_refresh){
      const refreshed=await request('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:cookies.lc_refresh}});
-     if(refreshed.ok)revoked=await request('/auth/v1/logout?scope=local',{method:'POST',token:refreshed.data.access_token});
+     if(refreshed.ok){token=refreshed.data.access_token;revoked=await request('/auth/v1/logout?scope=local',{method:'POST',token});}
      else if(refreshed.status>=500)throw new Error('AUTH');
     }
     if(revoked&&!revoked.ok&&revoked.status!==401&&revoked.status!==403)throw new Error('AUTH');
-    setCookies(null);return json(200,{ok:true});
+    if(revoked?.ok&&config.serviceKey)await emailCode.revokeSession(token);
+    setCookies(null);setChallenge(null);return json(200,{ok:true});
    }
    let identity=token?await request('/auth/v1/user',{token}):{ok:false,status:401};
    if(!identity.ok&&[401,403].includes(identity.status)&&cookies.lc_refresh){
@@ -61,6 +70,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
     if(refreshed.ok){token=refreshed.data.access_token;identity=await request('/auth/v1/user',{token});if(identity.ok)setCookies(refreshed.data);}else if(refreshed.status>=500)throw new Error('AUTH');
    }
    if(!identity.ok){if(identity.status>=500)throw new Error('AUTH');setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Reconnectez-vous pour accéder à votre espace.'});}
+   if(!validSessionProof(config.serviceKey,token,identity.data.id,cookies.lc_otp)){setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Demandez votre code de connexion pour accéder à l’espace Longchamp.'});}
    if(!await isMember({user:identity.data,token}))return json(403,{error:'Vous ne disposez pas d’un accès à cet espace.'});
    const readState=async()=>{const state=await request('/rest/v1/longchamp_watch_state?id=eq.longchamp&select=revision,follows',{token});if(!state.ok||state.data.length!==1)throw new Error('DATABASE');return state.data[0];};
    if(action==='state'&&req.method==='GET')return json(200,await readState());
@@ -85,7 +95,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
     res.setHeader('Content-Type','text/html; charset=utf-8');return res.end(html);
    }
    return json(404,{error:'Page introuvable.'});
-  }catch(error){return json(error.message==='BODY'||error instanceof SyntaxError?400:503,{error:error.message==='BODY'||error instanceof SyntaxError?'Demande invalide.':'L’espace est temporairement indisponible. Réessayez ; vos suivis enregistrés sont conservés.'});}
+  }catch(error){if(error.status){if(error.status===429)res.setHeader('Retry-After','60');return json(error.status,{error:error.message});}return json(error.message==='BODY'||error instanceof SyntaxError?400:503,{error:error.message==='BODY'||error instanceof SyntaxError?'Demande invalide.':'L’espace est temporairement indisponible. Réessayez ; vos suivis enregistrés sont conservés.'});}
  };
 }
 module.exports={createHandler};

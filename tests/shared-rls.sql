@@ -2,6 +2,7 @@
 begin;
 insert into auth.users(id) values ('c1041111-1111-4111-8111-111111111111'),('c1042222-2222-4222-8222-222222222222'),('c1043333-3333-4333-8333-333333333333');
 insert into public.longchamp_members(user_id) values ('c1041111-1111-4111-8111-111111111111'),('c1042222-2222-4222-8222-222222222222');
+insert into public.longchamp_otp_sessions(session_id,user_id) values ('c104aaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','c1041111-1111-4111-8111-111111111111'),('c104bbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb','c1042222-2222-4222-8222-222222222222');
 set local role authenticated;
 select set_config('request.jwt.claim.sub','c1043333-3333-4333-8333-333333333333',true);
 do $$begin
@@ -10,6 +11,9 @@ do $$begin
  begin insert into public.longchamp_members(user_id) values ('c1043333-3333-4333-8333-333333333333');raise exception 'Outsider can self-admit';exception when insufficient_privilege then null;end;
 end$$;
 select set_config('request.jwt.claim.sub','c1041111-1111-4111-8111-111111111111',true);
+select set_config('request.jwt.claims','{"sub":"c1041111-1111-4111-8111-111111111111","session_id":"c104cccc-cccc-4ccc-8ccc-cccccccccccc"}',true);
+do $$begin if exists(select 1 from public.longchamp_watch_state) then raise exception 'Native unapproved session can read';end if;begin perform public.longchamp_save_watch(0,'[]');raise exception 'Native unapproved session can write';exception when insufficient_privilege then null;end;end$$;
+select set_config('request.jwt.claims','{"sub":"c1041111-1111-4111-8111-111111111111","session_id":"c104aaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"}',true);
 do $$declare rev bigint;begin
  select revision into rev from public.longchamp_watch_state;
  if rev is null then raise exception 'Member cannot read';end if;
@@ -21,6 +25,7 @@ do $$declare rev bigint;begin
  begin perform public.longchamp_save_watch(rev+1,'[{"id":"bad","kind":"substance","value":"50-00-0","markets":[null],"products":["pliage"],"paused":false,"includeRelated":false}]');raise exception 'Null market allowed';exception when raise_exception then if sqlerrm<>'LONGCHAMP_INVALID' then raise;end if;end;
 end$$;
 select set_config('request.jwt.claim.sub','c1042222-2222-4222-8222-222222222222',true);
+select set_config('request.jwt.claims','{"sub":"c1042222-2222-4222-8222-222222222222","session_id":"c104bbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"}',true);
 do $$begin
  if not exists(select 1 from public.longchamp_watch_state where follows->0->>'id'='oracle') then raise exception 'Second member cannot see shared edit';end if;
 end$$;
