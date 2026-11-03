@@ -6,7 +6,7 @@ L’application utilise des connexions individuelles et des suivis communs. La c
 
 - Hébergement : projet Vercel `cleo-longchamp-demo`, équipe `cleo-academys-projects`.
 - Base : Supabase `tuzjcmvlclpfuroqnuis`, tables dédiées `longchamp_members` et `longchamp_watch_state`. Aucun accès aux tables des autres clients n’est nécessaire.
-- Authentification : adresse + code temporaire à six chiffres reçu par e-mail, cookies HttpOnly/Secure, contrôle d’appartenance à chaque requête, protection des mutations par origine. Pas d’inscription dans cette application. Un éventuel compte Supabase sans appartenance Longchamp est refusé.
+- Authentification : adresse + code temporaire reçu par e-mail, cookies HttpOnly/Secure, contrôle d’appartenance à chaque requête, protection des mutations par origine. Pas d’inscription dans cette application. Un éventuel compte Supabase sans appartenance Longchamp est refusé.
 - Les mutations sont atomiques et comparent la révision attendue. Un conflit affiche la nouvelle version et conserve le formulaire pour une nouvelle validation. Un échec restaure l’état précédent.
 - La collecte de veille reste manuelle. Aucune tâche programmée ni notification n’est créée. L’assistant conserve son fonctionnement documentaire local.
 - Les anciens suivis navigateur peuvent être importés explicitement depuis Mes suivis. Ils ne sont jamais publiés automatiquement dans l’espace commun.

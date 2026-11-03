@@ -13,7 +13,7 @@ const upstream=async(url,options={})=>{
  if(u.hostname==='api.resend.com')return answer({id:'mail-fixture'});
  if(u.pathname.startsWith('/auth/v1/admin/users/'))return answer(users.find(x=>x.id===u.pathname.split('/').pop()));
  if(u.pathname==='/rest/v1/rpc/longchamp_begin_login'){const user=users.find(x=>x.id===body.p_user_id);challenges.set(body.p_challenge_hash,{...user,user_id:user.id,attempts:0});return answer([{email:user.email}]);}
- if(u.pathname==='/auth/v1/admin/generate_link'){const user=users.find(x=>x.email===body.email);codes.set(user.email,'123456');return answer({email_otp:'123456',user});}
+ if(u.pathname==='/auth/v1/admin/generate_link'){const user=users.find(x=>x.email===body.email);codes.set(user.email,'12345678');return answer({email_otp:'12345678',id:user.id});}
  if(u.pathname==='/rest/v1/longchamp_login_codes')return answer(null,204);
  if(u.pathname==='/rest/v1/longchamp_otp_sessions')return answer(null,options.method==='DELETE'?204:201);
  if(u.pathname==='/rest/v1/rpc/longchamp_try_login'){const c=challenges.get(body.p_challenge_hash);if(!c||c.consumed||c.attempts>=5)return answer([]);c.attempts++;return answer([c]);}
@@ -37,7 +37,7 @@ const browser=await puppeteer.launch({executablePath:'/Applications/Google Chrom
 const errors=[],result=[];
 const contextA=await browser.createBrowserContext(),contextB=await browser.createBrowserContext();
 const a=await contextA.newPage(),b=await contextB.newPage();for(const p of [a,b])p.on('pageerror',e=>errors.push(e.message));
-async function login(p,email){await p.goto(url+'/app',{waitUntil:'networkidle0'});assert.equal(new URL(p.url()).pathname,'/');assert.equal(await p.$('#password'),null);await p.type('#email',email);await p.click('#login [type=submit]');await p.waitForSelector('#code-step:not([hidden])');assert(await p.$eval('#resend',e=>e.disabled));await p.type('#code','000000');await p.click('#verify [type=submit]');await p.waitForFunction(()=>document.getElementById('code-error').textContent.includes('incorrect'));await p.$eval('#code',e=>e.value='123456');await Promise.all([p.waitForNavigation({waitUntil:'networkidle0'}),p.click('#verify [type=submit]')]);assert.equal(new URL(p.url()).pathname,'/app');}
+async function login(p,email){await p.goto(url+'/app',{waitUntil:'networkidle0'});assert.equal(new URL(p.url()).pathname,'/');assert.equal(await p.$('#password'),null);await p.type('#email',email);await p.click('#login [type=submit]');await p.waitForSelector('#code-step:not([hidden])');assert(await p.$eval('#resend',e=>e.disabled));await p.type('#code','000000');await p.click('#verify [type=submit]');await p.waitForFunction(()=>document.getElementById('code-error').textContent.includes('incorrect'));await p.$eval('#code',e=>e.value='12345678');await Promise.all([p.waitForNavigation({waitUntil:'networkidle0'}),p.click('#verify [type=submit]')]);assert.equal(new URL(p.url()).pathname,'/app');}
 async function save(p){await p.click('#fw-form [type=submit]');await p.waitForFunction(()=>!followSaving);}
 try{
  assert.equal((await fetch(url+'/follow-ui.js')).status,404);assert.equal((await fetch(url+'/server/app.cjs')).status,404);assert.equal((await fetch(url+'/sources')).url,url+'/');result.push('private routes and source files protected');

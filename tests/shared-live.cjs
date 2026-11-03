@@ -21,7 +21,7 @@ async function main(){
   for(let attempt=0;attempt<8;attempt++){
    const list=await fetch('https://api.resend.com/emails',{headers:{Authorization:'Bearer '+readKey}});assert.equal(list.status,200);const messages=await list.json();
    const sent=messages.data.find(m=>m.to.includes(email)&&m.subject==='Votre code de connexion Longchamp');
-   if(sent){const response=await fetch('https://api.resend.com/emails/'+sent.id,{headers:{Authorization:'Bearer '+readKey}});assert.equal(response.status,200);const message=await response.json();const match=(message.text||'').match(/\b(\d{6})\b/);assert(match,'Missing code in test email');return match[1];}
+   if(sent){const response=await fetch('https://api.resend.com/emails/'+sent.id,{headers:{Authorization:'Bearer '+readKey}});assert.equal(response.status,200);const message=await response.json();const match=(message.text||'').match(/\b(\d{6,10})\b/);assert(match,'Missing code in test email');return match[1];}
    await new Promise(resolve=>setTimeout(resolve,1000));
   }
   throw new Error('Test email not found at provider');
@@ -37,7 +37,7 @@ async function main(){
   for(const user of users){
    const external=await native('/auth/v1/token?grant_type=password',{email:user.email,password:user.password});assert.equal(external.status,200);
    const forbidden=await native('/rest/v1/longchamp_watch_state?select=follows',null,external.data.access_token);assert.equal(forbidden.status,200);assert.deepEqual(forbidden.data,[]);
-   const requested=remote('/api/application?action=request-code',{method:'POST',body:{email:user.email}});assert.equal(requested.status,202);const challenge=cookieFrom(requested);assert(challenge.includes('lc_challenge='));
+   const requested=remote('/api/application?action=request-code',{method:'POST',body:{email:user.email}});assert.equal(requested.status,202,JSON.parse(requested.body).error||'Code request failed');const challenge=cookieFrom(requested);assert(challenge.includes('lc_challenge='));
    const code=await receivedCode(user.email);assert(!requested.body.includes(code));
    const verified=remote('/api/application?action=verify-code',{method:'POST',cookie:challenge,body:{code}});assert.equal(verified.status,200);const cookie=cookieFrom(verified);assert(cookie.includes('lc_access=')&&cookie.includes('lc_otp='));cookies.push(cookie);
    const replay=remote('/api/application?action=verify-code',{method:'POST',cookie:challenge,body:{code}});assert.equal(replay.status,401);
@@ -61,7 +61,7 @@ async function main(){
   const revokedData=await native('/rest/v1/longchamp_watch_state?select=follows',null,renewed.data.access_token);assert.equal(revokedData.status,200);assert.deepEqual(revokedData.data,[]);checks.push('logout also revokes direct database access');
  }finally{
   if(wrote){const current=(await admin('/rest/v1/longchamp_watch_state?id=eq.longchamp&select=*'))[0];assert(current.follows.every(f=>f.id==='live-'+suffix),'Concurrent data appeared: refusing to overwrite it');await admin('/rest/v1/longchamp_watch_state?id=eq.longchamp','PATCH',{follows:snapshot.follows,revision:snapshot.revision,updated_at:snapshot.updated_at,updated_by:snapshot.updated_by});}
-  for(const u of users)await admin('/auth/v1/admin/users/'+u.id,'DELETE');
+  for(const u of users){const emailHash=crypto.createHmac('sha256',key).update('longchamp-code-request:'+u.email).digest('hex');await admin('/rest/v1/longchamp_login_throttles?email_hash=eq.'+emailHash,'DELETE');await admin('/auth/v1/admin/users/'+u.id,'DELETE');}
  }
  assert.equal((await admin('/rest/v1/longchamp_members?select=user_id')).length,0);assert.deepEqual((await admin('/rest/v1/longchamp_watch_state?id=eq.longchamp&select=follows'))[0].follows,[]);checks.push('temporary identities removed and initial empty state restored');
  const report={preview,checks,provider:'real Vercel, Supabase and Resend',emails_sent:true,test_recipients_only:true,codes_recorded:false};

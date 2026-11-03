@@ -30,7 +30,7 @@ function createEmailCode({config,fetchImpl=globalThis.fetch}){
    const records=requireSuccess(started);if(!records?.length)throw authError(503,'La connexion est temporairement indisponible.');
    const generated=requireSuccess(await request('/auth/v1/admin/generate_link',{method:'POST',admin:true,body:{type:'magiclink',email}}));
    const code=generated.email_otp;
-   if(!/^\d{6}$/.test(code)||generated.user?.id!==member.id)throw authError(503,'La génération du code est temporairement indisponible.');
+   if(!/^\d{6,10}$/.test(code)||(generated.user?.id||generated.id)!==member.id)throw authError(503,'La génération du code est temporairement indisponible.');
    const message='Votre code de connexion à l’espace Longchamp est : '+code+'.\n\nCe code est valable 10 minutes et ne peut être utilisé qu’une seule fois.\nSi vous n’avez pas demandé ce code, ignorez ce message.';
    const sent=await fetchImpl('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+config.resendKey,'Content-Type':'application/json','Idempotency-Key':'longchamp-login-'+challengeHash},body:JSON.stringify({from:config.fromEmail,to:[email],subject:'Votre code de connexion Longchamp',text:message,html:'<div style="font-family:Arial,sans-serif;color:#18181b;max-width:480px;margin:auto;padding:32px"><p>Cleo × Longchamp</p><h1 style="font-size:24px">Votre code de connexion</h1><p style="font-size:36px;letter-spacing:8px;font-weight:600">'+code+'</p><p>Valable 10 minutes, pour une seule connexion.</p><p>Si vous n’avez pas demandé ce code, ignorez ce message.</p></div>'}),signal:AbortSignal.timeout(15000)});
    if(!sent.ok)throw authError(503,'Le code n’a pas pu être envoyé. Réessayez dans une minute.');
@@ -38,7 +38,7 @@ function createEmailCode({config,fetchImpl=globalThis.fetch}){
    return {challenge};
   },
   async verifyCode(challenge,code){
-   checkConfig();if(typeof code!=='string'||!/^\d{6}$/.test(code))throw authError(400,'Saisissez le code à six chiffres reçu par e-mail.');
+   checkConfig();if(typeof code!=='string'||!/^\d{6,10}$/.test(code))throw authError(400,'Saisissez le code reçu par e-mail.');
    if(typeof challenge!=='string'||!/^[\w-]{1,100}$/.test(challenge))throw authError(401,invalid);
    const challengeHash=hash(challenge);
    const attempts=requireSuccess(await request('/rest/v1/rpc/longchamp_try_login',{method:'POST',admin:true,body:{p_challenge_hash:challengeHash}}));
