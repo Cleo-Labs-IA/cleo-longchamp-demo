@@ -56,7 +56,8 @@ begin
    or (select count(distinct (value->>'kind',value->>'value')) from jsonb_array_elements(next_follows))<>jsonb_array_length(next_follows) then raise exception 'LONGCHAMP_INVALID'; end if;
  select s.revision into current_revision from public.longchamp_watch_state s where id='longchamp' for update;
  if current_revision is null then raise exception 'LONGCHAMP_NOT_INITIALIZED';end if;
- if current_revision<>expected_revision then raise exception 'LONGCHAMP_CONFLICT' using errcode='40001';end if;
+ -- A user edit conflict is an HTTP conflict, not a retryable transaction failure.
+ if current_revision<>expected_revision then raise exception 'LONGCHAMP_CONFLICT' using errcode='PT409';end if;
  return query update public.longchamp_watch_state s set follows=next_follows,revision=current_revision+1,updated_at=now(),updated_by=auth.uid() where id='longchamp' returning s.revision,s.follows;
 end;
 $$;

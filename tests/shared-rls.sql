@@ -14,7 +14,7 @@ do $$declare rev bigint;begin
  select revision into rev from public.longchamp_watch_state;
  if rev is null then raise exception 'Member cannot read';end if;
  perform public.longchamp_save_watch(rev,'[{"id":"oracle","kind":"substance","value":"50-00-0","markets":["EU"],"products":["pliage"],"paused":false,"includeRelated":false}]');
- begin perform public.longchamp_save_watch(rev,'[]');raise exception 'Lost update allowed';exception when serialization_failure then null;end;
+ begin perform public.longchamp_save_watch(rev,'[]');raise exception 'Lost update allowed';exception when sqlstate 'PT409' then null;end;
  begin update public.longchamp_watch_state set follows='[]';raise exception 'Direct update bypass allowed';exception when insufficient_privilege then null;end;
  begin perform public.longchamp_save_watch(rev+1,'[{"id":"bad","kind":"substance","value":"307-24-5","markets":["EU"],"products":["pliage"],"paused":false,"includeRelated":false}]');raise exception 'Bad CAS allowed';exception when raise_exception then if sqlerrm<>'LONGCHAMP_INVALID' then raise;end if;end;
  begin perform public.longchamp_save_watch(rev+1,'[{"id":"bad","kind":null,"value":"50-00-0","markets":["EU"],"products":["pliage"],"paused":false,"includeRelated":false}]');raise exception 'Null kind allowed';exception when raise_exception then if sqlerrm<>'LONGCHAMP_INVALID' then raise;end if;end;
