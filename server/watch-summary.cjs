@@ -20,4 +20,9 @@ function summarySources(text,data,transformation){
  validate(md.parse(text,{}));
  return JSON.parse(transformation.text).items.map(item=>data.articles.find(a=>a.key===item.key)).filter(Boolean).map(a=>{let url=null;try{const parsed=new URL(a.url);if(['https:','http:'].includes(parsed.protocol)&&!parsed.username&&!parsed.password)url=parsed.href;}catch{}return {title:a.title,date:a.date,url};});
 }
-module.exports={watchSummary,summarySources};
+function summaryPeriod(text,transformation){
+ const {from,to}=JSON.parse(transformation.text).period,fr=d=>new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(d+'T00:00:00Z'));
+ const header='Période : du '+fr(from)+' au '+fr(to)+'.';
+ return {valid:text.trim().split(/\n\s*\n/)[0]===header,header};
+}
+module.exports={watchSummary,summarySources,summaryPeriod};
