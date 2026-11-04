@@ -2,7 +2,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),{EventEmi
 const {createHandler}=require('../server/app.cjs'),{createSessionProof}=require('../server/session-proof.cjs');
 const actor='ca110001-1111-4111-8111-111111111111',org='ca110002-2222-4222-8222-222222222222',thread='ca110003-3333-4333-8333-333333333333',foreign='ca110004-4444-4444-8444-444444444444',secret='dedicated-conversation-secret-for-tests-only';
 const jwt='header.'+Buffer.from(JSON.stringify({sub:actor,session_id:'native-approved'})).toString('base64url')+'.signature',cookie='lc_access='+jwt+'; lc_otp='+createSessionProof('service',jwt,actor);
-function fixture({fail=false,configured=true,disconnected=false,responseText='Réponse du moteur Cleo Chat'}={}){
+function fixture({fail=false,configured=true,disconnected=false,responseText='Réponse du moteur Cleo Chat',responseTexts=[]}={}){
  const calls=[];let released=false;
  const handler=createHandler({config:{url:'https://db.invalid',key:'public',serviceKey:'service',chatSecret:configured?secret:undefined,chatOrganizationId:org},chatCatalog:{updatedAt:'2026-11-02',articles:[{key:'article',kind:'delta',date:'2026-10-30',title:'Article sélectionné',summary:'Contexte de la fiche',market:'France'}],products:[]},fetchImpl:async(url,options)=>{
   const path=new URL(url).pathname,body=options.body&&JSON.parse(options.body);calls.push({url,body,options});
@@ -13,7 +13,7 @@ function fixture({fail=false,configured=true,disconnected=false,responseText='R�
   if(path==='/rest/v1/rpc/longchamp_release_chat_turn'){released=true;return answer(true);}
   if(path==='/api/v1/conversation'){
    const h=options.headers;assert.equal(h['x-cleo-consumer'],'longchamp');assert.equal(h['x-cleo-signature'],crypto.createHmac('sha256',secret).update('POST\n/api/v1/conversation\nlongchamp\n'+h['x-cleo-timestamp']+'\n'+h['x-cleo-request-id']+'\n'+options.body).digest('hex'));
-   const frames=[{type:'data-cleo-api',data:{version:'2026-10-28',threadId:thread}},{type:'text-delta',delta:'DRAFT NOT FOR CLIENT'},{type:'data-cleo-citations',data:[]},{type:'data-cleo-reponse',data:{contenu:fail?'UNVERIFIED':responseText,statut:fail?'failed':'complete',controlesMenes:!fail,citationCount:0}}];
+   const frames=[{type:'data-cleo-api',data:{version:'2026-10-28',threadId:thread}},{type:'text-delta',delta:'DRAFT NOT FOR CLIENT'},{type:'data-cleo-citations',data:[]},{type:'data-cleo-reponse',data:{contenu:fail?'UNVERIFIED':responseTexts.shift()||responseText,statut:fail?'failed':'complete',controlesMenes:!fail,citationCount:0}}];
    return new Response(frames.map(x=>'data: '+JSON.stringify(x)+'\n\n').join('')+'data: [DONE]\n\n',{headers:{'content-type':'text/event-stream'}});
   }
   throw new Error('Unexpected '+path);
@@ -39,6 +39,8 @@ test('a failed control never becomes an answer and the conversation lease is rel
  const f=fixture({fail:true}),r=await f.call({message:'Question'});assert(!r.body.includes('UNVERIFIED'));assert.match(r.body,/error/);assert(f.released);
 });
 test('a summary with an unknown reference is never emitted as an answer after failed link validation',async()=>{const f=fixture({responseText:'[Inventé](#watch:unknown)'}),r=await f.call({message:'résume les news'});assert(!r.body.includes('Inventé'));assert(!r.body.includes('"type":"answer"'));assert.match(r.body,/"type":"error"/);assert(f.released);});
+test('a long digest is condensed once through the same signed API and never cropped or emitted before validation',async()=>{const long='Mot '.repeat(300),f=fixture({responseTexts:[long,'Résumé court.']}),r=await f.call({message:'résume les news'});const calls=f.calls.filter(c=>c.url.includes('/api/v1/conversation'));assert.equal(calls.length,2);assert.equal(calls[0].body.threadId,calls[1].body.threadId);assert.notEqual(calls[0].options.headers['x-cleo-request-id'],calls[1].options.headers['x-cleo-request-id']);assert.equal(calls[1].body.transformation.kind,'summary');assert(!r.body.includes(long));assert(r.body.includes('Résumé court.'));assert(f.released);});
+test('an oversized second digest is refused without a third call or a partial answer',async()=>{const f=fixture({responseText:'Mot '.repeat(300)}),r=await f.call({message:'résume les news'});assert.equal(f.calls.filter(c=>c.url.includes('/api/v1/conversation')).length,2);assert(!r.body.includes('"type":"answer"'));assert.match(r.body,/"type":"error"/);assert(f.released);});
 test('a disconnected client does not start a model turn after the reservation',async()=>{const f=fixture({disconnected:true});await f.call({message:'Question'});assert(!f.calls.some(c=>c.url.includes('/api/v1/conversation')));assert(f.released);});
 test('stream contract rejects wrong identities and unverified final frames',async()=>{
  const {readAnswer}=require('../server/cleo-chat.cjs'),meta={type:'data-cleo-api',data:{version:'2026-10-28',threadId:thread}},final={type:'data-cleo-reponse',data:{contenu:'Réponse',statut:'complete',controlesMenes:true}};

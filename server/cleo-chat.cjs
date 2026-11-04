@@ -50,19 +50,20 @@ async function runChat({req,res,body,user,token,config,request,fetchImpl,catalog
  if(!claimed.ok){if(claimed.status===429)return json(429,'Une réponse est déjà en cours. Attendez sa fin ou réessayez dans un instant.');if(claimed.status===403)return json(403,'Cette conversation n’est pas accessible.');throw new Error('DATABASE');}
  const thread=claimed.data?.[0];if(!thread||thread.user_id!==user.id||!UUID.test(thread.id))throw new Error('DATABASE');
  const context=transformation?{organizationName:'Longchamp',markets:[],fileSummary:'Résumé des notes de veille fournies dans transformation.text.'}:buildChatContext(data,{article,product});
- const payload={version:VERSION,organizationId:config.chatOrganizationId,actorId:user.id,threadId:thread.id,message:original,locale:'fr',marches:[],portails:null,context,...(transformation?{transformation}:{})},raw=JSON.stringify(payload);
+ const payload={version:VERSION,organizationId:config.chatOrganizationId,actorId:user.id,threadId:thread.id,message:original,locale:'fr',marches:[],portails:null,context,...(transformation?{transformation}:{})};
  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),290000);let result,error,heartbeat;
  const close=()=>{if(!res.writableEnded)controller.abort();};res.on('close',close);
  const emit=(type,data)=>{if(!res.destroyed)res.write('data: '+JSON.stringify({type,data})+'\n\n');};
  try{
   if(res.destroyed||req.aborted)return;
   res.setHeader('Content-Type','text/event-stream; charset=utf-8');res.setHeader('X-Accel-Buffering','no');res.flushHeaders?.();emit('status',{threadId:thread.id,message:transformation?'Cleo prépare le résumé de la veille…':'Cleo prépare votre réponse…'});
-  if(Buffer.byteLength(raw)>64000||controller.signal.aborted||res.destroyed)throw new Error(unavailable);
+  if(controller.signal.aborted||res.destroyed)throw new Error(unavailable);
   heartbeat=setInterval(()=>{if(!res.destroyed)res.write(': attente\n\n');},15000);
-  const timestamp=String(Math.floor(Date.now()/1000)),requestId=crypto.randomUUID(),signature=crypto.createHmac('sha256',config.chatSecret).update('POST\n/api/v1/conversation\nlongchamp\n'+timestamp+'\n'+requestId+'\n'+raw).digest('hex');
-  const upstream=await fetchImpl(API,{method:'POST',redirect:'error',cache:'no-store',signal:controller.signal,headers:{'content-type':'application/json',accept:'text/event-stream','x-cleo-consumer':'longchamp','x-cleo-timestamp':timestamp,'x-cleo-request-id':requestId,'x-cleo-signature':signature},body:raw});
-  const checked=await readAnswer(upstream,thread.id,controller.signal);
-  if(transformation)checked.watchSources=summarySources(checked.content,data,transformation);
+  const ask=async(message)=>{const raw=JSON.stringify({...payload,message});if(Buffer.byteLength(raw)>64000||controller.signal.aborted||res.destroyed)throw new Error(unavailable);const timestamp=String(Math.floor(Date.now()/1000)),requestId=crypto.randomUUID(),signature=crypto.createHmac('sha256',config.chatSecret).update('POST\n/api/v1/conversation\nlongchamp\n'+timestamp+'\n'+requestId+'\n'+raw).digest('hex');const upstream=await fetchImpl(API,{method:'POST',redirect:'error',cache:'no-store',signal:controller.signal,headers:{'content-type':'application/json',accept:'text/event-stream','x-cleo-consumer':'longchamp','x-cleo-timestamp':timestamp,'x-cleo-request-id':requestId,'x-cleo-signature':signature},body:raw});return readAnswer(upstream,thread.id,controller.signal);};
+  const words=text=>text.trim().split(/\s+/).length;
+  let checked=await ask(original);
+  if(transformation&&words(checked.content)>220){emit('status',{threadId:thread.id,message:'Cleo condense le résumé…'});checked=await ask(original+'\n\nFormat de cette synthèse : 150 mots maximum, une courte introduction et des points regroupés. Regroupe les cas semblables sans énumérer tous les produits. Les sources sont affichées séparément.');}
+  if(transformation){if(words(checked.content)>250)throw new Error('summary_too_long');checked.watchSources=summarySources(checked.content,data,transformation);}
   result=checked;
  }catch(e){error=e.status===429?'La limite de questions de cet espace a été atteinte. Réessayez plus tard.':unavailable;}
  finally{clearTimeout(timeout);clearInterval(heartbeat);controller.abort();res.off('close',close);await request('/rest/v1/rpc/longchamp_release_chat_turn',{token,method:'POST',timeoutMs:3000,body:{p_thread_id:thread.id,p_turn_id:turnId}}).catch(()=>{});}
