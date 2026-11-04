@@ -44,7 +44,7 @@
  }
  function favoritesPage(){
   const rows=state.favorites.map(key=>SIG.find(s=>s.raw===key)).filter(Boolean);
-  return '<div class="fw-head"><h1>Mes favoris</h1><p>Les articles que vous souhaitez retrouver facilement. Vos favoris sont personnels.</p></div><div class="lc-favorites-toolbar"><button data-lc-back-feed>← Fil de veille</button><button data-lc-refresh>Actualiser</button></div>'+(rows.length?'<div class="ifeed">'+rows.map(s=>srow(s.id)).join(''):'<div class="fw-empty">'+(api.ready?'Aucun favori. Cliquez sur ☆ Favori à côté d’un article pour le conserver ici.':'Chargement de vos favoris…')+'</div>');
+  return '<div class="fw-head"><h1>Mes favoris</h1><p>Les articles que vous souhaitez retrouver facilement. Vos favoris sont personnels.</p></div><div class="lc-favorites-toolbar"><button data-lc-back-feed>← Fil de veille</button><button data-lc-refresh>Actualiser</button></div>'+(rows.length?'<div class="ifeed">'+rows.map(s=>srow(s.id)).join(''):'<div class="fw-empty">'+(api.ready?'Aucun favori. Ouvrez un article, puis cliquez sur ☆ Favori pour le conserver ici.':'Chargement de vos favoris…')+'</div>');
  }
  async function toggleFavorite(id){
   if(api.busy||!api.ready)return;const s=article(id);if(!s)return;
@@ -86,7 +86,6 @@
   };
   overlay.querySelector('input').focus();
  }
- const beforeRow=srow;srow=function(id){return '<section class="lc-article-row" data-lc-article="'+Number(id)+'">'+beforeRow(id)+actions(id)+'</section>';};
  const beforeOpen=openSig;openSig=function(id){detailId=Number(id);beforeOpen(id);const section=document.createElement('section');section.id='lc-article-detail';section.dataset.articleId=String(id);section.className='lc-article-detail';section.innerHTML=reviewsHTML(detailId);(document.querySelector('.idr-b')||document.getElementById('content')).prepend(section);repaint();};
  const beforeSelect=select;select=function(view){detailId=null;if(view==='favoris'){CUR=view;setActive(view);document.getElementById('crumb').textContent='Mes favoris';document.getElementById('content').innerHTML=favoritesPage();window.scrollTo(0,0);}else beforeSelect(view);repaint();};
  const beforeToolbar=fToolbar;fToolbar=function(active){return beforeToolbar(active).replace('Mes suivis</button>','Mes suivis</button><button data-lc-favorites-link>Mes favoris</button>');};

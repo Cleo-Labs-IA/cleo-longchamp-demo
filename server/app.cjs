@@ -1,5 +1,7 @@
 'use strict';
 const fs=require('node:fs/promises');
+const {timingSafeEqual}=require('node:crypto');
+const {createWatchNotifications}=require('./watch-notifications.cjs');
 const path=require('node:path');
 const {cleanFollow}=require('../follow-core.js');
 const {createEmailCode}=require('./email-code.cjs');
@@ -8,11 +10,12 @@ const feedback=require('./article-feedback.cjs');
 const root=path.resolve(__dirname,'..');
 const MAX_BODY=100000;
 
-function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,serviceKey:process.env.SUPABASE_SERVICE_ROLE_KEY,resendKey:process.env.RESEND_API_KEY,fromEmail:process.env.RESEND_FROM_EMAIL},fetchImpl=globalThis.fetch,readPage=async name=>{
+function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,serviceKey:process.env.SUPABASE_SERVICE_ROLE_KEY,resendKey:process.env.RESEND_API_KEY,fromEmail:process.env.RESEND_FROM_EMAIL,cronSecret:process.env.CRON_SECRET},fetchImpl=globalThis.fetch,readPage=async name=>{
  if(name==='index.html'||name==='sources.html'){try{return await fs.readFile(path.join(root,'.generated',name==='index.html'?'app.html':name),'utf8');}catch(error){if(error.code!=='ENOENT')throw error;}}
  return fs.readFile(path.join(root,name),'utf8');
 },articleKeys}={}){
  const emailCode=createEmailCode({config,fetchImpl});
+ const notifications=createWatchNotifications({config,fetchImpl});
  const request=async(endpoint,{token,method='GET',body}={})=>{
   const response=await fetchImpl(config.url+endpoint,{method,headers:{apikey:config.key,...(token?{Authorization:'Bearer '+token}:{}),'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(15000)});
   const data=await response.json().catch(()=>null);return {ok:response.ok,status:response.status,data};
@@ -23,6 +26,13 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
   if(!config.url||!config.key)return json(503,{error:'L’espace est en cours de préparation. Les accès seront ouverts prochainement.'});
   const url=new URL(req.url,'http://localhost');
   const action=url.searchParams.get('action')||(url.pathname==='/sources'?'sources':url.pathname==='/app'?'page':'');
+  if(action==='watch-notifications'){
+   if(req.method!=='GET')return json(405,{error:'Méthode refusée.'});
+   if(!config.cronSecret)return json(503,{error:'Service non configuré.'});
+   const supplied=Buffer.from(String(req.headers.authorization||'')),expected=Buffer.from('Bearer '+config.cronSecret);
+   if(supplied.length!==expected.length||!timingSafeEqual(supplied,expected))return json(401,{error:'Accès refusé.'});
+   return json(200,await notifications.drain());
+  }
   const mutating=!['GET','HEAD'].includes(req.method);
   if(mutating){
    let origin;try{origin=new URL(req.headers.origin).host;}catch{}
@@ -91,6 +101,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
     if(follows.some(f=>!f||!f.id)||new Set(follows.map(f=>f.id)).size!==follows.length||new Set(follows.map(f=>f.kind+':'+f.value)).size!==follows.length)return json(400,{error:'Vérifiez les suivis : CAS, marchés, produits et doublons.'});
     const saved=await request('/rest/v1/rpc/longchamp_save_watch',{token,method:'POST',body:{expected_revision:body.revision,next_follows:follows}});
     if(!saved.ok){if(saved.data?.message==='LONGCHAMP_CONFLICT')return json(409,{error:'Une autre personne a modifié les suivis. La dernière version a été chargée. Vérifiez vos choix avant d’enregistrer à nouveau.',latest:await readState()});throw new Error('DATABASE');}
+    await notifications.drain({limit:1}).catch(()=>{});
     return json(200,Array.isArray(saved.data)?saved.data[0]:saved.data);
    }
    if(['page','sources'].includes(action)&&req.method==='GET'){
@@ -102,7 +113,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
      if(!html.includes('window.LONGCHAMP_SHARED='))throw new Error('TEMPLATE');
      html=html.replaceAll('cleo-labs-ia.github.io/cleo-longchamp-demo','Espace Longchamp');
      html=html.replace('</body>','<link rel="stylesheet" href="/article-feedback.css"><script src="/article-feedback.js"></script><script src="/account.js"></script></body>');
-    }else html=html.replace('Les suivis sont enregistrés uniquement dans ce navigateur ; pas de collecte ou notification automatique.','Les suivis sont communs à l’espace Longchamp et enregistrés en base ; actualisation manuelle, sans notification automatique.');
+    }else html=html.replace('Les suivis sont enregistrés uniquement dans ce navigateur ; pas de collecte ou notification automatique.','Les suivis sont communs à l’espace Longchamp et enregistrés en base ; actualisation manuelle. Chaque nouveau suivi déclenche une notification à Naomie.');
     res.setHeader('Content-Type','text/html; charset=utf-8');return res.end(html);
    }
    return json(404,{error:'Page introuvable.'});
