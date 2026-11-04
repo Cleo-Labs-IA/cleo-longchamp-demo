@@ -13,7 +13,7 @@ for(const [source,target] of [['index.html','app.html'],['sources.html','sources
 }
 const data=JSON.parse(fs.readFileSync('index.html','utf8').match(/<script>const DATA=([\s\S]*?);\s*const PM=/)[1]);
 fs.writeFileSync('.generated/article-keys.json',JSON.stringify([...new Set(data.sig.map(s=>s.raw))]));
-fs.writeFileSync('.generated/chat-context.json',JSON.stringify({articles:data.sig.map(s=>({key:s.raw,title:s.title,market:s.ctry,date:s.date||null,url:s.su||null,summary:String(s.why||'').slice(0,3000)})),products:data.products.map(p=>({key:p.key,label:p.label,description:p.sub}))}));
+fs.writeFileSync('.generated/chat-context.json',JSON.stringify({updatedAt:data.watchUpdate?.date||data.reviewWindow?.to||null,reviewWindow:data.reviewWindow,articles:data.sig.map(s=>({key:s.raw,title:s.title,kind:s.kind,productKeys:s.pks||[s.pk],market:s.ctry,date:s.date||null,sourceDate:s.source_date||null,effectiveDate:s.effective_date||null,eventType:s.event_type||null,sourceName:s.sn||null,url:s.su||null,summary:String(s.why||'').slice(0,3000)})),products:data.products.map(p=>({key:p.key,label:p.label,description:p.sub}))}));
 fs.mkdirSync('public/vendor',{recursive:true});
 const markdownDist=require('node:path').dirname(require.resolve('markdown-it'));
 fs.copyFileSync(markdownDist+'/browser/markdown-it.umd.min.js','public/vendor/markdown-it.js');

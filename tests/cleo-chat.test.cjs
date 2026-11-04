@@ -26,7 +26,11 @@ function fixture({fail=false,configured=true,disconnected=false}={}){
 }
 test('signed Cleo Chat request derives organization, actor and thread on the server',async()=>{
  const f=fixture(),r=await f.call({message:'Ma question',article_key:'article'});assert.equal(r.status,200);assert.match(r.body,/Réponse du moteur Cleo Chat/);assert(!r.body.includes('DRAFT NOT FOR CLIENT'));assert(!r.body.includes(secret));assert(f.released);
- const sent=f.calls.find(c=>c.url.includes('/api/v1/conversation')).body;assert.equal(sent.actorId,actor);assert.equal(sent.organizationId,org);assert.equal(sent.threadId,thread);assert.equal(sent.context.organizationName,'Longchamp');assert.match(sent.context.fileSummary,/Article sélectionné/);
+ const sent=f.calls.find(c=>c.url.includes('/api/v1/conversation')).body;assert.equal(sent.actorId,actor);assert.equal(sent.organizationId,org);assert.equal(sent.threadId,thread);assert.equal(sent.context.organizationName,'Longchamp');assert.match(sent.context.fileSummary,/Article sélectionné/);assert.equal(sent.message,'Ma question');
+});
+test('watch requests carry the application task while ordinary conversation keeps its native message',async()=>{
+ const f=fixture();await f.call({message:'fais moi un reseume des dernieres news'});await f.call({message:'plus court'});await f.call({message:'merci'});
+ const sent=f.calls.filter(c=>c.url.includes('/api/v1/conversation')).map(c=>c.body.message);assert.match(sent[0],/synthèse courte/);assert(sent[0].endsWith('Demande de la personne :\nfais moi un reseume des dernieres news'));assert(sent[0].length<=16000);assert.equal(sent[1],'plus court');assert.equal(sent[2],'merci');
 });
 test('anonymous, foreign threads, forged identities and unconfigured service cannot call the model',async()=>{
  const f=fixture();assert.equal((await f.call({message:'Question'},'')).status,401);assert.equal((await f.call({message:'Question',thread_id:foreign})).status,403);assert.equal((await f.call({message:'Question',organizationId:foreign,actorId:foreign})).status,400);assert.equal((await fixture({configured:false}).call({message:'Question'})).status,503);assert(!f.calls.some(c=>c.url.includes('/api/v1/conversation')));
@@ -46,4 +50,18 @@ test('DONE ends a hanging transport, and abort cancels a read even when the tran
  const stream=new ReadableStream({start(c){const text=events.map(e=>'data: '+JSON.stringify(e)+'\n\n').join('')+'data: [DONE]\n\n';for(const b of new TextEncoder().encode(text))c.enqueue(Uint8Array.of(b));},cancel(){cancelled=true;}});
  const answer=await readAnswer(new Response(stream,{headers:{'content-type':'text/event-stream'}}),thread,new AbortController().signal);assert.equal(answer.content,'Étiquetage français');assert(cancelled);
  const controller=new AbortController();let aborted=false;const stalled=new Response(new ReadableStream({cancel(){aborted=true;}}),{headers:{'content-type':'text/event-stream'}});const pending=readAnswer(stalled,thread,controller.signal);controller.abort();await assert.rejects(pending);assert(aborted);
+});
+test('watch context contains dated latest news, source links and the manual review boundary without cutting JSON',()=>{
+ const {buildChatContext}=require('../server/cleo-chat.cjs');
+ const articles=[
+  {key:'reference',kind:'struct',title:'Référence de fond',date:'2026-11-03',productKeys:['cuir']},
+  {key:'old',kind:'delta',title:'Ancienne actualité',date:'2026-09-10',productKeys:['cuir']},
+  {key:'new',kind:'delta',title:'Consultation PFHxA',date:'2026-10-30',sourceDate:'2026-10-30',eventType:'proposal',market:'Californie',url:'https://example.org/pfhxa',summary:'Projet en consultation, pas une interdiction.',productKeys:['cuir']},
+  {key:'other',kind:'delta',title:'Rappel parfum',date:'2026-10-29',productKeys:['parfum']},
+ ];
+ const catalog={articles,products:[{key:'cuir',label:'Cuir'}],updatedAt:'2026-11-02',reviewWindow:{from:'2026-08-30',to:'2026-11-02'}};
+ const all=JSON.parse(buildChatContext(catalog,{}).fileSummary);assert.equal(all.watch.updatedAt,'2026-11-02');assert.equal(all.watch.items[0].key,'new');assert(!all.watch.items.some(x=>x.key==='reference'));assert.equal(all.watch.items[0].url,'https://example.org/pfhxa');assert.equal(all.watch.items[0].eventType,'proposal');assert.equal(all.watch.manual,true);
+ const scoped=JSON.parse(buildChatContext(catalog,{product:catalog.products[0]}).fileSummary);assert.deepEqual(scoped.watch.items.map(x=>x.key),['new','old']);
+ const huge={...catalog,articles:Array.from({length:50},(_,i)=>({...articles[2],key:'news-'+i,summary:'É'.repeat(3000)}))};
+ const bounded=buildChatContext(huge,{}).fileSummary;assert(bounded.length<=8000);assert.equal(JSON.parse(bounded).watch.partial,true);assert(JSON.parse(bounded).watch.items.length>0);
 });
