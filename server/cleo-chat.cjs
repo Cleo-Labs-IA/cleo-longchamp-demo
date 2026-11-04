@@ -7,6 +7,14 @@ const CHAT_BOOTSTRAP=`(()=>{const p=document.querySelector('.cpanel');if(!p)retu
 let catalog;
 function chatCatalog(){if(!catalog)catalog=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../.generated/chat-context.json'),'utf8'));return catalog;}
 function safeUrl(value){try{const u=new URL(value);if(!['https:','http:'].includes(u.protocol)||u.username||u.password||[...u.searchParams.keys()].some(k=>/token|secret|signature|api.?key|x-amz-/i.test(k)))return null;return u.href;}catch{return null;}}
+function buildChatContext(data,{article=null,product=null}={}){
+ const compact=a=>({...a,title:String(a.title||'').slice(0,400),summary:String(a.summary||'').slice(0,1000),url:safeUrl(a.url)});
+ const news=[...new Map(data.articles.filter(a=>a.kind==='delta'&&(!product||a.productKeys?.includes(product.key))).sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).map(a=>[a.key,a])).values()];
+ const context={application:'Veille Longchamp',note:'Les dernières news désignent les actualités ci-dessous déjà présentes dans cette application. Elles proviennent d’une veille manuelle : ne pas les présenter comme une recherche du jour, ni transformer une consultation, un avis privé ou un rappel de tiers en nouvelle obligation Longchamp. Ces résumés fournis ne sont pas des textes juridiques officiels ni une preuve de composition produit.',article:article?compact(article):null,product,watch:{manual:true,updatedAt:data.updatedAt||null,reviewWindow:data.reviewWindow||null,scope:product?.label||'Toutes les catégories Longchamp',total:news.length,partial:news.length>0,items:[]}};
+ for(const item of news){context.watch.items.push(compact(item));if(JSON.stringify(context).length>7800){context.watch.items.pop();break;}}
+ context.watch.partial=context.watch.items.length<news.length;
+ return {organizationName:'Longchamp',markets:article?.market?[article.market]:[],fileSummary:JSON.stringify(context)};
+}
 async function readAnswer(response,threadId,signal){
  if(!response.ok||!response.body||!response.headers.get('content-type')?.includes('text/event-stream')){await response.body?.cancel().catch(()=>{});throw Object.assign(new Error(unavailable),{status:response.status===429?429:503});}
  const reader=response.body.getReader(),decoder=new TextDecoder('utf-8',{fatal:true});let buffer='',bytes=0,metadata=false,done=false,answer=null,citations=[];
@@ -39,8 +47,9 @@ async function runChat({req,res,body,user,token,config,request,fetchImpl,catalog
  const claimed=await request('/rest/v1/rpc/longchamp_claim_chat_turn',{token,method:'POST',body:{p_thread_id:body.thread_id||null,p_turn_id:turnId}});
  if(!claimed.ok){if(claimed.status===429)return json(429,'Une réponse est déjà en cours. Attendez sa fin ou réessayez dans un instant.');if(claimed.status===403)return json(403,'Cette conversation n’est pas accessible.');throw new Error('DATABASE');}
  const thread=claimed.data?.[0];if(!thread||thread.user_id!==user.id||!UUID.test(thread.id))throw new Error('DATABASE');
- const context={organizationName:'Longchamp',markets:article?.market?[article.market]:[],fileSummary:JSON.stringify({application:'Veille Longchamp',note:'Contexte de navigation et déclarations, pas une preuve juridique ni une composition produit confirmée.',article,product}).slice(0,7800)};
- const payload={version:VERSION,organizationId:config.chatOrganizationId,actorId:user.id,threadId:thread.id,message:body.message.trim(),locale:'fr',marches:[],portails:null,context},raw=JSON.stringify(payload);
+ const context=buildChatContext(data,{article,product});
+ const message='Dans cet espace, « dernières news » et « actualités » désignent la veille Longchamp fournie dans le contexte de l’application. Pour une demande de résumé, fais une synthèse courte par thème de cet extrait, avec ses dates et ses liens de source, sans réclamer une composition produit : ce travail résume des informations fournies, il ne détermine pas la conformité d’un produit. Signale sa date de mise à jour et son périmètre partiel. Pour une question juridique, distingue ces résumés des textes officiels à vérifier.\n\nDemande de la personne :\n'+body.message.trim();
+ const payload={version:VERSION,organizationId:config.chatOrganizationId,actorId:user.id,threadId:thread.id,message,locale:'fr',marches:[],portails:null,context},raw=JSON.stringify(payload);
  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),290000);let result,error,heartbeat;
  const close=()=>{if(!res.writableEnded)controller.abort();};res.on('close',close);
  const emit=(type,data)=>{if(!res.destroyed)res.write('data: '+JSON.stringify({type,data})+'\n\n');};
@@ -57,4 +66,4 @@ async function runChat({req,res,body,user,token,config,request,fetchImpl,catalog
  if(res.destroyed)return;
  if(result)emit('answer',{threadId:thread.id,...result});else emit('error',{message:error||unavailable});res.end('data: [DONE]\n\n');
 }
-module.exports={runChat,readAnswer,chatCatalog,CHAT_BOOTSTRAP};
+module.exports={runChat,readAnswer,chatCatalog,buildChatContext,CHAT_BOOTSTRAP};
