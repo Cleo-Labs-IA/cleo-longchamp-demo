@@ -7,3 +7,4 @@ node_modules/
 public/assets/
 public/vendor/
 supabase/.temp/
+.env*.local

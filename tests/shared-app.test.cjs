@@ -7,12 +7,14 @@ const memberCookie='lc_access='+jwt('member')+'; lc_otp='+createSessionProof('te
 const outsiderCookie='lc_access='+jwt('outsider')+'; lc_otp='+createSessionProof('test-service',jwt('outsider'),'outsider-id');
 
 const follow={id:'test-follow',kind:'substance',value:'50-00-0',markets:['EU'],products:['pliage'],includeRelated:false,paused:false};
-function fixture(){
+function fixture({notify=false}={}){
+ const notificationCalls=[];
  let state={revision:0,follows:[]};let loggedOut=false;
  const upstream=async(url,options={})=>{
   const u=new URL(url),body=options.body?JSON.parse(options.body):{};
   let token=options.headers?.Authorization;if(token==='Bearer '+jwt('member'))token='Bearer member';if(token==='Bearer '+jwt('outsider'))token='Bearer outsider';
   const answer=(data,status=200)=>new Response(JSON.stringify(data),{status});
+  if(u.pathname==='/rest/v1/rpc/longchamp_claim_watch_notifications'){notificationCalls.push(body);return answer([]);}
   if(u.pathname==='/auth/v1/token')return body.password==='valid'||body.refresh_token==='refresh'?answer({access_token:'member',refresh_token:'refresh',expires_in:3600,user:{id:'member-id',email:'member@example.invalid'}}):answer({},400);
   if(u.pathname==='/auth/v1/user')return !loggedOut&&['Bearer member','Bearer outsider'].includes(token)?answer({id:token==='Bearer member'?'member-id':'outsider-id'}):answer({},401);
   if(u.pathname==='/auth/v1/logout'){if(token==='Bearer expired-forbidden')return answer({},403);loggedOut=true;return answer({});}
@@ -25,15 +27,15 @@ function fixture(){
   }
   throw new Error('Unexpected upstream '+u.pathname);
  };
- const config={url:'https://database.example.invalid',key:'public-test-key',serviceKey:'test-service'};
+ const config={url:'https://database.example.invalid',key:'public-test-key',serviceKey:'test-service',...(notify?{resendKey:'test-resend',fromEmail:'Cleo <sender@example.test>',cronSecret:'test-cron'}:{})};
  const handler=createHandler({config,fetchImpl:upstream,readPage:async()=>'<html><body>Private content<!-- SUBSTANCE-FOLLOWS-START -->old<!-- SUBSTANCE-FOLLOWS-END --></body></html>'});
  async function call(method,url,body,cookie='',origin='https://app.example.invalid'){
-  const req={method,url,headers:{host:'app.example.invalid',origin,cookie,'content-type':'application/json'},body};
+  const req={method,url,headers:{host:'app.example.invalid',origin,cookie,'content-type':'application/json',...(cookie==='cron' ? {authorization:'Bearer test-cron'} : {})},body};
   const result={status:200,headers:{},body:''};
   const res={setHeader(k,v){result.headers[k.toLowerCase()]=v;},getHeader(k){return result.headers[k.toLowerCase()];},end(v=''){result.body=String(v);},set statusCode(v){result.status=v;},get statusCode(){return result.status;}};
   await handler(req,res);return result;
  }
- return {call,get state(){return state;},get loggedOut(){return loggedOut;}};
+ return {call,notificationCalls,get state(){return state;},get loggedOut(){return loggedOut;}};
 }
 test('anonymous and non-members cannot read the app or shared state',async()=>{
  const {call}=fixture();
@@ -93,4 +95,22 @@ test('a refresh started before opening a form cannot advance its revision or ove
  const refresh=vm.runInContext('refreshSharedFollows()',scope);editing=true;
  resolveResponse(new Response(JSON.stringify({revision:1,follows:[follow]}),{status:200}));await refresh;
  assert.equal(scope.LongchampSharedStore.revision,0);assert.equal(scope.savedFollows.length,0);
+});
+
+test('notification worker runs only after committed state, never conflict or unauthorized save',async()=>{
+ const f=fixture({notify:true});
+ assert.equal((await f.call('PUT','/api/application?action=state',{revision:0,follows:[follow]},memberCookie)).status,200);
+ assert.deepEqual(f.notificationCalls,[{p_limit:1}]);
+ assert.equal((await f.call('PUT','/api/application?action=state',{revision:0,follows:[]},memberCookie)).status,409);
+ assert.equal((await f.call('PUT','/api/application?action=state',{revision:1,follows:[]})).status,401);
+ assert.equal(f.notificationCalls.length,1);
+});
+test('cron requires its own bearer and never grants an application session',async()=>{
+ const f=fixture({notify:true}),url='/api/application?action=watch-notifications';
+ assert.equal((await f.call('GET',url)).status,401);
+ assert.equal((await f.call('GET',url,null,memberCookie)).status,401);
+ assert.equal((await f.call('GET',url,null,'cron')).status,200);
+ assert.deepEqual(f.notificationCalls,[{p_limit:3}]);
+ assert.equal((await f.call('GET','/api/application?action=state',null,'cron')).status,401);
+ assert.equal((await f.call('POST',url,null,'cron')).status,405);
 });
