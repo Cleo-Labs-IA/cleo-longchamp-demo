@@ -4,7 +4,7 @@
  if(typeof window.markdownit!=='function')return;
  const messages=panel.querySelector('#chatm'),input=panel.querySelector('#chati'),form=panel.querySelector('.chat-f'),submit=form.querySelector('[type=submit]'),suggestions=panel.querySelector('#chats');
  const escChat=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const markdown=window.markdownit({html:false,linkify:false,breaks:true});
+ const markdown=window.markdownit({html:false,linkify:true,breaks:true});
  const url=value=>{try{const u=new URL(value);return ['http:','https:'].includes(u.protocol)&&!u.username&&!u.password?u.href:null;}catch{return null;}};
  markdown.validateLink=link=>url(link)!==null;
  markdown.renderer.rules.image=(tokens,i)=>'<span>'+escChat(tokens[i].content)+'</span>';
@@ -25,11 +25,12 @@
  function append(className,text){const el=document.createElement('div');el.className=className;el.textContent=text;messages.append(el);messages.scrollTop=messages.scrollHeight;return el;}
  function renderAnswer(target,data){
   target.className='cm-a lc-chat-answer';target.innerHTML=markdown.render(data.content.split('<!-- cleo:coverage -->').join(''));
+  if(data.watchSources?.length){const list=document.createElement('details');list.className='lc-chat-sources lc-chat-watch-sources';list.innerHTML='<summary>Fiches de veille résumées</summary>'+data.watchSources.map(s=>'<article><b>'+escChat(s.title)+'</b><p>'+escChat(s.date)+'</p>'+(url(s.url)?'<a href="'+escChat(url(s.url))+'" target="_blank" rel="noopener noreferrer">Source de la fiche ↗</a>':'')+'</article>').join('');target.append(list);}
   if(data.citations?.length){const sources=document.createElement('details');sources.className='lc-chat-sources';sources.innerHTML='<summary>Sources</summary>'+data.citations.map(c=>'<article><b>'+(c.n?'['+c.n+'] ':'')+escChat(c.title)+'</b>'+(c.article?'<p>'+escChat(c.article)+'</p>':'')+'<blockquote>'+escChat(c.quote)+'</blockquote>'+(url(c.url)?'<a href="'+escChat(url(c.url))+'" target="_blank" rel="noopener noreferrer">Ouvrir la source ↗</a>':'')+'</article>').join('');target.append(sources);}
  }
  async function send(raw){
   const question=String(raw||'').trim();if(!question||controller||stopping)return;if(question.length>8000){append('cm-a','Votre question est trop longue. Réduisez-la avant de l’envoyer.');return;}
-  append('cm-u',question);input.value='';suggestions?.classList.add('off');const pending=append('cm-a lc-chat-pending','Cleo recherche les sources et prépare votre réponse…');const turn=generation;
+  append('cm-u',question);input.value='';suggestions?.classList.add('off');const pending=append('cm-a lc-chat-pending','Cleo prépare votre réponse…');const turn=generation;
   controller=new AbortController();const signal=controller.signal;busy(true);let answered=false,done=false;
   try{
    const c=currentContext(),response=await fetch('/api/application?action=chat',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:question,...(threadId?{thread_id:threadId}:{}),...(c.article_key?{article_key:c.article_key}:{}),...(c.product_key?{product_key:c.product_key}:{})}),signal});
@@ -41,7 +42,7 @@
    try{
     while(!done){const chunk=await reader.read();if(signal.aborted)throw new DOMException('Arrêt','AbortError');if(chunk.done)break;bytes+=chunk.value.byteLength;if(bytes>2*1024*1024)throw new Error('Réponse trop volumineuse.');buffer=(buffer+decoder.decode(chunk.value,{stream:true})).replace(/\r\n/g,'\n');let i;
      while((i=buffer.indexOf('\n\n'))>=0){const frame=buffer.slice(0,i);buffer=buffer.slice(i+2);const data=frame.split('\n').filter(l=>l.startsWith('data:')).map(l=>l.slice(5).trimStart()).join('\n');if(!data)continue;if(data==='[DONE]'){done=true;break;}const event=JSON.parse(data);if(turn!==generation)return;
-      if(event.type==='status'&&typeof event.data?.threadId==='string')threadId=event.data.threadId;
+      if(event.type==='status'&&typeof event.data?.threadId==='string'){threadId=event.data.threadId;if(typeof event.data.message==='string')pending.textContent=event.data.message;}
       if(event.type==='error')throw new Error(event.data?.message||'La réponse n’a pas pu être finalisée.');
       if(event.type==='answer'){if(answered||typeof event.data?.content!=='string'||!Array.isArray(event.data?.citations))throw new Error('Réponse incomplète.');renderAnswer(pending,event.data);answered=true;}
      }

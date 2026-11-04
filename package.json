@@ -6,7 +6,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "test": "node --test tests/article-detail-actions.test.cjs tests/watch-notifications.test.cjs tests/shared-app.test.cjs tests/email-code.test.cjs tests/article-feedback.test.cjs tests/session-resume.test.cjs tests/cleo-chat.test.cjs && node tests/follow-core.test.cjs",
+    "test": "node --test tests/article-detail-actions.test.cjs tests/watch-notifications.test.cjs tests/shared-app.test.cjs tests/email-code.test.cjs tests/article-feedback.test.cjs tests/session-resume.test.cjs tests/cleo-chat.test.cjs tests/watch-summary.test.cjs && node tests/follow-core.test.cjs",
     "dev": "node --env-file-if-exists=.env.local scripts/dev.cjs",
     "build": "node scripts/build.cjs"
   },
