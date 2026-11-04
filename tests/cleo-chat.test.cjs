@@ -26,7 +26,11 @@ function fixture({fail=false,configured=true,disconnected=false}={}){
 }
 test('signed Cleo Chat request derives organization, actor and thread on the server',async()=>{
  const f=fixture(),r=await f.call({message:'Ma question',article_key:'article'});assert.equal(r.status,200);assert.match(r.body,/Réponse du moteur Cleo Chat/);assert(!r.body.includes('DRAFT NOT FOR CLIENT'));assert(!r.body.includes(secret));assert(f.released);
- const sent=f.calls.find(c=>c.url.includes('/api/v1/conversation')).body;assert.equal(sent.actorId,actor);assert.equal(sent.organizationId,org);assert.equal(sent.threadId,thread);assert.equal(sent.context.organizationName,'Longchamp');assert.match(sent.context.fileSummary,/Article sélectionné/);assert.match(sent.message,/synthèse courte/);assert(sent.message.endsWith('Demande de la personne :\nMa question'));assert(sent.message.length<=16000);
+ const sent=f.calls.find(c=>c.url.includes('/api/v1/conversation')).body;assert.equal(sent.actorId,actor);assert.equal(sent.organizationId,org);assert.equal(sent.threadId,thread);assert.equal(sent.context.organizationName,'Longchamp');assert.match(sent.context.fileSummary,/Article sélectionné/);assert.equal(sent.message,'Ma question');
+});
+test('watch requests carry the application task while ordinary conversation keeps its native message',async()=>{
+ const f=fixture();await f.call({message:'fais moi un reseume des dernieres news'});await f.call({message:'plus court'});await f.call({message:'merci'});
+ const sent=f.calls.filter(c=>c.url.includes('/api/v1/conversation')).map(c=>c.body.message);assert.match(sent[0],/synthèse courte/);assert(sent[0].endsWith('Demande de la personne :\nfais moi un reseume des dernieres news'));assert(sent[0].length<=16000);assert.equal(sent[1],'plus court');assert.equal(sent[2],'merci');
 });
 test('anonymous, foreign threads, forged identities and unconfigured service cannot call the model',async()=>{
  const f=fixture();assert.equal((await f.call({message:'Question'},'')).status,401);assert.equal((await f.call({message:'Question',thread_id:foreign})).status,403);assert.equal((await f.call({message:'Question',organizationId:foreign,actorId:foreign})).status,400);assert.equal((await fixture({configured:false}).call({message:'Question'})).status,503);assert(!f.calls.some(c=>c.url.includes('/api/v1/conversation')));
