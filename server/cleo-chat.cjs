@@ -1,6 +1,6 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const {watchSummary,summarySources}=require('./watch-summary.cjs');
+const {watchSummary,summarySources,summaryPeriod}=require('./watch-summary.cjs');
 const API='https://chat.cleolabs.co/api/v1/conversation',VERSION='2026-10-28',UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const unavailable='Cleo n’a pas pu finaliser cette réponse. Réessayez dans quelques instants.';
 // Inline before external assets: failed asset loading must never reactivate the old local demo engine.
@@ -62,8 +62,8 @@ async function runChat({req,res,body,user,token,config,request,fetchImpl,catalog
   const ask=async(message)=>{const raw=JSON.stringify({...payload,message});if(Buffer.byteLength(raw)>64000||controller.signal.aborted||res.destroyed)throw new Error(unavailable);const timestamp=String(Math.floor(Date.now()/1000)),requestId=crypto.randomUUID(),signature=crypto.createHmac('sha256',config.chatSecret).update('POST\n/api/v1/conversation\nlongchamp\n'+timestamp+'\n'+requestId+'\n'+raw).digest('hex');const upstream=await fetchImpl(API,{method:'POST',redirect:'error',cache:'no-store',signal:controller.signal,headers:{'content-type':'application/json',accept:'text/event-stream','x-cleo-consumer':'longchamp','x-cleo-timestamp':timestamp,'x-cleo-request-id':requestId,'x-cleo-signature':signature},body:raw});return readAnswer(upstream,thread.id,controller.signal);};
   const words=text=>text.trim().split(/\s+/).length;
   let checked=await ask(original);
-  if(transformation&&words(checked.content)>220){emit('status',{threadId:thread.id,message:'Cleo condense le résumé…'});checked=await ask(original+'\n\nFormat de cette synthèse : 150 mots maximum, une courte introduction et des points regroupés. Regroupe les cas semblables sans énumérer tous les produits. Les sources sont affichées séparément.');}
-  if(transformation){if(words(checked.content)>250)throw new Error('summary_too_long');checked.watchSources=summarySources(checked.content,data,transformation);}
+  if(transformation&&(words(checked.content)>220||!summaryPeriod(checked.content,transformation).valid)){emit('status',{threadId:thread.id,message:'Cleo ajuste le résumé…'});checked=await ask(original+'\n\nFormat de cette synthèse : 150 mots maximum. Commence exactement par cette phrase, puis une ligne vide : '+summaryPeriod('',transformation).header+' Regroupe ensuite les cas semblables sans énumérer tous les produits. Les sources sont affichées séparément.');}
+  if(transformation){if(words(checked.content)>250||!summaryPeriod(checked.content,transformation).valid)throw new Error('summary_contract_invalid');checked.watchSources=summarySources(checked.content,data,transformation);}
   result=checked;
  }catch(e){error=e.status===429?'La limite de questions de cet espace a été atteinte. Réessayez plus tard.':unavailable;}
  finally{clearTimeout(timeout);clearInterval(heartbeat);controller.abort();res.off('close',close);await request('/rest/v1/rpc/longchamp_release_chat_turn',{token,method:'POST',timeoutMs:3000,body:{p_thread_id:thread.id,p_turn_id:turnId}}).catch(()=>{});}

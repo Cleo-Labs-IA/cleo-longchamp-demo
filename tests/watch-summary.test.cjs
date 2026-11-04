@@ -1,6 +1,6 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict');
-const {watchSummary,summarySources}=require('../server/watch-summary.cjs');
+const {watchSummary,summarySources,summaryPeriod}=require('../server/watch-summary.cjs');
 test('summary includes every item in its stated recent period, including date ties, and no machine counts',()=>{
  const articles=Array.from({length:18},(_,i)=>({key:'news-'+i,kind:'delta',date:i<16?'2026-10-29':'2026-09-01',title:'Actualité '+i,summary:'Note publiée',productKeys:i%2?['cuir']:['textile'],url:'https://example.org/'+i}));
  const data={updatedAt:'2026-11-02',articles};const result=watchSummary(data,{message:'fais moi un reseume des dernieres news'});assert.equal(result.kind,'summary');const notes=JSON.parse(result.text);assert.equal(notes.items.length,16);assert.deepEqual(notes.period,{from:'2026-10-27',to:'2026-11-02'});assert(!('total' in notes));assert(!('partial' in notes));assert(!notes.items[0].url);assert.equal(summarySources('Résumé.',data,result)[0].url,'https://example.org/0');for(const target of ['#watch:unknown','#watch:n0?invented=true','https://invented.invalid','https&#58;//invented.invalid','https\\://invented.invalid'])assert.throws(()=>summarySources('[Source]('+target+')',data,result));
@@ -11,4 +11,12 @@ test('legal questions and ordinary messages cannot accidentally become supplied-
 });
 test('an oversized recent period is refused explicitly rather than silently summarized from a truncated list',()=>{
  const data={updatedAt:'2026-11-02',articles:Array.from({length:200},(_,i)=>({key:String(i),kind:'delta',date:'2026-10-30',summary:'X'.repeat(1000)}))};assert.throws(()=>watchSummary(data,{message:'résume la veille'}),/période/);
+});
+test('the stated period must match the source period, not another date appearing in the body',()=>{
+ const transformation={text:JSON.stringify({period:{from:'2026-10-27',to:'2026-11-02'}})};
+ assert(summaryPeriod('Période : du 27 octobre 2026 au 2 novembre 2026.\n\nTexte.',transformation).valid);
+ assert(!summaryPeriod('Synthèse du 24 octobre au 2 novembre 2026.\n\nLe 27 octobre…',transformation).valid);
+ assert(!summaryPeriod('Synthèse du 27 octobre au 2 novembre 2027.',transformation).valid);
+ for(const bad of ['Période : du 2 novembre au 27 octobre 2026.','Période : du 24 au 27 octobre et du 1 au 2 novembre 2026.','Période : du 24/10/2026 au 02/11/2026. Dernières notes du 27 octobre au 2 novembre 2026.'])assert(!summaryPeriod(bad,transformation).valid);
+ assert.equal(summaryPeriod('',transformation).header,'Période : du 27 octobre 2026 au 2 novembre 2026.');
 });
