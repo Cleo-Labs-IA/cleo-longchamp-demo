@@ -5,6 +5,7 @@
   "installCommand": null,
   "outputDirectory": "public",
   "cleanUrls": true,
+  "crons": [{"path":"/api/application?action=watch-notifications","schedule":"*/10 * * * *"}],
   "functions": {"api/application.js": {"includeFiles": "{.generated/**,follow-core.js,follow-ui.js}"}},
   "rewrites": [
     {"source": "/app", "destination": "/api/application?action=page"},

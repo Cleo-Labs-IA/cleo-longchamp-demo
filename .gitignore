@@ -6,3 +6,4 @@ node_modules/
 .generated/
 public/assets/
 supabase/.temp/
+.env*.local
