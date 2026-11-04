@@ -23,7 +23,8 @@
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
   try{
    const response=await fetch('/api/application?action=session',{cache:'no-store',signal:controller.signal});
-   if(response.ok&&(await response.json()).authenticated===true){location.replace('/app'+location.hash);return;}
+   const data=await response.json().catch(()=>null);
+   if(response.ok&&data?.authenticated===true){location.replace('/app'+location.hash);return;}
    if(![401,403].includes(response.status))throw new Error('SESSION_CHECK');
    status.textContent='';login.hidden=false;document.getElementById('email').focus();
   }catch{status.textContent='La vérification de votre session est momentanément indisponible. Réessayez pour retrouver votre espace.';document.getElementById('retry-session').hidden=false;}

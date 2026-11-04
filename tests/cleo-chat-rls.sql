@@ -1,0 +1,32 @@
+begin;
+insert into auth.users(id,email) values('ca120001-1111-4111-8111-111111111111','chat-one@example.invalid'),('ca120002-2222-4222-8222-222222222222','chat-two@example.invalid');
+insert into public.longchamp_members(user_id) values('ca120001-1111-4111-8111-111111111111'),('ca120002-2222-4222-8222-222222222222');
+set local role anon;
+do $$begin begin perform public.longchamp_claim_chat_turn(null,gen_random_uuid());raise exception 'Anon admitted';exception when insufficient_privilege then null;end;end$$;
+set local role authenticated;
+select set_config('request.jwt.claims','{"sub":"ca120001-1111-4111-8111-111111111111","session_id":"ca129001-1111-4111-8111-111111111111"}',true);
+do $$begin begin perform public.longchamp_claim_chat_turn(null,gen_random_uuid());raise exception 'No OTP admitted';exception when insufficient_privilege then null;end;end$$;
+reset role;
+insert into public.longchamp_otp_sessions(user_id,session_id) values('ca120001-1111-4111-8111-111111111111','ca129001-1111-4111-8111-111111111111'),('ca120002-2222-4222-8222-222222222222','ca129002-2222-4222-8222-222222222222');
+set local role authenticated;
+select set_config('test.chat_one',(select id::text from public.longchamp_claim_chat_turn(null,'ca128001-1111-4111-8111-111111111111')),true);
+do $$begin begin perform public.longchamp_claim_chat_turn(null,gen_random_uuid());raise exception 'Concurrent turn admitted';exception when sqlstate 'PT429' then null;end;end$$;
+select set_config('request.jwt.claims','{"sub":"ca120002-2222-4222-8222-222222222222","session_id":"ca129002-2222-4222-8222-222222222222"}',true);
+do $$begin
+ if exists(select 1 from public.longchamp_chat_threads) then raise exception 'Other actor thread visible';end if;
+ begin perform public.longchamp_claim_chat_turn(current_setting('test.chat_one')::uuid,gen_random_uuid());raise exception 'Foreign thread accepted';exception when insufficient_privilege then null;end;
+ if public.longchamp_release_chat_turn(current_setting('test.chat_one')::uuid,'ca128001-1111-4111-8111-111111111111') then raise exception 'Foreign turn released';end if;
+end$$;
+select set_config('test.chat_two',(select id::text from public.longchamp_claim_chat_turn(null,'ca128002-2222-4222-8222-222222222222')),true);
+select set_config('request.jwt.claims','{"sub":"ca120001-1111-4111-8111-111111111111","session_id":"ca129001-1111-4111-8111-111111111111"}',true);
+select public.longchamp_release_chat_turn(current_setting('test.chat_one')::uuid,'ca128001-1111-4111-8111-111111111111');
+select * from public.longchamp_claim_chat_turn(current_setting('test.chat_one')::uuid,'ca128003-3333-4333-8333-333333333333');
+do $$begin
+ if public.longchamp_release_chat_turn(current_setting('test.chat_one')::uuid,'ca128001-1111-4111-8111-111111111111') then raise exception 'Stale release accepted';end if;
+ begin perform public.longchamp_claim_chat_turn(null,gen_random_uuid());raise exception 'Stale release cleared new lease';exception when sqlstate 'PT429' then null;end;
+ if not public.longchamp_release_chat_turn(current_setting('test.chat_one')::uuid,'ca128003-3333-4333-8333-333333333333') then raise exception 'Owner release failed';end if;
+ if (select count(*) from public.longchamp_chat_threads)<>1 then raise exception 'Owner RLS failed';end if;
+end$$;
+reset role;
+rollback;
+select 'PASS: OTP, private threads, separate actors, serialized turns, foreign and stale release rejected; fixtures rolled back' as verification;
