@@ -10,7 +10,7 @@ async function main(){
  const idx=process.argv.indexOf('--base-url'),dir=process.env.LONGCHAMP_REPORT_DIR||'/Users/naomiehalioua/reports/longchamp-chat-2026-11-04';fs.mkdirSync(dir,{recursive:true});
  let server,browser,identity,message,apiCalls=0;const email='codex-longchamp-chat-'+crypto.randomBytes(8).toString('hex')+'@cleolabs.co';
  if(idx<0){config.chatOrganizationId=crypto.randomUUID();server=createServer({config,fetchImpl:async(url,options)=>{if(new URL(url).pathname==='/api/v1/conversation')apiCalls++;return fetch(url,options);}});await new Promise(r=>server.listen(0,'127.0.0.1',r));}
- const base=idx<0?'http://127.0.0.1:'+server.address().port:process.argv[idx+1],question='Quel texte européen encadre l’étiquetage de composition des produits textiles vendus en France ? Cite les articles utiles sans conclure à la conformité d’un produit.';
+ const base=idx<0?'http://127.0.0.1:'+server.address().port:process.argv[idx+1],question=process.env.LONGCHAMP_CHAT_QUESTION||'Que prévoit uniquement le paragraphe 1 de l’article 14 du règlement (UE) 1007/2011 pour l’étiquetage et le marquage des produits textiles ? Cite le texte officiel, sans étendre l’analyse aux autres articles.';
  let result;
  try{
   const otp=createEmailCode({config,fetchImpl:async(url,options)=>{if(new URL(url).hostname==='api.resend.com'){message=JSON.parse(options.body);return new Response(JSON.stringify({id:'intercepted'}),{status:200});}return fetch(url,options);}});

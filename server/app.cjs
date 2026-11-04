@@ -115,7 +115,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
      if(!html.includes('window.LONGCHAMP_SHARED='))throw new Error('TEMPLATE');
      html=html.replaceAll('cleo-labs-ia.github.io/cleo-longchamp-demo','Espace Longchamp');
      html=html.replace('</body>','<script>'+CHAT_BOOTSTRAP+'</script><link rel="stylesheet" href="/article-feedback.css"><link rel="stylesheet" href="/cleo-chat.css"><script src="/article-feedback.js"></script><script src="/vendor/markdown-it.js"></script><script src="/cleo-chat.js"></script><script src="/account.js"></script></body>');
-    }else html=html.replace('Les suivis sont enregistrés uniquement dans ce navigateur ; pas de collecte ou notification automatique.','Les suivis sont communs à l’espace Longchamp et enregistrés en base ; actualisation manuelle, sans notification automatique.');
+    }else html=html.replace('Les suivis sont enregistrés uniquement dans ce navigateur ; pas de collecte ou notification automatique.','Les suivis sont communs à l’espace Longchamp et enregistrés en base ; actualisation manuelle. Chaque nouveau suivi déclenche une notification à Naomie.');
     res.setHeader('Content-Type','text/html; charset=utf-8');return res.end(html);
    }
    return json(404,{error:'Page introuvable.'});
