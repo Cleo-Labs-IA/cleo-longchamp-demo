@@ -24,7 +24,7 @@
  function busy(value){submit.disabled=value;stop.hidden=!value;suggestions?.querySelectorAll('button').forEach(b=>b.disabled=value);}
  function append(className,text){const el=document.createElement('div');el.className=className;el.textContent=text;messages.append(el);messages.scrollTop=messages.scrollHeight;return el;}
  function renderAnswer(target,data){
-  target.className='cm-a lc-chat-answer';target.innerHTML=markdown.render(data.content);
+  target.className='cm-a lc-chat-answer';target.innerHTML=markdown.render(data.content.split('<!-- cleo:coverage -->').join(''));
   if(data.citations?.length){const sources=document.createElement('details');sources.className='lc-chat-sources';sources.innerHTML='<summary>Sources</summary>'+data.citations.map(c=>'<article><b>'+(c.n?'['+c.n+'] ':'')+escChat(c.title)+'</b>'+(c.article?'<p>'+escChat(c.article)+'</p>':'')+'<blockquote>'+escChat(c.quote)+'</blockquote>'+(url(c.url)?'<a href="'+escChat(url(c.url))+'" target="_blank" rel="noopener noreferrer">Ouvrir la source ↗</a>':'')+'</article>').join('');target.append(sources);}
  }
  async function send(raw){
