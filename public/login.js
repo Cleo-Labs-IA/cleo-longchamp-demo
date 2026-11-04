@@ -15,5 +15,22 @@
  verify.addEventListener('submit',async event=>{event.preventDefault();if(busy)return;const error=document.getElementById('code-error');error.textContent='';setBusy(true);
   try{await post('verify-code',{code:document.getElementById('code').value.trim()});location.assign('/app'+location.hash);}catch(e){error.textContent=e.message;}finally{setBusy(false);}
  });
+ let checking=false;
+ async function resumeSession(){
+  if(checking||busy)return;checking=true;
+  const status=document.getElementById('session-status');status.textContent='Vérification de votre connexion…';document.getElementById('retry-session').hidden=true;
+  login.hidden=true;step.hidden=true;setBusy(true);
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
+  try{
+   const response=await fetch('/api/application?action=session',{cache:'no-store',signal:controller.signal});
+   if(response.ok&&(await response.json()).authenticated===true){location.replace('/app'+location.hash);return;}
+   if(![401,403].includes(response.status))throw new Error('SESSION_CHECK');
+   status.textContent='';login.hidden=false;document.getElementById('email').focus();
+  }catch{status.textContent='La vérification de votre session est momentanément indisponible. Réessayez pour retrouver votre espace.';document.getElementById('retry-session').hidden=false;}
+  finally{clearTimeout(timeout);checking=false;setBusy(false);}
+ }
+ resumeSession();
+ document.getElementById('retry-session').onclick=resumeSession;
+ window.addEventListener('pageshow',event=>{if(event.persisted)resumeSession();});
  setInterval(updateResend,1000);
 })();

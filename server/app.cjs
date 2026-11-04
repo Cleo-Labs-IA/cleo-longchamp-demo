@@ -73,6 +73,12 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
    if(!identity.ok){if(identity.status>=500)throw new Error('AUTH');setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Reconnectez-vous pour accéder à votre espace.'});}
    if(!validSessionProof(config.serviceKey,token,identity.data.id,cookies.lc_otp)){setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Demandez votre code de connexion pour accéder à l’espace Longchamp.'});}
    if(!await isMember({user:identity.data,token}))return json(403,{error:'Vous ne disposez pas d’un accès à cet espace.'});
+   if(action==='session'&&req.method==='GET'){
+    const approved=await request('/rest/v1/rpc/longchamp_is_member',{token,method:'POST',body:{}});
+    if(!approved.ok)throw new Error('DATABASE');
+    if(approved.data!==true){setCookies(null);return json(401,{error:'Votre session a expiré. Demandez un nouveau code.'});}
+    return json(200,{authenticated:true});
+   }
    if(['articles','favorite','review'].includes(action)){
     const result=await feedback.articleFeedback({action,method:req.method,body:req.method==='PUT'?await parseBody():undefined,request,token,allowedKeys:articleKeys||feedback.articleKeys()});
     return json(result.status,result.data);
