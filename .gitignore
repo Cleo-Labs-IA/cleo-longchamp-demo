@@ -5,4 +5,5 @@
 node_modules/
 .generated/
 public/assets/
+public/vendor/
 supabase/.temp/

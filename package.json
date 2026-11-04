@@ -2,10 +2,15 @@
   "name": "cleo-longchamp-app",
   "private": true,
   "version": "1.0.0",
-  "engines": {"node": "22.x"},
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
-    "test": "node --test tests/shared-app.test.cjs tests/email-code.test.cjs tests/article-feedback.test.cjs tests/session-resume.test.cjs && node tests/follow-core.test.cjs",
+    "test": "node --test tests/shared-app.test.cjs tests/email-code.test.cjs tests/article-feedback.test.cjs tests/session-resume.test.cjs tests/cleo-chat.test.cjs && node tests/follow-core.test.cjs",
     "dev": "node --env-file-if-exists=.env.local scripts/dev.cjs",
     "build": "node scripts/build.cjs"
+  },
+  "dependencies": {
+    "markdown-it": "15.0.3"
   }
 }

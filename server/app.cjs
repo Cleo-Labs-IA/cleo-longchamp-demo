@@ -5,16 +5,17 @@ const {cleanFollow}=require('../follow-core.js');
 const {createEmailCode}=require('./email-code.cjs');
 const {createSessionProof,validSessionProof}=require('./session-proof.cjs');
 const feedback=require('./article-feedback.cjs');
+const {runChat,chatCatalog:loadChatCatalog,CHAT_BOOTSTRAP}=require('./cleo-chat.cjs');
 const root=path.resolve(__dirname,'..');
 const MAX_BODY=100000;
 
-function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,serviceKey:process.env.SUPABASE_SERVICE_ROLE_KEY,resendKey:process.env.RESEND_API_KEY,fromEmail:process.env.RESEND_FROM_EMAIL},fetchImpl=globalThis.fetch,readPage=async name=>{
+function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,serviceKey:process.env.SUPABASE_SERVICE_ROLE_KEY,resendKey:process.env.RESEND_API_KEY,fromEmail:process.env.RESEND_FROM_EMAIL,chatSecret:process.env.CLEO_CHAT_CONSUMER_SECRET,chatOrganizationId:process.env.CLEO_CHAT_ORGANIZATION_ID},fetchImpl=globalThis.fetch,readPage=async name=>{
  if(name==='index.html'||name==='sources.html'){try{return await fs.readFile(path.join(root,'.generated',name==='index.html'?'app.html':name),'utf8');}catch(error){if(error.code!=='ENOENT')throw error;}}
  return fs.readFile(path.join(root,name),'utf8');
-},articleKeys}={}){
+},articleKeys,chatCatalog}={}){
  const emailCode=createEmailCode({config,fetchImpl});
- const request=async(endpoint,{token,method='GET',body}={})=>{
-  const response=await fetchImpl(config.url+endpoint,{method,headers:{apikey:config.key,...(token?{Authorization:'Bearer '+token}:{}),'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(15000)});
+ const request=async(endpoint,{token,method='GET',body,timeoutMs=15000}={})=>{
+  const response=await fetchImpl(config.url+endpoint,{method,headers:{apikey:config.key,...(token?{Authorization:'Bearer '+token}:{}),'Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(timeoutMs)});
   const data=await response.json().catch(()=>null);return {ok:response.ok,status:response.status,data};
  };
  return async function handler(req,res){
@@ -73,6 +74,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
    if(!identity.ok){if(identity.status>=500)throw new Error('AUTH');setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Reconnectez-vous pour accéder à votre espace.'});}
    if(!validSessionProof(config.serviceKey,token,identity.data.id,cookies.lc_otp)){setCookies(null);if(['page','sources'].includes(action)){res.statusCode=303;res.setHeader('Location','/');return res.end();}return json(401,{error:'Demandez votre code de connexion pour accéder à l’espace Longchamp.'});}
    if(!await isMember({user:identity.data,token}))return json(403,{error:'Vous ne disposez pas d’un accès à cet espace.'});
+   if(action==='chat'&&req.method==='POST')return await runChat({req,res,body:await parseBody(),user:identity.data,token,config,request,fetchImpl,catalogProvider:chatCatalog?()=>chatCatalog:loadChatCatalog});
    if(action==='session'&&req.method==='GET'){
     const approved=await request('/rest/v1/rpc/longchamp_is_member',{token,method:'POST',body:{}});
     if(!approved.ok)throw new Error('DATABASE');
@@ -101,7 +103,7 @@ function createHandler({config={url:process.env.SUPABASE_URL,key:process.env.SUP
      html=html.replace(/<!-- SUBSTANCE-FOLLOWS-START -->([\s\S]*?)<!-- SUBSTANCE-FOLLOWS-END -->/,(_,block)=>'<!-- SUBSTANCE-FOLLOWS-START --><script>window.LONGCHAMP_SHARED='+initial+';</script><script src="/shared-sync.js"></script>'+((block.match(/<style>[\s\S]*?<\/style>/)||[''])[0])+'<script>'+core+'\n'+ui+'</script><!-- SUBSTANCE-FOLLOWS-END -->');
      if(!html.includes('window.LONGCHAMP_SHARED='))throw new Error('TEMPLATE');
      html=html.replaceAll('cleo-labs-ia.github.io/cleo-longchamp-demo','Espace Longchamp');
-     html=html.replace('</body>','<link rel="stylesheet" href="/article-feedback.css"><script src="/article-feedback.js"></script><script src="/account.js"></script></body>');
+     html=html.replace('</body>','<script>'+CHAT_BOOTSTRAP+'</script><link rel="stylesheet" href="/article-feedback.css"><link rel="stylesheet" href="/cleo-chat.css"><script src="/article-feedback.js"></script><script src="/vendor/markdown-it.js"></script><script src="/cleo-chat.js"></script><script src="/account.js"></script></body>');
     }else html=html.replace('Les suivis sont enregistrés uniquement dans ce navigateur ; pas de collecte ou notification automatique.','Les suivis sont communs à l’espace Longchamp et enregistrés en base ; actualisation manuelle, sans notification automatique.');
     res.setHeader('Content-Type','text/html; charset=utf-8');return res.end(html);
    }

@@ -5,7 +5,7 @@
   "installCommand": null,
   "outputDirectory": "public",
   "cleanUrls": true,
-  "functions": {"api/application.js": {"includeFiles": "{.generated/**,follow-core.js,follow-ui.js}"}},
+  "functions": {"api/application.js": {"includeFiles": "{.generated/**,follow-core.js,follow-ui.js}","maxDuration":300}},
   "rewrites": [
     {"source": "/app", "destination": "/api/application?action=page"},
     {"source": "/sources", "destination": "/api/application?action=sources"},

@@ -8,7 +8,7 @@ L’application utilise des connexions individuelles et des suivis communs. La c
 - Base : Supabase `tuzjcmvlclpfuroqnuis`, tables dédiées `longchamp_members` et `longchamp_watch_state`. Aucun accès aux tables des autres clients n’est nécessaire.
 - Authentification : adresse + code temporaire reçu par e-mail, cookies HttpOnly/Secure, contrôle d’appartenance à chaque requête, protection des mutations par origine. Inscription automatique limitée aux domaines autorisés, sans mot de passe fixe ni modification du mot de passe d’un compte existant. Les invitations nominatives existantes sont conservées. Une session approuvée par le code est toujours exigée pour les données.
 - Les mutations sont atomiques et comparent la révision attendue. Un conflit affiche la nouvelle version et conserve le formulaire pour une nouvelle validation. Un échec restaure l’état précédent.
-- La collecte de veille reste manuelle. Aucune tâche programmée ni notification n’est créée. L’assistant conserve son fonctionnement documentaire local.
+- La collecte de veille reste manuelle. Aucune tâche programmée ni notification n’est créée. L’assistant authentifié utilise l’API Cleo Chat.
 - Les anciens suivis navigateur peuvent être importés explicitement depuis Mes suivis. Ils ne sont jamais publiés automatiquement dans l’espace commun.
 
 Préparation locale : copier `.env.example` vers `.env.local`, fournir la clé publique du projet, puis `npm run build` et `npm run dev` (Node 22 ou plus). Les secrets serveur `SUPABASE_SERVICE_ROLE_KEY` et `RESEND_API_KEY`, ainsi que `RESEND_FROM_EMAIL`, sont nécessaires pour générer et envoyer les codes uniquement aux membres Longchamp. Ils ne sont jamais exposés au navigateur. La clé Resend dédiée est réservée à l’envoi ; les réglages SMTP et modèles des autres applications ne sont pas modifiés. Le répertoire public ne contient que la connexion, les scripts d’interface et les photos ; l’application, les sources documentaires et les suivis sont servis après authentification.
@@ -26,6 +26,16 @@ node scripts/add-members.cjs --emails personne1@entreprise.fr,personne2@entrepri
 Après avoir vérifié les adresses réelles, exécuter le même script avec `--apply` et la clé opérateur dans l’environnement. Le script n’envoie aucun e-mail et ne crée aucun mot de passe fixe. Il réutilise les comptes existants, puis autorise les deux personnes. Elles demandent leur code depuis la page de connexion. Si un accès existe déjà pour une autre personne, le script s’arrête sans le remplacer.
 
 Actualisation de veille : conserver le processus de recherche/relecture/tri existant ci-dessous, reconstruire les pages sources, puis `npm run build`, aperçu et validation avant publication. Aucun changement automatique des suivis n’est fait lors d’une actualisation.
+
+## Assistant Cleo Chat
+
+Le panneau « Demander à Cleo » utilise le même moteur que `chat.cleolabs.co` via l’API signée `/api/v1/conversation`, version `2026-10-28`. `CLEO_CHAT_CONSUMER_SECRET` et `CLEO_CHAT_ORGANIZATION_ID` sont configurés uniquement sur le serveur Longchamp. La clé correspond à `CONVERSATION_API_LONGCHAMP_SECRET` côté Chat ; les clés existantes des autres consommateurs restent inchangées. Aucun secret, identifiant interne Chat ou contournement d’authentification n’est transmis au navigateur.
+
+Migration additive `20261104120000_longchamp_chat.sql` : fils privés par utilisateur OTP et réservation atomique d’un tour par personne. Organisation, auteur et fil sont résolus côté serveur ; le contexte de la fiche ou du produit est relu dans le catalogue généré, jamais traité comme une preuve juridique. Seule une réponse finale `complete` avec `controlesMenes=true` est affichée, avec les citations renvoyées par le service. HTML brut et images distantes du modèle ne sont pas exécutés/chargés. Arrêt, timeout et déconnexion annulent la lecture ; aucune réponse du moteur local de démonstration ne prend le relais si l’API ou un script échoue.
+
+Le fil affiché reste dans la page ; « Nouvelle conversation » ou un rechargement commence un nouveau fil. Le service Chat conserve ses transcriptions et faits d’entreprise dans un espace isolé `longchamp` + organisation, avec fils séparés par acteur. Aucun ancien historique ni préférence personnelle n’est migré. Le contrat v1 ne synchronise pas automatiquement suppression/export entre produits. La recherche externe automatique est désactivée par ce contrat ; le corpus Cleo et Bedrock restent disponibles. Ce raccordement ne garantit pas la justesse juridique générale de chaque réponse.
+
+Contrôles : `npm test`, `node tests/cleo-chat-browser.mjs` et `tests/cleo-chat-rls.sql` (transactions annulées). Le build produit le catalogue serveur `.generated/chat-context.json` et le rendu Markdown public depuis la dépendance verrouillée.
 
 ## Favoris et avis sur les articles
 
@@ -47,7 +57,7 @@ Le référentiel sourcé et le fil récent sont séparés de l’inventaire hist
 
 Versions publiques : https://demo.cleolabs.co/longchamp/ et https://cleo-longchamp-demo.vercel.app/.
 
-Actualisation : `python3 update-veille.py ~/veille/longchamp 2026-11-02`, après le tri par `veille-trie.mjs`. Les cartes retenues, preuves de relecture et assertions sont conservées dans `watch/`. Si la revue initiale est régénérée par `review60/refresh.py`, réappliquer ensuite ce complément. Le chat de la démo utilise les fiches locales.
+Actualisation : `python3 update-veille.py ~/veille/longchamp 2026-11-02`, après le tri par `veille-trie.mjs`. Les cartes retenues, preuves de relecture et assertions sont conservées dans `watch/`. Si la revue initiale est régénérée par `review60/refresh.py`, réappliquer ensuite ce complément. La copie statique garde son moteur documentaire local ; l’application authentifiée le remplace par Cleo Chat.
 
 
 Suivis par substance : après `update-veille.py`, exécuter `python3 build-follows.py ~/veille/longchamp-pfhxa`. Le moteur utilise des liens de source documentés, et non une recherche de mots pour déduire l’identité chimique. Recherche ciblée et limites dans `watch/substances/`. L’ajout accepte un nom connu ou un CAS avec clé valide ; un CAS sans correspondance documentée reste « Recherche à compléter ». Les suivis sont stockés dans le navigateur, modifiables, suspendables et exportables. Pas de collecte ou notification automatique, ni de synchronisation entre comptes.
