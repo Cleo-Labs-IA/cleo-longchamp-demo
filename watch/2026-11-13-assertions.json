@@ -1,0 +1,8 @@
+{
+  "query": "cards = fil.json filtered by relu.date == 2026-11-13",
+  "raw": 21,
+  "unique_keys": 21,
+  "unique_urls": 21,
+  "oracle_found": 21,
+  "confidence": "verified citations; applicability conditional"
+}

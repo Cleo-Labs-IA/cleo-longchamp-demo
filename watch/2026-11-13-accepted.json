@@ -1,0 +1,929 @@
+[
+  {
+    "key": "us-cbp-foreign-importers-of-record-20261106",
+    "title": "États-Unis : la CBP durcit les conditions d'importation pour les importateurs étrangers",
+    "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-11-06/html/2026-22735.htm",
+    "source_name": "Federal Register (govinfo), U.S. Customs and Border Protection",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML. Règle intérimaire CBP Dec. 26-19, publiée au Federal Register du 6 novembre 2026.",
+    "date": "2026-11-06",
+    "event_date": "2026-11-06",
+    "effective_date": "2027-01-05",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US",
+    "domain": "customs",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "lunettes",
+      "bijoux"
+    ],
+    "summary": "La CBP publie une règle intérimaire qui encadre les importateurs officiels étrangers (foreign IOR). Ils doivent être validés CTPAT ou passer par un commissionnaire en douane agréé lui-même validé CTPAT. La règle entre en vigueur le 5 janvier 2027, commentaires ouverts jusqu'à la même date.",
+    "consequences": [
+      "Si une entité Longchamp hors des États-Unis agit comme importateur officiel, ses entrées devront passer par un statut CTPAT ou un commissionnaire validé CTPAT à partir du 5 janvier 2027.",
+      "Les commissionnaires en douane ont jusqu'au 6 mai 2027 pour se mettre en conformité complète."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier quelle entité figure comme importateur officiel sur les entrées américaines de sacs, souliers, lunettes, bijoux et vêtements, et confirmer avec le commissionnaire son statut CTPAT.",
+        "team": "Douane et logistique",
+        "due": "2027-01-05",
+        "legal_ref": "19 CFR parts 110, 111, 141, 142 et 171, CBP Dec. 26-19 (91 FR 69977)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "La règle vise les importateurs officiels étrangers. Si Longchamp importe via une filiale américaine, l'effet direct reste limité. Règle intérimaire, susceptible d'évoluer après commentaires.",
+    "date_evidence": "En-tête govinfo : « Friday, November 6, 2026 » ; « This interim final rule is effective on January 5, 2027 ».",
+    "event_type": "official_publication",
+    "verification_status": "official_source_reviewed",
+    "citation": "This interim final rule is effective on January 5, 2027.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-06/html/2026-22735.htm"
+    }
+  },
+  {
+    "key": "us-epa-tsca-pfas-8a7-icr-20261113",
+    "title": "États-Unis : l'EPA prévoit d'exempter les articles importés du rapport PFAS TSCA",
+    "source_url": "https://www.govinfo.gov/content/pkg/FR-2026-11-13/html/2026-23125.htm",
+    "source_name": "Federal Register (govinfo), Environmental Protection Agency",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML. Avis de renouvellement de la collecte d'informations TSCA 8(a)(7) PFAS (ICR 2682.04).",
+    "date": "2026-11-13",
+    "event_date": "2026-11-13",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "L'EPA soumet à l'OMB le renouvellement de la collecte d'informations sur les PFAS au titre de TSCA 8(a)(7), commentaires jusqu'au 14 décembre 2026. L'avis indique que l'EPA entend modifier la règle de 2023 pour exempter notamment les articles importés et instaurer un seuil de minimis de 0,1 %.",
+    "consequences": [
+      "Pour Longchamp, importateur d'articles finis, l'exemption annoncée réduirait la charge de déclaration PFAS fédérale si la modification est adoptée.",
+      "Tant que la règle modifiée n'est pas publiée, la règle de 2023 reste le texte de référence."
+    ],
+    "actions": [
+      {
+        "action": "Suivre la publication de la règle modifiée et suspendre tout chantier de déclaration TSCA PFAS sur les articles importés jusqu'à confirmation écrite du texte final.",
+        "team": "Conformité produit",
+        "due": "2026-12-14",
+        "legal_ref": "15 U.S.C. 2607(a)(7) ; 40 CFR part 705 ; EPA-HQ-OPPT-2020-0549"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Renouvellement administratif d'une collecte d'informations. L'exemption des articles importés reste une intention de l'EPA, pas une règle adoptée.",
+    "date_evidence": "En-tête govinfo : « Friday, November 13, 2026 » ; « Comments may be submitted on or before December 14, 2026 ».",
+    "event_type": "consultation",
+    "verification_status": "official_source_reviewed",
+    "citation": "imported articles; byproducts; impurities; research and development",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-13/html/2026-23125.htm"
+    }
+  },
+  {
+    "key": "us-wa-safer-products-cycle-recommandations-20261105",
+    "title": "État de Washington : projet de restrictions sur le plomb et le cadmium des bijoux et le PVC des emballages",
+    "source_url": "https://ecology.wa.gov/blog/november-2026/safer-products-for-washington-recommends-new-restrictions-to-reduce-harmful-chemicals",
+    "source_name": "Washington State Department of Ecology, Safer Products for Washington",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML. Billet officiel du programme Safer Products for Washington présentant les rapports provisoires.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-WA",
+    "domain": "substances",
+    "categories": [
+      "bijoux",
+      "emballages"
+    ],
+    "summary": "Le Department of Ecology publie ses recommandations provisoires sur 15 catégories de produits. Elles visent notamment les bijoux et accessoires contenant du plomb ou du cadmium, et les emballages plastiques en PVC ou PVDC. Les commentaires sont ouverts jusqu'au 18 décembre 2026.",
+    "consequences": [
+      "Les bijoux fantaisie et porte-clés Longchamp vendus dans l'État pourraient relever d'une future restriction plomb et cadmium.",
+      "Les emballages plastiques en PVC ou PVDC pourraient faire l'objet de restrictions ou d'obligations de déclaration, avec une réglementation annoncée à partir de 2027."
+    ],
+    "actions": [
+      {
+        "action": "Recenser les bijoux, porte-clés et emballages plastiques vendus dans l'État de Washington et obtenir des fournisseurs les teneurs en plomb, cadmium et la nature des plastiques (PVC, PVDC).",
+        "team": "Conformité produit et achats",
+        "due": "2026-12-18",
+        "legal_ref": "RCW 70A.350 (Safer Products for Washington), rapport législatif provisoire du cycle en cours"
+      },
+      {
+        "action": "Décider d'une éventuelle contribution à la consultation publique.",
+        "team": "Affaires réglementaires",
+        "due": "2026-12-18",
+        "legal_ref": "Consultation Safer Products for Washington, clôture le 18 décembre 2026"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Recommandations provisoires, sans restriction adoptée. Le périmètre exact des « accessoires » et les seuils restent à lire dans le rapport technique.",
+    "date_evidence": "Billet daté « Nov 5, 2026 » ; liste de l'actualité : « November 05 ».",
+    "event_type": "consultation",
+    "verification_status": "official_source_reviewed",
+    "citation": "Jewelry and accessories containing lead, cadmium, and their compounds",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://ecology.wa.gov/blog/november-2026/safer-products-for-washington-recommends-new-restrictions-to-reduce-harmful-chemicals"
+    }
+  },
+  {
+    "key": "us-ca-calrecycle-sb54-baseline-reduction-20261102",
+    "title": "Californie : CalRecycle met à jour la référence de réduction des emballages plastiques (SB 54)",
+    "source_url": "https://www2.calrecycle.ca.gov/Docs/Publications/Details/1782",
+    "source_name": "CalRecycle, publications",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML. Fiche officielle de la publication DRRR-2026-1780 ; la page programme SB 54 mentionne aussi cette publication du 2 novembre.",
+    "date": "2026-11-02",
+    "event_date": "2026-11-02",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "circularite",
+    "categories": [
+      "emballages"
+    ],
+    "summary": "CalRecycle publie une mise à jour du rapport de référence de réduction à la source, établie à partir des données déclarées par les producteurs. Ce rapport sert de référence pour mesurer les objectifs de réduction des matériaux plastiques couverts par SB 54. Il remplace le rapport du 31 décembre 2024.",
+    "consequences": [
+      "Les emballages plastiques mis sur le marché californien entrent dans la base qui sert à mesurer la réduction exigée des producteurs."
+    ],
+    "actions": [
+      {
+        "action": "Comparer les tonnages d'emballages plastiques déclarés pour la Californie avec la nouvelle référence et ajuster la trajectoire de réduction avec l'organisme Circular Action Alliance.",
+        "team": "Responsable emballages et REP",
+        "due": "Avant la prochaine déclaration SB 54",
+        "legal_ref": "14 CCR 18980.9(c) ; Update to the Source Reduction Baseline (DRRR-2026-1780)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Les valeurs chiffrées du rapport PDF ne sont pas reprises ici. La part de Longchamp dans la référence n'est pas établie.",
+    "date_evidence": "Fiche publication : « Published to Web 11/2/2026 » ; « On November 2, 2026, CalRecycle updated the baseline report ».",
+    "event_type": "publication",
+    "verification_status": "official_source_reviewed",
+    "citation": "The Source Reduction Baseline Report will serve as the benchmark for measuring progress toward the source reduction requirements for plastic covered material.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www2.calrecycle.ca.gov/Docs/Publications/Details/1782"
+    }
+  },
+  {
+    "key": "us-me-pfas-products-cuu-calendrier-20261105",
+    "title": "Maine : le DEP actualise sa page PFAS dans les produits et le calendrier des dérogations",
+    "source_url": "https://www.maine.gov/dep/spills/topics/pfas/PFAS-products/",
+    "source_name": "Maine Department of Environmental Protection",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML. Page mise à jour le 5 novembre 2026 ; le détail des modifications n'est pas publié.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "2032-01-01",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-ME",
+    "domain": "substances",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "Le DEP du Maine a mis à jour sa page sur les PFAS intentionnellement ajoutés. Il n'engagera pas de nouvelle procédure de dérogation (CUU) en 2026 et fixe au 1er avril 2027 la date limite des demandes visant l'interdiction générale de 2032.",
+    "consequences": [
+      "L'interdiction des articles textiles contenant des PFAS ajoutés s'applique depuis le 1er janvier 2026, selon le calendrier de la page.",
+      "Toute demande de dérogation pour un usage PFAS sur sacs, cuirs ou souliers avant l'interdiction générale de 2032 doit être déposée avant le 1er avril 2027."
+    ],
+    "actions": [
+      {
+        "action": "Confirmer avec les fournisseurs de toiles, cuirs et enductions l'absence de PFAS ajoutés pour les références vendues dans le Maine, et identifier tout usage qui justifierait une demande de dérogation.",
+        "team": "Conformité produit et achats",
+        "due": "2027-04-01",
+        "legal_ref": "38 M.R.S. § 1614 ; Chapter 90 du DEP du Maine"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Mise à jour documentaire, sans nouveau texte établi par cette carte. Le détail des changements n'est pas publié.",
+    "date_evidence": "Pied de page : « Updated November 5, 2026 ».",
+    "event_type": "guidance",
+    "verification_status": "official_source_reviewed",
+    "citation": "The Dept. does not anticipate initiating rulemaking for additional CUU determinations in 2026.",
+    "page_update": true,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.maine.gov/dep/spills/topics/pfas/PFAS-products/"
+    }
+  },
+  {
+    "key": "us-ca-p65-trousses-cosmetiques-05180-20261103",
+    "title": "Californie : avis Proposition 65 sur des trousses cosmétiques Envogue (DEHP)",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05180",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML.",
+    "date": "2026-11-03",
+    "event_date": "2026-11-03",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Un avis préalable privé déposé le 3 novembre vise des trousses cosmétiques Envogue vendues par T.J. Maxx et allègue une exposition au DEHP. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel concerne les trousses et pochettes en matière plastique ou enduite, proches de la petite maroquinerie Longchamp."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier les déclarations phtalates (DEHP) des fournisseurs pour les trousses et pochettes enduites vendues en Californie, et l'avertissement Proposition 65 si nécessaire.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Cal. Health & Safety Code § 25249.6 ; avis 2026-05180"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire et sans lien avec Longchamp. La catégorie cuir désigne ici la famille sacs et petite maroquinerie, pas la matière du produit visé.",
+    "date_evidence": "Champ Date Filed : 11/03/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Envogue cosmetics cases",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05180"
+    }
+  },
+  {
+    "key": "us-ca-p65-sacs-de-voyage-05293-20261110",
+    "title": "Californie : avis Proposition 65 sur des sacs de voyage Lcsmaokin (DEHP)",
+    "source_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05293",
+    "source_name": "California Department of Justice",
+    "source_note": "Page officielle lue le 13 novembre 2026 ; date et extrait contrôlés dans le HTML.",
+    "date": "2026-11-10",
+    "event_date": "2026-11-10",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "United States",
+    "code": "US-CA",
+    "domain": "substances",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Un avis préalable privé déposé le 10 novembre vise notamment des sacs de voyage Lcsmaokin vendus sur Amazon et allègue une exposition au DEHP. Le dépôt figure au registre officiel du procureur général.",
+    "consequences": [
+      "Ce signal sectoriel confirme la surveillance des phtalates dans les sacs à composants plastiques ou enduits vendus en Californie."
+    ],
+    "actions": [
+      {
+        "action": "Recouper les essais phtalates des sacs de voyage et des modèles en toile enduite vendus en Californie avec les seuils retenus par Longchamp.",
+        "team": "Conformité produit et achats",
+        "due": "Revue proposée",
+        "legal_ref": "Cal. Health & Safety Code § 25249.6 ; avis 2026-05293"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Allégation privée, sans décision judiciaire et sans lien avec Longchamp. La matière exacte des sacs visés n'est pas précisée sur la page.",
+    "date_evidence": "Champ Date Filed : 11/10/2026.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Lcsmaokin travel bags",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05293"
+    }
+  },
+  {
+    "key": "cn-samr-abrogation-norme-cachemire-mouton-20261105",
+    "title": "Chine : la SAMR abroge la norme associative qui permettait de vendre de la laine de mouton comme « cachemire de mouton »",
+    "source_url": "https://www.sac.gov.cn/xw/bzhyw/art/2026/art_fa3923d3ece14178aa4808352fa4dae6.html",
+    "source_name": "SAC (国家标准化管理委员会), rubrique actualités de la normalisation",
+    "source_note": "Page officielle lue le 13 novembre 2026. Article repris de la SAMR (文章来源：市场监管总局). La décision vise la norme associative T/CAPMA 9-2025 de l'association chinoise de circulation des produits animaux.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "2026-11-05",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "etiquetage",
+    "categories": [
+      "textile"
+    ],
+    "summary": "La SAMR abroge avec effet immédiat la norme associative T/CAPMA 9-2025 sur le « cachemire de mouton » (绵羊绒). Selon la SAMR, ce terme contredit les normes nationales sur la laine et les fibres naturelles et sert à vendre de la laine peignée comme du cachemire.",
+    "consequences": [
+      "En Chine, la dénomination « 绵羊绒 » ne peut plus s'appuyer sur cette norme. La SAMR la qualifie de publicité trompeuse qui confond laine et cachemire.",
+      "Les étiquettes de composition et fiches produit du prêt-à-porter en maille doivent suivre GB/T 11951-2018 et GB 1523-2013 pour nommer les fibres animales."
+    ],
+    "actions": [
+      {
+        "action": "Contrôler les étiquettes et fiches produit Chine des pièces en laine ou cachemire : aucune mention « 绵羊绒 » ni appellation cachemire pour de la laine de mouton.",
+        "team": "Conformité produit et e-commerce Chine",
+        "due": "Avant la prochaine mise en ligne de la collection maille",
+        "legal_ref": "GB/T 11951-2018 ; GB 1523-2013 ; décision SAMR d'abrogation de T/CAPMA 9-2025"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "La décision vise une norme associative et ses utilisateurs, pas Longchamp. Rien n'indique que Longchamp emploie ce terme. Le texte de la décision d'abrogation n'est pas reproduit sur la page.",
+    "date_evidence": "Mention « 更新时间：2026-11-05 10:30 » sous le titre de l'article.",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "将分梳绵羊毛产品冠以“绵羊绒”名义销售，混淆羊毛和羊绒概念，误导消费者",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.sac.gov.cn/xw/bzhyw/art/2026/art_fa3923d3ece14178aa4808352fa4dae6.html"
+    }
+  },
+  {
+    "key": "cn-rc-bafeini-cartable-phtalates-20261105",
+    "title": "Chine : rappel de cartables Bafeini (芭菲尼) 2818# pour phtalates dans les pièces plastiques",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_25e081f2559c4a42b29fc45effde52e3.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Hunan), 200 cartables fabriqués le 18 juin 2026.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "securite",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Hunan Bafeini rappelle 200 cartables modèle 2818#. Les pièces plastiques noires et roses accessibles dépassent la limite de phtalates de GB 21027-2020.",
+    "consequences": [
+      "Le Hunan publie le même jour cinq rappels de cartables : trois pour phtalates dans les pièces plastiques, deux pour poignées qui lâchent sous charge."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essai des sacs vendus en Chine couvrent les phtalates des pièces plastiques accessibles (tirettes, fenêtres, logos en relief).",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "GB 21027-2020"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sans lien avec Longchamp. Cartable pour élève, hors gamme Longchamp.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "因书包表面黑色与粉色塑胶部分可触及的塑料件中邻苯二甲酸酯超量",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_25e081f2559c4a42b29fc45effde52e3.html"
+    }
+  },
+  {
+    "key": "cn-rc-zundi-cartable-poignee-20261105",
+    "title": "Chine : rappel de sacs à dos Zundi (尊帝) ZD1315# pour poignée qui lâche sous charge",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_35e97638660d4788a9a90c4320eb2889.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Hunan), 200 sacs fabriqués le 30 avril 2024.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "securite",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Shaodong Jiaxi rappelle 200 sacs à dos scolaires Zundi ZD1315#. Sous charge, la poignée peut se détacher ou les coutures s'ouvrir lors de l'essai de choc.",
+    "consequences": [
+      "Le Hunan publie le même jour cinq rappels de cartables : trois pour phtalates dans les pièces plastiques, deux pour poignées qui lâchent sous charge."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les essais de tenue des poignées sous charge (choc et oscillation) sont à jour pour les sacs vendus en Chine.",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "Normes chinoises de bagagerie (essai de choc des poignées)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sans lien avec Longchamp. Cartable pour élève, hors gamme Longchamp.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "因背包提把手振荡冲击性能在负重状态下，容易发生脱落或缝线开裂",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_35e97638660d4788a9a90c4320eb2889.html"
+    }
+  },
+  {
+    "key": "cn-rc-myqi-cartable-poignee-20261105",
+    "title": "Chine : rappel de cartables MYQI 2209 pour poignée qui lâche sous charge",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_f845142ba76f4252bb234a1d84783016.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Hunan), 142 cartables fabriqués le 1er juillet 2026. La même marque a déjà fait l'objet d'un rappel publié le 17 septembre 2026.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "securite",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Shaodong Miyouqi rappelle 142 cartables MYQI modèle 2209 petit format. Sous charge, la poignée peut se détacher ou les coutures s'ouvrir.",
+    "consequences": [
+      "Le Hunan publie le même jour cinq rappels de cartables : trois pour phtalates dans les pièces plastiques, deux pour poignées qui lâchent sous charge."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les essais de tenue des poignées sous charge (choc et oscillation) sont à jour pour les sacs vendus en Chine.",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "Normes chinoises de bagagerie (essai de choc des poignées)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sans lien avec Longchamp. Cartable pour élève, hors gamme Longchamp.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "因学生书包提把手震荡冲击性能在负重状态下，容易发生脱落或缝线开裂",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_f845142ba76f4252bb234a1d84783016.html"
+    }
+  },
+  {
+    "key": "cn-rc-qunyou-cartable-phtalates-20261105",
+    "title": "Chine : rappel de cartables Qunyou (群友) pour phtalates dans la poche avant",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_97329bcdafd04920bf80d79d038bc5e5.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Hunan), 100 cartables fabriqués le 30 juillet 2026.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "securite",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Shaodong Qunyou rappelle 100 cartables de 46 x 30 x 16 cm. Les pièces plastiques accessibles de la poche avant dépassent la limite de phtalates de GB 21027-2020.",
+    "consequences": [
+      "Le Hunan publie le même jour cinq rappels de cartables : trois pour phtalates dans les pièces plastiques, deux pour poignées qui lâchent sous charge."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essai des sacs vendus en Chine couvrent les phtalates des pièces plastiques accessibles (tirettes, fenêtres, logos en relief).",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "GB 21027-2020"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sans lien avec Longchamp. Cartable pour élève, hors gamme Longchamp.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "因书包前袋塑胶部分可触及的塑料件中邻苯二甲酸酯超量",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_97329bcdafd04920bf80d79d038bc5e5.html"
+    }
+  },
+  {
+    "key": "cn-rc-yasu-cartable-phtalates-20261105",
+    "title": "Chine : rappel de cartables bleus Yasu (雅俗) 6628# pour phtalates dans la poche transparente",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_baeeadcf7e8d4626af9620c1f8487501.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Hunan), 100 cartables fabriqués le 28 juillet 2025.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "securite",
+    "categories": [
+      "cuir"
+    ],
+    "summary": "Hunan Yasu rappelle 100 cartables bleus modèle 6628#. La poche transparente en plastique dépasse la limite de phtalates de GB 21027-2020.",
+    "consequences": [
+      "Le Hunan publie le même jour cinq rappels de cartables : trois pour phtalates dans les pièces plastiques, deux pour poignées qui lâchent sous charge."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essai des sacs vendus en Chine couvrent les phtalates des pièces plastiques accessibles (tirettes, fenêtres, logos en relief).",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "GB 21027-2020"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sans lien avec Longchamp. Cartable pour élève, hors gamme Longchamp.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "因书包透明袋塑胶部分可触及的塑料件中邻苯二甲酸酯超量",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_baeeadcf7e8d4626af9620c1f8487501.html"
+    }
+  },
+  {
+    "key": "cn-rc-mianzhizui-serviette-ph-20261105",
+    "title": "Chine : rappel de serviettes Mianzhizui (棉之最) Xinya pour pH trop élevé",
+    "source_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_99eb6f112a0c49d69499108e81617186.html",
+    "source_name": "SAMR, centre technique de rappel des produits défectueux (samrdprc.org.cn)",
+    "source_note": "Avis de rappel lu (relais Jiangsu), 10 serviettes 35 x 75 fabriquées le 8 août 2026.",
+    "date": "2026-11-05",
+    "event_date": "2026-11-05",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "China",
+    "code": "CN",
+    "domain": "substances",
+    "categories": [
+      "textile"
+    ],
+    "summary": "Jiangsu Guanghao rappelle des serviettes Xinya 35 x 75. Leur pH est trop alcalin et peut irriter la peau.",
+    "consequences": [
+      "Les autorités chinoises sanctionnent par rappel un pH textile hors limite, même sur un très petit lot."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essai du prêt-à-porter vendu en Chine incluent le pH selon GB 18401.",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "GB 18401 (sécurité de base des produits textiles)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel sectoriel d'un tiers en Chine, sur du linge de toilette, sans lien avec Longchamp. La page ne cite pas la norme appliquée.",
+    "date_evidence": "Mention « 发布时间：2026-11-05 » sur la page du rappel.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "由于PH值偏高（呈碱性），可能对人体皮肤产生刺激",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_99eb6f112a0c49d69499108e81617186.html"
+    }
+  },
+  {
+    "key": "fr-rc-today-lidl-parures-de-lit-irritant-20261109",
+    "title": "France : rappel des parures de lit et draps housse TODAY (Lidl) pour une substance chimique irritante",
+    "source_url": "https://rappel.conso.gouv.fr/fiche-rappel/24036/interne",
+    "source_name": "RappelConso (DGCCRF, DGAL, DGS)",
+    "source_note": "Fiche RappelConso n° 24036 lue en ligne le 13 novembre 2026 et enregistrement de l'API open data rappelconso-v2-gtin-espaces (catégorie « vêtements, mode, epi », sous-catégorie « vêtements, textiles, accessoires de mode »). Motif, lot LTAMA3072, période de vente et distributeurs relevés sur la fiche. La substance n'est pas nommée.",
+    "date": "2026-11-09",
+    "event_date": "2026-11-09",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "France",
+    "code": "FR",
+    "domain": "product_safety",
+    "categories": [
+      "textile"
+    ],
+    "summary": "Lidl rappelle des parures de lit et draps housse de marque TODAY, vendus du 23/10/2025 au 09/11/2026. La fiche invoque une substance chimique qui peut irriter la peau et les voies respiratoires.",
+    "consequences": [
+      "Les autorités françaises suivent les substances chimiques dans les articles textiles au contact de la peau.",
+      "La fiche ne nomme pas la substance : elle ne permet pas de cibler une restriction précise."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essais chimiques du prêt-à-porter et des doublures textiles couvrent les substances irritantes restreintes, et relancer les fournisseurs sans rapport récent.",
+        "team": "Conformité produit et qualité",
+        "due": "Revue proposée",
+        "legal_ref": "Règlement (CE) n° 1907/2006 (REACH), annexe XVII"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d'un tiers, sans lien avec Longchamp. Rappel sectoriel sur du linge de maison, pas sur du prêt-à-porter. La substance en cause n'est pas publiée sur la fiche.",
+    "date_evidence": "Fiche RappelConso : « 09/11/2026 » ; champ date_publication de l'API open data : 2026-11-09.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "Présence d'une substance chimique susceptible de provoquer une irritation de la peau et des voies respiratoires",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://rappel.conso.gouv.fr/fiche-rappel/24036/interne"
+    }
+  },
+  {
+    "key": "fr-rc-keeltoys-centerparcs-porte-cles-peluche-20261106",
+    "title": "France : rappel des porte-clés peluche Keeleco Keel Toys logotés Center Parcs pour une pastille qui se détache",
+    "source_url": "https://rappel.conso.gouv.fr/fiche-rappel/24034/interne",
+    "source_name": "RappelConso (DGCCRF, DGAL, DGS)",
+    "source_note": "Fiche RappelConso n° 24034 lue en ligne le 13 novembre 2026 et enregistrement de l'API open data rappelconso-v2-gtin-espaces (catégorie « bébés-enfants (hors alimentaire) », sous-catégorie « jouets »). Modèles, GTIN, période de vente et motif relevés sur la fiche.",
+    "date": "2026-11-06",
+    "event_date": "2026-11-06",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "France",
+    "code": "FR",
+    "domain": "product_safety",
+    "categories": [
+      "bijoux"
+    ],
+    "summary": "Les porte-clés peluche Keeleco 12 cm de Keel Toys, logotés Center Parcs, sont rappelés. La pastille rotative portant le logo se détache sans effort et forme une petite pièce accessible.",
+    "consequences": [
+      "Les autorités contrôlent la fixation des breloques et pastilles sur les porte-clés à décor peluche, traités comme des jouets.",
+      "Un défaut signalé en usage normal suffit à déclencher un rappel."
+    ],
+    "actions": [
+      {
+        "action": "Faire tester la tenue à la traction des breloques, pastilles et charms fixés sur les porte-clés et bijoux de sac, et documenter la qualification jouet ou accessoire.",
+        "team": "Conformité produit",
+        "due": "Revue proposée",
+        "legal_ref": "Directive 2009/48/CE (jouets), norme NF EN 71-1"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d'un tiers, sans lien avec Longchamp. Rappel sectoriel. Produit qualifié jouet sur la fiche ; un porte-clés accessoire de mode n'est pas forcément soumis aux mêmes règles.",
+    "date_evidence": "Fiche RappelConso : « 06/11/2026 » ; champ date_publication de l'API open data : 2026-11-06.",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "Un signalement fait état du détachement, sans effort, de la pastille verte rotative portant le logo sur un porte-clés peluche.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://rappel.conso.gouv.fr/fiche-rappel/24034/interne"
+    }
+  },
+  {
+    "key": "fr-mte-rep-emballages-pro-sanctions-eco-organismes-20261109",
+    "title": "France : le ministre engage des procédures de sanction contre des éco-organismes des emballages professionnels",
+    "source_url": "https://www.ecologie.gouv.fr/presse/filiere-rep-emballages-professionnels-mathieu-lefevre-engage-procedures-sanctions-lencontre",
+    "source_name": "Ministère de la Transition écologique",
+    "source_note": "Communiqué de presse officiel lu intégralement le 13 novembre 2026. Il vise les barèmes de CITEO PRO, Léko PRO et Twiice publiés le 5 octobre 2026, puis modifiés par certains éco-organismes.",
+    "date": "2026-11-09",
+    "event_date": "2026-11-09",
+    "effective_date": "2027-01-01",
+    "kind": "delta",
+    "country": "France",
+    "code": "FR",
+    "domain": "circularite",
+    "categories": [
+      "emballages"
+    ],
+    "summary": "Le ministre chargé de la Transition écologique a ouvert une procédure contradictoire contre les éco-organismes de la REP emballages professionnels. Il juge leurs barèmes inférieurs de 10 % à 20 % au niveau nécessaire ; ils ont un mois pour répondre.",
+    "consequences": [
+      "Les barèmes publiés le 5 octobre 2026 peuvent encore évoluer avant l'entrée en vigueur de la filière au 1er janvier 2027.",
+      "Une hausse des contributions est possible pour les metteurs en marché d'emballages professionnels."
+    ],
+    "actions": [
+      {
+        "action": "Recenser les emballages professionnels mis en marché (cartons d'expédition, emballages de transport vers les boutiques) et garder une marge budgétaire sur la contribution 2027 jusqu'à la fin de la procédure.",
+        "team": "Conformité et responsable REP, finance",
+        "due": "Avant l'adhésion pour 2027",
+        "legal_ref": "Code de l'environnement, article L. 541-9-6"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Procédure en cours, sans sanction prononcée. Le communiqué ne fixe pas de nouveau barème. Le périmètre exact des emballages professionnels de Longchamp reste à établir.",
+    "date_evidence": "Mention visible sur la page : « Publié le 09 novembre 2026 ».",
+    "event_type": "enforcement",
+    "verification_status": "official_source_reviewed",
+    "citation": "Les éco-organismes disposent désormais d’un mois pour présenter leurs observations et justifier leurs choix tarifaires.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://www.ecologie.gouv.fr/presse/filiere-rep-emballages-professionnels-mathieu-lefevre-engage-procedures-sanctions-lencontre"
+    }
+  },
+  {
+    "key": "fr-ademe-bilan-reemploi-emballages-2025-20261106",
+    "title": "France : l'ADEME publie le bilan du réemploi des emballages pour 2025",
+    "source_url": "https://librairie.ademe.fr/economie-circulaire-et-dechets/9713-11576-reemploi-des-emballages-donnees-2025-9791029727597.html",
+    "source_name": "ADEME, librairie",
+    "source_note": "Page de présentation officielle lue le 13 novembre 2026, signalée par l'actualité ADEME Filières REP du 9 novembre. Le PDF de 34 pages n'a pas été lu (téléchargement conditionné à un courriel).",
+    "date": "2026-11-06",
+    "event_date": "2026-11-06",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "France",
+    "code": "FR",
+    "domain": "packaging",
+    "categories": [
+      "emballages"
+    ],
+    "summary": "L'ADEME publie son bilan 2025 du réemploi des emballages : 2,10 % au total, 1,56 % pour les emballages ménagers. Le bilan évalue l'atteinte des objectifs de réemploi fixés par décret.",
+    "consequences": [
+      "Les taux restent loin des objectifs réglementaires de réemploi, ce qui alimente les contrôles et les débats sur les éco-modulations.",
+      "Les données déclarées par les éco-organismes servent de base à ce bilan."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier avec l'éco-organisme emballages que les emballages réemployés de Longchamp (housses, boîtes, cartons logistiques) sont bien déclarés comme tels.",
+        "team": "Conformité et responsable REP",
+        "due": "Prochaine déclaration annuelle",
+        "legal_ref": "Loi AGEC n° 2020-105, objectifs de réemploi des emballages"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Publication statistique, sans nouvelle obligation. Le détail par filière et l'écart aux objectifs n'ont pas été lus dans le PDF.",
+    "date_evidence": "Fiche librairie ADEME : « Date de mise en ligne 06/11/2026 » ; tuile ADEME Filières REP datée du 9 novembre 2026.",
+    "event_type": "publication",
+    "verification_status": "official_source_reviewed",
+    "citation": "Les résultats varient selon les périmètres : 1,56 % pour les emballages ménagers, 40,47 % pour ceux de la restauration et 2,97 % pour les emballages industriels et commerciaux.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://librairie.ademe.fr/economie-circulaire-et-dechets/9713-11576-reemploi-des-emballages-donnees-2025-9791029727597.html"
+    }
+  },
+  {
+    "key": "sa-mc-loi-protection-consommateur-20261110",
+    "title": "Arabie saoudite : le Conseil des ministres adopte la première loi globale de protection du consommateur",
+    "source_url": "https://mc.gov.sa/ar/mediacenter/News/Pages/11-10-26-03.aspx",
+    "source_name": "Ministère du Commerce d'Arabie saoudite, actualités",
+    "source_note": "Communiqué officiel lu le 13 novembre 2026. Deux articles du même ministère complètent l'annonce : déclaration du ministre (10-11-26-02, 30 Joumada al-Oula 1448) et liste des pratiques commerciales interdites (11-11-26-01, 1er Joumada al-Thania 1448). Le texte de la loi n'est pas encore lu : la publication au journal officiel Umm Al-Qura n'a pas été trouvée à cette date.",
+    "date": "2026-11-10",
+    "event_date": "2026-11-10",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "Saudi Arabia",
+    "code": "SA",
+    "domain": "distribution",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "lunettes",
+      "bijoux"
+    ],
+    "summary": "Le Conseil des ministres saoudien a adopté une loi de protection du consommateur en 76 articles. Elle entre en application 180 jours après sa publication au journal officiel et remplace la loi anti-fraude commerciale, la loi sur le commerce électronique et la loi sur les données commerciales.",
+    "consequences": [
+      "Les règles saoudiennes d'information commerciale et de vente en ligne applicables aux sacs, chaussures, vêtements, lunettes et bijoux Longchamp passeront sous un texte unique.",
+      "Le ministère annonce l'interdiction des avis clients faux ou trompeurs et des contenus promotionnels non signalés comme publicité, avec des amendes jusqu'à 8 millions de riyals.",
+      "La date d'application reste à fixer : elle dépend de la publication au journal officiel."
+    ],
+    "actions": [
+      {
+        "action": "Suivre la publication de la loi au journal officiel Umm Al-Qura, puis comparer ses articles sur l'information produit et la vente en ligne aux pratiques actuelles du distributeur saoudien et du site e-commerce.",
+        "team": "Juridique Moyen-Orient et conformité",
+        "due": "Dès la publication au journal officiel",
+        "legal_ref": "Loi saoudienne de protection du consommateur, adoptée par le Conseil des ministres le 10 novembre 2026"
+      },
+      {
+        "action": "Vérifier avec les équipes marketing et partenaires saoudiens que les contenus d'influence portent une mention publicitaire claire et que les avis clients affichés sont authentiques.",
+        "team": "Marketing digital Moyen-Orient",
+        "due": "Avant l'entrée en application (180 jours après publication)",
+        "legal_ref": "Communiqué du ministère du Commerce du 11 novembre 2026 sur les pratiques commerciales interdites"
+      }
+    ],
+    "obligations": [],
+    "severity": "Moderate",
+    "caveat": "Carte établie sur les communiqués du ministère, pas sur le texte de loi. Les obligations précises, les sanctions et la date d'application doivent être confirmées sur le texte publié au journal officiel.",
+    "date_evidence": "Date affichée sur la page : « 30 جمادى الأولى 1448 », soit le 10 novembre 2026 dans le calendrier Umm Al-Qura. Le communiqué indique une adoption « اليوم » par le Conseil des ministres.",
+    "event_type": "publication",
+    "verification_status": "official_source_reviewed",
+    "citation": "ويحل النظام عند العمل به بعد (180) يومًا من نشره في الجريدة الرسمية محل 3 أنظمة",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://mc.gov.sa/ar/mediacenter/News/Pages/11-10-26-03.aspx"
+    },
+    "status": "À venir"
+  },
+  {
+    "key": "eu-cwp2027-retrait-green-claims-20261104",
+    "title": "Union européenne : la Commission annonce le retrait de la proposition de directive Green Claims",
+    "source_url": "https://commission.europa.eu/document/download/9ad0afe2-f9a8-46e9-bd3b-74c2de496c48_en?filename=COM_2026_710_1_annexe_EN.pdf",
+    "source_name": "Commission européenne, programme de travail 2027, annexes (COM(2026) 710)",
+    "source_note": "Annexes du programme de travail 2027 lues en PDF le 13 novembre 2026, téléchargées depuis la page officielle « Commission work programme 2027 », qui date le document du 4 novembre 2026. L'annexe III liste la proposition COM(2023) 166, procédure 2023/0085 (COD), parmi les retraits. La page précise que ces retraits interviennent dans les six mois. Le retrait n'est pas encore formellement publié au Journal officiel.",
+    "date": "2026-11-04",
+    "event_date": "2026-11-04",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "European Union",
+    "code": "EU",
+    "domain": "claims",
+    "categories": [
+      "textile",
+      "cuir",
+      "souliers",
+      "emballages"
+    ],
+    "summary": "La Commission inscrit la proposition de directive sur la justification des allégations environnementales explicites (Green Claims) dans la liste des retraits de son programme de travail 2027. Elle constate l'absence d'accord au Conseil depuis 2024.",
+    "consequences": [
+      "Le cadre spécifique de preuve et de vérification préalable des allégations environnementales prévu par cette proposition ne devrait pas aboutir à court terme.",
+      "Les allégations environnementales de Longchamp (toile recyclée Le Pliage, cuir, emballages) restent encadrées par la directive 2024/825 (EmpCo) et par les pratiques commerciales déloyales, déjà suivies au fil."
+    ],
+    "actions": [
+      {
+        "action": "Maintenir la revue des allégations environnementales produits et emballages sur la base de la directive 2024/825, sans attendre de cadre Green Claims, et retirer du plan de conformité les jalons propres à la proposition COM(2023) 166.",
+        "team": "Conformité et RSE",
+        "due": "Prochaine revue des allégations marketing",
+        "legal_ref": "COM(2026) 710, annexe III, retrait n° 4 : COM(2023) 166, 2023/0085 (COD)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Annonce d'intention de la Commission. Le retrait devient effectif à sa publication formelle. Le Parlement européen peut réagir. Les règles EmpCo et nationales sur les allégations restent applicables.",
+    "date_evidence": "Page officielle du programme de travail : « 2027 Commission work programme - annexes 4 November 2026 ». Date de création du PDF : 4 novembre 2026.",
+    "event_type": "official_publication",
+    "verification_status": "official_source_reviewed",
+    "citation": "The Council failed to agree on a negotiating mandate in June 2024. Attemps by the Council presidency in 2025 to advance discussions did not succeed",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://commission.europa.eu/document/download/9ad0afe2-f9a8-46e9-bd3b-74c2de496c48_en?filename=COM_2026_710_1_annexe_EN.pdf"
+    },
+    "status": "Projet"
+  },
+  {
+    "key": "eu-sg-mint-velvet-espadrille-raya-20261113",
+    "title": "Union européenne : rappel des espadrilles compensées Mint Velvet Raya Sand",
+    "source_url": "https://ec.europa.eu/safety-gate-alerts/public/api/notification/10119499?language=en",
+    "source_name": "Commission européenne, Safety Gate, alerte OR/00127/26",
+    "source_note": "Fiche officielle lue le 13 novembre 2026 via l'interface publique de données Safety Gate (la page web https://ec.europa.eu/safety-gate-alerts/screen/webReport/alertDetail/10119499 est une application JavaScript sans texte lisible). Alerte notifiée par l'Irlande, produit d'origine Inde, vendu en ligne. Retrait volontaire par le détaillant le 30 juillet 2026, rappel auprès des consommateurs le 10 septembre 2026. Rappel sectoriel de tiers : il ne vise pas Longchamp.",
+    "date": "2026-11-13",
+    "event_date": "2026-11-13",
+    "effective_date": "",
+    "kind": "delta",
+    "country": "European Union",
+    "code": "EU",
+    "domain": "product_safety",
+    "categories": [
+      "souliers"
+    ],
+    "summary": "Safety Gate publie le rappel d'espadrilles compensées Mint Velvet « Raya Sand Espadrille Wedge » (modèle 039799). La semelle intérieure peut se détacher de la semelle et libérer la bride avant, avec une chute possible, en violation du règlement GPSR.",
+    "consequences": [
+      "Rappel sectoriel de tiers sur un soulier de mode : il illustre le contrôle de la tenue de l'assemblage semelle et bride au titre du GPSR.",
+      "Utile pour les souliers Longchamp à semelle compensée ou en corde, sans lien établi avec un produit Longchamp."
+    ],
+    "actions": [
+      {
+        "action": "Vérifier que les rapports d'essai des modèles d'espadrilles et de souliers compensés Longchamp couvrent l'adhérence semelle intérieure et semelle et la résistance des brides, et le demander au fournisseur si absent.",
+        "team": "Qualité produit souliers",
+        "due": "Avant la prochaine collection printemps-été",
+        "legal_ref": "Règlement (UE) 2023/988 (GPSR)"
+      }
+    ],
+    "obligations": [],
+    "severity": "Low",
+    "caveat": "Rappel d'un produit tiers, notifié par l'Irlande. Aucune conclusion sur les produits Longchamp. Les mesures datent de juillet et septembre 2026 ; la date retenue est la publication sur Safety Gate.",
+    "date_evidence": "Champ officiel de la fiche : « publicationDate »: « 2026-11-13T10:32:05.411Z ».",
+    "event_type": "recall",
+    "verification_status": "official_source_reviewed",
+    "citation": "footbed may detach from the sole of the sandal during use, causing the front strap to come loose. The user may fall and suffer injuries.",
+    "page_update": false,
+    "relu": {
+      "date": "2026-11-13",
+      "via": "fetch",
+      "url": "https://ec.europa.eu/safety-gate-alerts/public/api/notification/10119499?language=en"
+    }
+  }
+]

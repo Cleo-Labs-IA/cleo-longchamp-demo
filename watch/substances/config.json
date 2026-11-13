@@ -3414,6 +3414,315 @@
         "textile"
       ],
       "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-cbp-foreign-importers-of-record-20261106",
+      "kind": "text",
+      "value": "us-cbp-foreign-importers-of-record-20261106",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-epa-tsca-pfas-8a7-icr-20261113",
+      "kind": "text",
+      "value": "us-epa-tsca-pfas-8a7-icr-20261113",
+      "relation": "direct",
+      "markets": [
+        "US"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-wa-safer-products-cycle-recommandations-20261105",
+      "kind": "text",
+      "value": "us-wa-safer-products-cycle-recommandations-20261105",
+      "relation": "direct",
+      "markets": [
+        "US-WA"
+      ],
+      "products": [
+        "bijoux",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-calrecycle-sb54-baseline-reduction-20261102",
+      "kind": "text",
+      "value": "us-ca-calrecycle-sb54-baseline-reduction-20261102",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-me-pfas-products-cuu-calendrier-20261105",
+      "kind": "text",
+      "value": "us-me-pfas-products-cuu-calendrier-20261105",
+      "relation": "direct",
+      "markets": [
+        "US-ME"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-trousses-cosmetiques-05180-20261103",
+      "kind": "text",
+      "value": "us-ca-p65-trousses-cosmetiques-05180-20261103",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "us-ca-p65-sacs-de-voyage-05293-20261110",
+      "kind": "text",
+      "value": "us-ca-p65-sacs-de-voyage-05293-20261110",
+      "relation": "direct",
+      "markets": [
+        "US-CA"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-samr-abrogation-norme-cachemire-mouton-20261105",
+      "kind": "text",
+      "value": "cn-samr-abrogation-norme-cachemire-mouton-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-bafeini-cartable-phtalates-20261105",
+      "kind": "text",
+      "value": "cn-rc-bafeini-cartable-phtalates-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-zundi-cartable-poignee-20261105",
+      "kind": "text",
+      "value": "cn-rc-zundi-cartable-poignee-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-myqi-cartable-poignee-20261105",
+      "kind": "text",
+      "value": "cn-rc-myqi-cartable-poignee-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-qunyou-cartable-phtalates-20261105",
+      "kind": "text",
+      "value": "cn-rc-qunyou-cartable-phtalates-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-yasu-cartable-phtalates-20261105",
+      "kind": "text",
+      "value": "cn-rc-yasu-cartable-phtalates-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "pliage",
+        "roseau"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "cn-rc-mianzhizui-serviette-ph-20261105",
+      "kind": "text",
+      "value": "cn-rc-mianzhizui-serviette-ph-20261105",
+      "relation": "direct",
+      "markets": [
+        "CN"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-today-lidl-parures-de-lit-irritant-20261109",
+      "kind": "text",
+      "value": "fr-rc-today-lidl-parures-de-lit-irritant-20261109",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "textile"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-rc-keeltoys-centerparcs-porte-cles-peluche-20261106",
+      "kind": "text",
+      "value": "fr-rc-keeltoys-centerparcs-porte-cles-peluche-20261106",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-mte-rep-emballages-pro-sanctions-eco-organismes-20261109",
+      "kind": "text",
+      "value": "fr-mte-rep-emballages-pro-sanctions-eco-organismes-20261109",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "fr-ademe-bilan-reemploi-emballages-2025-20261106",
+      "kind": "text",
+      "value": "fr-ademe-bilan-reemploi-emballages-2025-20261106",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "sa-mc-loi-protection-consommateur-20261110",
+      "kind": "text",
+      "value": "sa-mc-loi-protection-consommateur-20261110",
+      "relation": "direct",
+      "markets": [
+        "SA"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "lunettes",
+        "bijoux"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-cwp2027-retrait-green-claims-20261104",
+      "kind": "text",
+      "value": "eu-cwp2027-retrait-green-claims-20261104",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "pliage",
+        "roseau",
+        "textile",
+        "souliers",
+        "emballages"
+      ],
+      "reason": "Même page officielle que le texte suivi."
+    },
+    {
+      "key": "eu-sg-mint-velvet-espadrille-raya-20261113",
+      "kind": "text",
+      "value": "eu-sg-mint-velvet-espadrille-raya-20261113",
+      "relation": "direct",
+      "markets": [
+        "EU",
+        "FR"
+      ],
+      "products": [
+        "souliers"
+      ],
+      "reason": "Même page officielle que le texte suivi."
     }
   ],
   "initialFollow": {

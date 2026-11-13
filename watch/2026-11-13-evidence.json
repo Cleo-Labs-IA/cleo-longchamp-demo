@@ -1,0 +1,212 @@
+[
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-cbp-foreign-importers-of-record-20261106",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2026-11-06/html/2026-22735.htm",
+    "claimed": "found",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-06/html/2026-22735.htm",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-epa-tsca-pfas-8a7-icr-20261113",
+    "official_url": "https://www.govinfo.gov/content/pkg/FR-2026-11-13/html/2026-23125.htm",
+    "claimed": "found",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-13/html/2026-23125.htm",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-wa-safer-products-cycle-recommandations-20261105",
+    "official_url": "https://ecology.wa.gov/blog/november-2026/safer-products-for-washington-recommends-new-restrictions-to-reduce-harmful-chemicals",
+    "claimed": "found",
+    "url": "https://ecology.wa.gov/blog/november-2026/safer-products-for-washington-recommends-new-restrictions-to-reduce-harmful-chemicals",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-ca-calrecycle-sb54-baseline-reduction-20261102",
+    "official_url": "https://www2.calrecycle.ca.gov/Docs/Publications/Details/1782",
+    "claimed": "found",
+    "url": "https://www2.calrecycle.ca.gov/Docs/Publications/Details/1782",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-me-pfas-products-cuu-calendrier-20261105",
+    "official_url": "https://www.maine.gov/dep/spills/topics/pfas/PFAS-products/",
+    "claimed": "found",
+    "url": "https://www.maine.gov/dep/spills/topics/pfas/PFAS-products/",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-ca-p65-trousses-cosmetiques-05180-20261103",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05180",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05180",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "us-ca-p65-sacs-de-voyage-05293-20261110",
+    "official_url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05293",
+    "claimed": "found",
+    "url": "https://oag.ca.gov/prop65/60-Day-Notice-2026-05293",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-samr-abrogation-norme-cachemire-mouton-20261105",
+    "official_url": "https://www.sac.gov.cn/xw/bzhyw/art/2026/art_fa3923d3ece14178aa4808352fa4dae6.html",
+    "claimed": "found",
+    "url": "https://www.sac.gov.cn/xw/bzhyw/art/2026/art_fa3923d3ece14178aa4808352fa4dae6.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-bafeini-cartable-phtalates-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_25e081f2559c4a42b29fc45effde52e3.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_25e081f2559c4a42b29fc45effde52e3.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-zundi-cartable-poignee-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_35e97638660d4788a9a90c4320eb2889.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_35e97638660d4788a9a90c4320eb2889.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-myqi-cartable-poignee-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_f845142ba76f4252bb234a1d84783016.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_f845142ba76f4252bb234a1d84783016.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-qunyou-cartable-phtalates-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_97329bcdafd04920bf80d79d038bc5e5.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_97329bcdafd04920bf80d79d038bc5e5.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-yasu-cartable-phtalates-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_baeeadcf7e8d4626af9620c1f8487501.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_baeeadcf7e8d4626af9620c1f8487501.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "cn-rc-mianzhizui-serviette-ph-20261105",
+    "official_url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_99eb6f112a0c49d69499108e81617186.html",
+    "claimed": "found",
+    "url": "https://www.samrdprc.org.cn/xfpzh/art/2026/art_99eb6f112a0c49d69499108e81617186.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "fr-rc-today-lidl-parures-de-lit-irritant-20261109",
+    "official_url": "https://rappel.conso.gouv.fr/fiche-rappel/24036/interne",
+    "claimed": "found",
+    "url": "https://rappel.conso.gouv.fr/fiche-rappel/24036/interne",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "fr-rc-keeltoys-centerparcs-porte-cles-peluche-20261106",
+    "official_url": "https://rappel.conso.gouv.fr/fiche-rappel/24034/interne",
+    "claimed": "found",
+    "url": "https://rappel.conso.gouv.fr/fiche-rappel/24034/interne",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "fr-mte-rep-emballages-pro-sanctions-eco-organismes-20261109",
+    "official_url": "https://www.ecologie.gouv.fr/presse/filiere-rep-emballages-professionnels-mathieu-lefevre-engage-procedures-sanctions-lencontre",
+    "claimed": "found",
+    "url": "https://www.ecologie.gouv.fr/presse/filiere-rep-emballages-professionnels-mathieu-lefevre-engage-procedures-sanctions-lencontre",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "fr-ademe-bilan-reemploi-emballages-2025-20261106",
+    "official_url": "https://librairie.ademe.fr/economie-circulaire-et-dechets/9713-11576-reemploi-des-emballages-donnees-2025-9791029727597.html",
+    "claimed": "found",
+    "url": "https://librairie.ademe.fr/economie-circulaire-et-dechets/9713-11576-reemploi-des-emballages-donnees-2025-9791029727597.html",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "sa-mc-loi-protection-consommateur-20261110",
+    "official_url": "https://mc.gov.sa/ar/mediacenter/News/Pages/11-10-26-03.aspx",
+    "claimed": "found",
+    "url": "https://mc.gov.sa/ar/mediacenter/News/Pages/11-10-26-03.aspx",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "eu-cwp2027-retrait-green-claims-20261104",
+    "official_url": "https://commission.europa.eu/document/download/9ad0afe2-f9a8-46e9-bd3b-74c2de496c48_en?filename=COM_2026_710_1_annexe_EN.pdf",
+    "claimed": "found",
+    "url": "https://commission.europa.eu/document/download/9ad0afe2-f9a8-46e9-bd3b-74c2de496c48_en?filename=COM_2026_710_1_annexe_EN.pdf",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  },
+  {
+    "file": "2026-11-13-oracle.json",
+    "id": "eu-sg-mint-velvet-espadrille-raya-20261113",
+    "official_url": "https://ec.europa.eu/safety-gate-alerts/public/api/notification/10119499?language=en",
+    "claimed": "found",
+    "url": "https://ec.europa.eu/safety-gate-alerts/public/api/notification/10119499?language=en",
+    "status": 200,
+    "oracle": "found",
+    "checked": "2026-11-13"
+  }
+]
